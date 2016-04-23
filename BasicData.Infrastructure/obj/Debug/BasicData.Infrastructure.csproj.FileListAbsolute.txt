@@ -1,0 +1,17 @@
+C:\Users\Administrator.QH-20140815HAUR\Desktop\jichushujuluru\BasicData\BasicData.Infrastructure\bin\Debug\BasicData.Infrastructure.dll
+C:\Users\Administrator.QH-20140815HAUR\Desktop\jichushujuluru\BasicData\BasicData.Infrastructure\bin\Debug\BasicData.Infrastructure.pdb
+C:\Users\Administrator.QH-20140815HAUR\Desktop\jichushujuluru\BasicData\BasicData.Infrastructure\obj\Debug\BasicData.Infrastructure.dll
+C:\Users\Administrator.QH-20140815HAUR\Desktop\jichushujuluru\BasicData\BasicData.Infrastructure\obj\Debug\BasicData.Infrastructure.pdb
+C:\Users\jsh\Documents\My Work\Git\jichushujuluru\BasicData\BasicData.Infrastructure\bin\Debug\BasicData.Infrastructure.dll
+C:\Users\jsh\Documents\My Work\Git\jichushujuluru\BasicData\BasicData.Infrastructure\bin\Debug\BasicData.Infrastructure.pdb
+C:\Users\jsh\Documents\My Work\Git\jichushujuluru\BasicData\BasicData.Infrastructure\obj\Debug\BasicData.Infrastructure.dll
+C:\Users\jsh\Documents\My Work\Git\jichushujuluru\BasicData\BasicData.Infrastructure\obj\Debug\BasicData.Infrastructure.pdb
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Infrastructure\bin\Debug\BasicData.Infrastructure.dll
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Infrastructure\bin\Debug\BasicData.Infrastructure.pdb
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Infrastructure\obj\Debug\BasicData.Infrastructure.csprojResolveAssemblyReference.cache
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Infrastructure\obj\Debug\BasicData.Infrastructure.dll
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Infrastructure\obj\Debug\BasicData.Infrastructure.pdb
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Infrastructure\bin\Debug\BasicData.Infrastructure.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Infrastructure\bin\Debug\BasicData.Infrastructure.pdb
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Infrastructure\obj\Debug\BasicData.Infrastructure.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Infrastructure\obj\Debug\BasicData.Infrastructure.pdb

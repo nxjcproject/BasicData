@@ -1,0 +1,62 @@
+C:\Users\Administrator.QH-20140815HAUR\Desktop\jichushujuluru\BasicData\BasicData.Service\bin\Debug\BasicData.Service.dll
+C:\Users\Administrator.QH-20140815HAUR\Desktop\jichushujuluru\BasicData\BasicData.Service\bin\Debug\BasicData.Service.pdb
+C:\Users\Administrator.QH-20140815HAUR\Desktop\jichushujuluru\BasicData\BasicData.Service\bin\Debug\BasicData.Infrastructure.dll
+C:\Users\Administrator.QH-20140815HAUR\Desktop\jichushujuluru\BasicData\BasicData.Service\bin\Debug\SqlServerDataAdapter.dll
+C:\Users\Administrator.QH-20140815HAUR\Desktop\jichushujuluru\BasicData\BasicData.Service\bin\Debug\StatisticalReport.Infrastructure.dll
+C:\Users\Administrator.QH-20140815HAUR\Desktop\jichushujuluru\BasicData\BasicData.Service\bin\Debug\AutoMapper.dll
+C:\Users\Administrator.QH-20140815HAUR\Desktop\jichushujuluru\BasicData\BasicData.Service\bin\Debug\BasicData.Infrastructure.pdb
+C:\Users\Administrator.QH-20140815HAUR\Desktop\jichushujuluru\BasicData\BasicData.Service\obj\Debug\BasicData.Service.csprojResolveAssemblyReference.cache
+C:\Users\Administrator.QH-20140815HAUR\Desktop\jichushujuluru\BasicData\BasicData.Service\obj\Debug\BasicData.Service.dll
+C:\Users\Administrator.QH-20140815HAUR\Desktop\jichushujuluru\BasicData\BasicData.Service\obj\Debug\BasicData.Service.pdb
+C:\Users\jsh\Documents\My Work\Git\jichushujuluru\BasicData\BasicData.Service\bin\Debug\BasicData.Service.dll
+C:\Users\jsh\Documents\My Work\Git\jichushujuluru\BasicData\BasicData.Service\bin\Debug\BasicData.Service.pdb
+C:\Users\jsh\Documents\My Work\Git\jichushujuluru\BasicData\BasicData.Service\bin\Debug\BasicData.Infrastructure.dll
+C:\Users\jsh\Documents\My Work\Git\jichushujuluru\BasicData\BasicData.Service\bin\Debug\EasyUIJsonParser.dll
+C:\Users\jsh\Documents\My Work\Git\jichushujuluru\BasicData\BasicData.Service\bin\Debug\SqlServerDataAdapter.dll
+C:\Users\jsh\Documents\My Work\Git\jichushujuluru\BasicData\BasicData.Service\bin\Debug\StatisticalReport.Infrastructure.dll
+C:\Users\jsh\Documents\My Work\Git\jichushujuluru\BasicData\BasicData.Service\bin\Debug\AutoMapper.dll
+C:\Users\jsh\Documents\My Work\Git\jichushujuluru\BasicData\BasicData.Service\bin\Debug\BasicData.Infrastructure.pdb
+C:\Users\jsh\Documents\My Work\Git\jichushujuluru\BasicData\BasicData.Service\obj\Debug\BasicData.Service.csprojResolveAssemblyReference.cache
+C:\Users\jsh\Documents\My Work\Git\jichushujuluru\BasicData\BasicData.Service\obj\Debug\BasicData.Service.dll
+C:\Users\jsh\Documents\My Work\Git\jichushujuluru\BasicData\BasicData.Service\obj\Debug\BasicData.Service.pdb
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Service\bin\Debug\BasicData.Service.dll
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Service\bin\Debug\BasicData.Service.pdb
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Service\bin\Debug\BasicData.Infrastructure.dll
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Service\bin\Debug\EasyUIJsonParser.dll
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Service\bin\Debug\StatisticalReport.Infrastructure.dll
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Service\bin\Debug\AutoMapper.dll
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Service\bin\Debug\BasicData.Infrastructure.pdb
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Service\obj\Debug\BasicData.Service.csprojResolveAssemblyReference.cache
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Service\obj\Debug\BasicData.Service.dll
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Service\obj\Debug\BasicData.Service.pdb
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Service\bin\Debug\BasicData.Service.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Service\bin\Debug\BasicData.Service.pdb
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Service\bin\Debug\BasicData.Infrastructure.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Service\bin\Debug\EasyUIJsonParser.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Service\bin\Debug\SqlServerDataAdapter.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Service\bin\Debug\StatisticalReport.Infrastructure.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Service\bin\Debug\AutoMapper.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Service\bin\Debug\BasicData.Infrastructure.pdb
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Service\obj\Debug\BasicData.Service.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Service\obj\Debug\BasicData.Service.pdb
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Service\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Service\bin\Debug\SqlServerDataAdapter.dll
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Service\obj\Debug\BasicData.Service.csprojFakesResolveAssemblyReference.cache
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Service\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Service\obj\Debug\BasicData.Service.csprojFakesResolveAssemblyReference.cache
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Service\bin\Debug\RunIndicators.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Service\bin\Debug\RunIndicators.pdb
+E:\NXJC\项目文件\BasicData\BasicData.Service\bin\Debug\BasicData.Service.dll
+E:\NXJC\项目文件\BasicData\BasicData.Service\bin\Debug\BasicData.Service.pdb
+E:\NXJC\项目文件\BasicData\BasicData.Service\bin\Debug\BasicData.Infrastructure.dll
+E:\NXJC\项目文件\BasicData\BasicData.Service\bin\Debug\EasyUIJsonParser.dll
+E:\NXJC\项目文件\BasicData\BasicData.Service\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
+E:\NXJC\项目文件\BasicData\BasicData.Service\bin\Debug\SqlServerDataAdapter.dll
+E:\NXJC\项目文件\BasicData\BasicData.Service\bin\Debug\StatisticalReport.Infrastructure.dll
+E:\NXJC\项目文件\BasicData\BasicData.Service\bin\Debug\AutoMapper.dll
+E:\NXJC\项目文件\BasicData\BasicData.Service\bin\Debug\BasicData.Infrastructure.pdb
+E:\NXJC\项目文件\BasicData\BasicData.Service\bin\Debug\RunIndicators.pdb
+E:\NXJC\项目文件\BasicData\BasicData.Service\obj\Debug\BasicData.Service.csprojFakesResolveAssemblyReference.cache
+E:\NXJC\项目文件\BasicData\BasicData.Service\obj\Debug\BasicData.Service.dll
+E:\NXJC\项目文件\BasicData\BasicData.Service\obj\Debug\BasicData.Service.pdb
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Service\obj\Debug\BasicData.Service.csprojResolveAssemblyReference.cache

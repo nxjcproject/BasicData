@@ -1,0 +1,104 @@
+C:\Users\Administrator.QH-20140815HAUR\Desktop\jichushujuluru\BasicData\BasicData.Web\bin\BasicData.Web.dll
+C:\Users\Administrator.QH-20140815HAUR\Desktop\jichushujuluru\BasicData\BasicData.Web\bin\BasicData.Web.pdb
+C:\Users\Administrator.QH-20140815HAUR\Desktop\jichushujuluru\BasicData\BasicData.Web\bin\BasicData.Service.dll
+C:\Users\Administrator.QH-20140815HAUR\Desktop\jichushujuluru\BasicData\BasicData.Web\bin\DotNetTextBox.dll
+C:\Users\Administrator.QH-20140815HAUR\Desktop\jichushujuluru\BasicData\BasicData.Web\bin\EasyUIJsonParser.dll
+C:\Users\Administrator.QH-20140815HAUR\Desktop\jichushujuluru\BasicData\BasicData.Web\bin\InternalMemeryRestore.dll
+C:\Users\Administrator.QH-20140815HAUR\Desktop\jichushujuluru\BasicData\BasicData.Web\bin\mDbDataAdaper.dll
+C:\Users\Administrator.QH-20140815HAUR\Desktop\jichushujuluru\BasicData\BasicData.Web\bin\WebStyleBaseForEnergy.dll
+C:\Users\Administrator.QH-20140815HAUR\Desktop\jichushujuluru\BasicData\BasicData.Web\bin\WebUserContorls.Web.dll
+C:\Users\Administrator.QH-20140815HAUR\Desktop\jichushujuluru\BasicData\BasicData.Web\bin\WebUserControls.Infrastructure.dll
+C:\Users\Administrator.QH-20140815HAUR\Desktop\jichushujuluru\BasicData\BasicData.Web\bin\WebUserControls.Service.dll
+C:\Users\Administrator.QH-20140815HAUR\Desktop\jichushujuluru\BasicData\BasicData.Web\bin\SqlServerDataAdapter.dll
+C:\Users\Administrator.QH-20140815HAUR\Desktop\jichushujuluru\BasicData\BasicData.Web\bin\StatisticalReport.Infrastructure.dll
+C:\Users\Administrator.QH-20140815HAUR\Desktop\jichushujuluru\BasicData\BasicData.Web\bin\BasicData.Infrastructure.dll
+C:\Users\Administrator.QH-20140815HAUR\Desktop\jichushujuluru\BasicData\BasicData.Web\bin\AutoMapper.dll
+C:\Users\Administrator.QH-20140815HAUR\Desktop\jichushujuluru\BasicData\BasicData.Web\bin\BasicData.Service.pdb
+C:\Users\Administrator.QH-20140815HAUR\Desktop\jichushujuluru\BasicData\BasicData.Web\bin\BasicData.Infrastructure.pdb
+C:\Users\Administrator.QH-20140815HAUR\Desktop\jichushujuluru\BasicData\BasicData.Web\obj\Debug\BasicData.Web.csprojResolveAssemblyReference.cache
+C:\Users\Administrator.QH-20140815HAUR\Desktop\jichushujuluru\BasicData\BasicData.Web\obj\Debug\BasicData.Web.dll
+C:\Users\Administrator.QH-20140815HAUR\Desktop\jichushujuluru\BasicData\BasicData.Web\obj\Debug\BasicData.Web.pdb
+C:\Users\jsh\Documents\My Work\Git\jichushujuluru\BasicData\BasicData.Web\bin\BasicData.Web.dll
+C:\Users\jsh\Documents\My Work\Git\jichushujuluru\BasicData\BasicData.Web\bin\BasicData.Web.pdb
+C:\Users\jsh\Documents\My Work\Git\jichushujuluru\BasicData\BasicData.Web\bin\BasicData.Service.dll
+C:\Users\jsh\Documents\My Work\Git\jichushujuluru\BasicData\BasicData.Web\bin\EasyUIJsonParser.dll
+C:\Users\jsh\Documents\My Work\Git\jichushujuluru\BasicData\BasicData.Web\bin\InternalMemeryRestore.dll
+C:\Users\jsh\Documents\My Work\Git\jichushujuluru\BasicData\BasicData.Web\bin\mDbDataAdaper.dll
+C:\Users\jsh\Documents\My Work\Git\jichushujuluru\BasicData\BasicData.Web\bin\WebStyleBaseForEnergy.dll
+C:\Users\jsh\Documents\My Work\Git\jichushujuluru\BasicData\BasicData.Web\bin\WebUserContorls.Web.dll
+C:\Users\jsh\Documents\My Work\Git\jichushujuluru\BasicData\BasicData.Web\bin\WebUserControls.Infrastructure.dll
+C:\Users\jsh\Documents\My Work\Git\jichushujuluru\BasicData\BasicData.Web\bin\WebUserControls.Service.dll
+C:\Users\jsh\Documents\My Work\Git\jichushujuluru\BasicData\BasicData.Web\bin\SqlServerDataAdapter.dll
+C:\Users\jsh\Documents\My Work\Git\jichushujuluru\BasicData\BasicData.Web\bin\StatisticalReport.Infrastructure.dll
+C:\Users\jsh\Documents\My Work\Git\jichushujuluru\BasicData\BasicData.Web\bin\BasicData.Infrastructure.dll
+C:\Users\jsh\Documents\My Work\Git\jichushujuluru\BasicData\BasicData.Web\bin\AutoMapper.dll
+C:\Users\jsh\Documents\My Work\Git\jichushujuluru\BasicData\BasicData.Web\bin\BasicData.Service.pdb
+C:\Users\jsh\Documents\My Work\Git\jichushujuluru\BasicData\BasicData.Web\bin\BasicData.Infrastructure.pdb
+C:\Users\jsh\Documents\My Work\Git\jichushujuluru\BasicData\BasicData.Web\obj\Debug\BasicData.Web.csprojResolveAssemblyReference.cache
+C:\Users\jsh\Documents\My Work\Git\jichushujuluru\BasicData\BasicData.Web\obj\Debug\BasicData.Web.dll
+C:\Users\jsh\Documents\My Work\Git\jichushujuluru\BasicData\BasicData.Web\obj\Debug\BasicData.Web.pdb
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Web\obj\Debug\BasicData.Web.csprojResolveAssemblyReference.cache
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Web\obj\Debug\BasicData.Web.dll
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Web\bin\BasicData.Web.dll
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Web\bin\BasicData.Web.pdb
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Web\bin\BasicData.Service.dll
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Web\bin\EasyUIJsonParser.dll
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Web\bin\InternalMemeryRestore.dll
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Web\bin\mDbDataAdaper.dll
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Web\bin\WebStyleBaseForEnergy.dll
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Web\bin\WebUserContorls.Web.dll
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Web\bin\WebUserControls.Infrastructure.dll
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Web\bin\WebUserControls.Service.dll
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Web\bin\SqlServerDataAdapter.dll
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Web\bin\StatisticalReport.Infrastructure.dll
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Web\bin\BasicData.Infrastructure.dll
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Web\bin\AutoMapper.dll
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Web\bin\BasicData.Service.pdb
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Web\bin\BasicData.Infrastructure.pdb
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Web\obj\Debug\BasicData.Web.pdb
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Web\bin\BasicData.Web.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Web\bin\BasicData.Web.pdb
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Web\bin\BasicData.Service.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Web\bin\EasyUIJsonParser.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Web\bin\InternalMemeryRestore.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Web\bin\WebStyleBaseForEnergy.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Web\bin\WebUserContorls.Web.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Web\bin\WebUserControls.Infrastructure.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Web\bin\WebUserControls.Service.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Web\bin\SqlServerDataAdapter.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Web\bin\StatisticalReport.Infrastructure.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Web\bin\BasicData.Infrastructure.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Web\bin\AutoMapper.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Web\bin\BasicData.Service.pdb
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Web\bin\BasicData.Infrastructure.pdb
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Web\obj\Debug\BasicData.Web.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Web\obj\Debug\BasicData.Web.pdb
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Web\bin\Microsoft.QualityTools.Testing.Fakes.dll
+E:\NXJCProject\jichushujuluru\BasicData\BasicData.Web\obj\Debug\BasicData.Web.csprojFakesResolveAssemblyReference.cache
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Web\bin\mDbDataAdaper.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Web\bin\Microsoft.QualityTools.Testing.Fakes.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Web\obj\Debug\BasicData.Web.csprojFakesResolveAssemblyReference.cache
+E:\NXJC\项目文件\BasicData\BasicData.Web\bin\BasicData.Web.dll.config
+E:\NXJC\项目文件\BasicData\BasicData.Web\bin\BasicData.Web.dll
+E:\NXJC\项目文件\BasicData\BasicData.Web\bin\BasicData.Web.pdb
+E:\NXJC\项目文件\BasicData\BasicData.Web\bin\BasicData.Service.dll
+E:\NXJC\项目文件\BasicData\BasicData.Web\bin\EasyUIJsonParser.dll
+E:\NXJC\项目文件\BasicData\BasicData.Web\bin\InternalMemeryRestore.dll
+E:\NXJC\项目文件\BasicData\BasicData.Web\bin\mDbDataAdaper.dll
+E:\NXJC\项目文件\BasicData\BasicData.Web\bin\Microsoft.QualityTools.Testing.Fakes.dll
+E:\NXJC\项目文件\BasicData\BasicData.Web\bin\WebStyleBaseForEnergy.dll
+E:\NXJC\项目文件\BasicData\BasicData.Web\bin\WebUserContorls.Web.dll
+E:\NXJC\项目文件\BasicData\BasicData.Web\bin\WebUserControls.Infrastructure.dll
+E:\NXJC\项目文件\BasicData\BasicData.Web\bin\WebUserControls.Service.dll
+E:\NXJC\项目文件\BasicData\BasicData.Web\bin\SqlServerDataAdapter.dll
+E:\NXJC\项目文件\BasicData\BasicData.Web\bin\StatisticalReport.Infrastructure.dll
+E:\NXJC\项目文件\BasicData\BasicData.Web\bin\BasicData.Infrastructure.dll
+E:\NXJC\项目文件\BasicData\BasicData.Web\bin\RunIndicators.dll
+E:\NXJC\项目文件\BasicData\BasicData.Web\bin\AutoMapper.dll
+E:\NXJC\项目文件\BasicData\BasicData.Web\bin\BasicData.Service.pdb
+E:\NXJC\项目文件\BasicData\BasicData.Web\bin\BasicData.Infrastructure.pdb
+E:\NXJC\项目文件\BasicData\BasicData.Web\obj\Debug\BasicData.Web.csprojFakesResolveAssemblyReference.cache
+E:\NXJC\项目文件\BasicData\BasicData.Web\obj\Debug\BasicData.Web.csprojResolveAssemblyReference.cache
+E:\NXJC\项目文件\BasicData\BasicData.Web\obj\Debug\BasicData.Web.dll
+E:\NXJC\项目文件\BasicData\BasicData.Web\obj\Debug\BasicData.Web.pdb
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Web\obj\Debug\BasicData.Web.csprojResolveAssemblyReference.cache
