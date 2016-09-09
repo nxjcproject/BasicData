@@ -26,7 +26,6 @@ namespace BasicData.Service.StaffInfo
 
             Query query = new Query("system_StaffInfo");
             query.AddCriterion("OrganizationID", organizationId, CriteriaOperator.Equal);
-
             // 添加检索关键字约束
             if (!string.IsNullOrWhiteSpace(searchName + searchId + searchTeamName))
             {
@@ -42,7 +41,14 @@ namespace BasicData.Service.StaffInfo
             query.AddOrderByClause(new OrderByClause("Enabled", true));
             query.AddOrderByClause(new OrderByClause("StaffInfoID", false));
 
-            return dataFactory.Query(query);
+            DataTable m_StaffInfoTable = dataFactory.Query(query);
+            DataRow[] m_dataRows = m_StaffInfoTable.Select("StaffType <> 'superior' or StaffType is null");
+            DataTable m_StaffInfoTableNew = m_StaffInfoTable.Clone();
+            for (int i = 0; i < m_dataRows.Length; i++)
+            {
+                m_StaffInfoTableNew.Rows.Add(m_dataRows[i].ItemArray);
+            }
+            return m_StaffInfoTableNew;
         }
 
         /// <summary>
@@ -117,7 +123,7 @@ namespace BasicData.Service.StaffInfo
         /// <param name="sex"></param>
         /// <param name="phoneNumber"></param>
         /// <returns>修改结果</returns>
-        public static string UpdateStaffInfo(string organizationId, string staffInfoId, string workingTeamName, string name, bool sex, string phoneNumber, bool enabled)
+        public static string UpdateStaffInfo(string organizationId, string staffInfoItemId, string staffInfoId, string workingTeamName, string name, bool sex, string phoneNumber, bool enabled)
         {
             string connectionString = ConnectionStringFactory.NXJCConnectionString;
 
@@ -127,12 +133,13 @@ namespace BasicData.Service.StaffInfo
             {
                 SqlCommand command = connection.CreateCommand();
                 command.CommandText = @"UPDATE [dbo].[system_StaffInfo]
-                                           SET [WorkingTeamName] = @workingTeamName
+                                           SET [StaffInfoID] = @staffInfoId
+                                              ,[WorkingTeamName] = @workingTeamName
                                               ,[Name] = @name
                                               ,[Sex] = @sex
                                               ,[PhoneNumber] = @phoneNumber
                                               ,[Enabled] = @enabled
-                                         WHERE [OrganizationID] = @organizationId AND [StaffInfoID] = @staffInfoId";
+                                         WHERE [StaffInfoItemId] = @StaffInfoItemId";
 
                 command.Parameters.Add(new SqlParameter("staffInfoId", staffInfoId));
                 command.Parameters.Add(new SqlParameter("organizationId", organizationId));
@@ -141,6 +148,7 @@ namespace BasicData.Service.StaffInfo
                 command.Parameters.Add(new SqlParameter("sex", sex));
                 command.Parameters.Add(new SqlParameter("phoneNumber", phoneNumber));
                 command.Parameters.Add(new SqlParameter("enabled", enabled));
+                command.Parameters.Add(new SqlParameter("StaffInfoItemId", staffInfoItemId));
 
                 connection.Open();
                 executeResult = command.ExecuteNonQuery();
@@ -150,6 +158,26 @@ namespace BasicData.Service.StaffInfo
                 return "修改成功。";
             else
                 return "修改失败。";
+        }
+        public static string DeleteStaffInfo(string myStaffInfoItemId)
+        {
+            string connectionString = ConnectionStringFactory.NXJCConnectionString;
+            ISqlServerDataFactory dataFactory = new SqlServerDataFactory(connectionString);
+            string m_Sql = @"delete from [dbo].[system_StaffInfo] where [StaffInfoItemId] = '{0}'";
+            m_Sql = string.Format(m_Sql, myStaffInfoItemId);
+            int m_DeleteFlag = dataFactory.ExecuteSQL(m_Sql);
+            if (m_DeleteFlag > 0)
+            {
+                return "删除成功！";
+            }
+            else if (m_DeleteFlag == 0)
+            {
+                return "该员工不存在！";
+            }
+            else
+            {
+                return "删除失败！";
+            }
         }
     }
 }

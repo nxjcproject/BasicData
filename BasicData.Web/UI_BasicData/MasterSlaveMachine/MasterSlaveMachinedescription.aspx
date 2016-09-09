@@ -27,7 +27,7 @@
                     <td>
                         <table>
                             <tr>
-                                <td>选择DCS</td>
+                                <td>选择组织机构</td>
                                 <td style="width: 200px;">
                                     <input id="Combobox_DCSF" class="easyui-combotree" style="width: 180px;" /></td>
                                 <td>
@@ -113,7 +113,7 @@
                 <tr>
                     <th style="height: 30px;">设备名称</th>
                     <td>
-                        <input id="Commbox_VariableId" class="easyui-combotree" style="width: 180px;" />
+                        <input id="Commbox_EquipmentId" class="easyui-combotree" style="width: 180px;" />
                     </td>
                     <th style="width: 80px;">停机信息</th>
                     <td style="width: 70px;">
@@ -194,6 +194,7 @@
         <div>
             <asp:HiddenField ID="HiddenField_PageName" runat="server" />
             <asp:HiddenField ID="HiddenField_MasterMachineId" runat="server" />
+            <asp:HiddenField ID="HiddenField_KeyId" runat="server" />
             <asp:HiddenField ID="HiddenField_SlaveMachineId" runat="server" />
             >
         </div>

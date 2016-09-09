@@ -63,9 +63,11 @@ namespace BasicData.Service.WorkingTeamAndShift
 
             DataTable dt = _dataHelper.CreateTableStructure("system_WorkingTeam");
             DataTable sourceDt = EasyUIJsonParser.DataGridJsonParser.JsonToDataTable(json, dt);
+
             foreach (DataRow dr in sourceDt.Rows)
             {
                 dr["OrganizationID"] = organizationId;
+                dr["ID"] = System.Guid.NewGuid().ToString();
             }
             try
             {

@@ -67,6 +67,7 @@
             <table id="dgStaffInfo" class="easyui-datagrid" data-options="idField:'StaffInfoID',toolbar:'#toolbar_StaffInfo',rownumbers:true,singleSelect:true,pagination:true,pageSize:10"" title="" style="width:100%;height:100%">
 		        <thead>
 			        <tr>
+                        <th data-options="field:'StaffInfoItemId',width:150, hidden:true">唯一标识</th>
                         <th data-options="field:'StaffInfoID',width:150">工号</th>
 				        <th data-options="field:'WorkingTeamName',width:150">所属班组</th>
                         <th data-options="field:'Name',width:150">姓名</th>
@@ -97,7 +98,7 @@
 	    		    <tr>
 	    			    <td>班组：</td>
 	    			    <td>
-                            <select class="easyui-combobox" id="workingTeam" name="workingTeam" style="width:160px"><option value="A组">A组</option><option value="B组">B组</option><option value="C组">C组</option><option value="D组">D组</option></select>
+                            <select class="easyui-combobox" id="workingTeam" name="workingTeam" style="width:160px"><option value="A班">A班</option><option value="B班">B班</option><option value="C班">C班</option><option value="D班">D班</option><option value="常白">常白班</option></select>
 	    			    </td>
 	    		    </tr>
 	    		    <tr>
@@ -121,6 +122,7 @@
         <!-- 中央区域结束 -->
     </div>
     <script type="text/javascript">
+        var StaffInfoItemId = "";
         $(function () {
            initPageAuthority();
         })
@@ -130,7 +132,7 @@
         }
 
         function formatOperateColumn(val, row) {
-            return '<a href="#" onclick="editStaffInfo(false, \'' + row.StaffInfoID + '\');">编辑</a>';
+            return '<a href="#" onclick="editStaffInfo(false, \'' + row.StaffInfoItemId + '\');">编辑</a>&nbsp;&nbsp;<a href="#" onclick="deleteStaffInfo(\'' + row.StaffInfoItemId + '\');">删除</a>';
         }
 
         // 分厂ID变量
@@ -218,26 +220,28 @@
 
         var isStaffInfoInsert = false;
         // 编辑员工信息
-        function editStaffInfo(isInsert, staffInfoID) {
+        function editStaffInfo(isInsert, myStaffInfoItemId) {
             if (authArray[2] == '0') {
                 $.messager.alert("提示","该用户没有编辑权限！");
                 return;
             }
             if (isInsert) {
                 isStaffInfoInsert = true;
-                $('#id').textbox('readonly', false);
+                //$('#id').textbox('readonly', false);
+                StaffInfoItemId = '';
                 $('#id').textbox('setText', '');
                 $('#name').textbox('setText', '');
                 $('#sex').combobox('select', 'True');
-                $('#workingTeam').combobox('select', 'A组');
+                $('#workingTeam').combobox('select', 'A班');
                 $('#phoneNumber').textbox('setText', '');
                 $('#enabled').combobox('select', 'True');
             }
             else {
                 isStaffInfoInsert = false;
-                $('#dgStaffInfo').datagrid('selectRecord', staffInfoID);
+                StaffInfoItemId = myStaffInfoItemId;
+                $('#dgStaffInfo').datagrid('selectRecord', StaffInfoItemId);
                 var data = $('#dgStaffInfo').datagrid('getSelected');
-                $('#id').textbox('readonly', true);
+                //$('#id').textbox('readonly', true);
                 $('#id').textbox('setText', data.StaffInfoID);
                 $('#name').textbox('setText', data.Name);
                 $('#sex').combobox('select', data.Sex);
@@ -269,7 +273,7 @@
             var enabled = $('#enabled').combobox('getValue');
 
 
-            var dataToSend = '{organizationId: "' + organizationId + '", staffId: "' + id + '", name: "' + name + '", sex: "' + sex + '", workingTeam: "' + workingTeam + '", phoneNumber: "' + phoneNumber + '", enabled: "' + enabled + '"}';
+            var dataToSend = '{organizationId: "' + organizationId + '", staffInfoItemId: "' + StaffInfoItemId + '", staffId: "' + id + '", name: "' + name + '", sex: "' + sex + '", workingTeam: "' + workingTeam + '", phoneNumber: "' + phoneNumber + '", enabled: "' + enabled + '"}';
 
             $.ajax({
                 type: "POST",
@@ -288,7 +292,33 @@
                 }
             });
         }
-
+        function deleteStaffInfo(myStaffInfoItemId) {
+            if (authArray[3] == "0") {
+                $.messager.alert("提示", "该用户没有删除权限！");
+                return;
+            }
+            parent.$.messager.confirm('询问', '您确定要删除该员工的信息?', function (r) {
+                if (r) {
+                    StaffInfoItemId = '';
+                    queryUrl = 'Edit.aspx/DeleteStaffInfo';
+                    var dataToSend = '{myStaffInfoItemId: "' + myStaffInfoItemId + '"}';
+                    $.ajax({
+                        type: "POST",
+                        url: queryUrl,
+                        data: dataToSend,
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (msg) {
+                            loadStaffInfo();
+                        },
+                        error: function () {
+                            $.messager.progress('close');
+                            $.messager.alert('错误', '数据保存失败！');
+                        }
+                    });
+                }
+            });
+        }
     </script>
 
     <form id="form1" runat="server"></form>

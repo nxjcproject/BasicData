@@ -140,7 +140,7 @@ function getAppendRootLevelCode() {
             var temp = rows[i].MachineHaltReasonID;
             if (temp.length != 3)
                 continue;
-            var p = parseInt(temp.substring(1, temp.length));
+            var p = parseInt(temp.substring(1, temp.length), 10);
             if (p > maxCode)
                 maxCode = p;
         }
@@ -165,7 +165,7 @@ function getAppendLevelCode(parentId) {
             var temp = rows[i].MachineHaltReasonID;
             if (temp.length != parentId.length + 2)
                 continue;
-            var p = parseInt(temp.substring(1, temp.length));
+            var p = parseInt(temp.substring(1, temp.length), 10);
             if (p > maxCode)
                 maxCode = p;
         }

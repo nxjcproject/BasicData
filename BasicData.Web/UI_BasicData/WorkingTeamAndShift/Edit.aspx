@@ -30,7 +30,8 @@
             <table>
                 <tr>
                     <td>当前产线名称:</td>
-                    <td><input id="organizationName" class="easyui-textbox" style="width:100px"/></td>
+                    <td>
+                        <input id="organizationName" class="easyui-textbox" style="width: 100px" /></td>
                     <%--<td><a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-ok',plain:true" onclick="loadGridData('first')">查询</a></td>--%>
                 </tr>
             </table>
@@ -77,7 +78,8 @@
                     <td>启用标志</td>
                     <td>
                         <input id="radioTrue" type="radio" name="radiobutton" value="True" />启用
-                    <input id="radioFalse" type="radio" name="radiobutton" value="False" />停用
+                   
+                        <input id="radioFalse" type="radio" name="radiobutton" value="False" />停用
                     </td>
                 </tr>
             </table>
@@ -103,7 +105,7 @@
                 <tr>
                     <td>负责人</td>
                     <td>
-                        <input id="chargeMan" style="width: 100px;" />
+                        <input id="chargeMan" style="width: 120px;" />
                     </td>
                 </tr>
                 <tr>
@@ -116,14 +118,15 @@
                     <td>启用标志</td>
                     <td>
                         <input id="radio1" type="radio" name="radiobutton" value="True" />启用
-                    <input id="radio2" type="radio" name="radiobutton" value="False" />停用
+                   
+                        <input id="radio2" type="radio" name="radiobutton" value="False" />停用
                     </td>
                 </tr>
             </table>
         </div>
 
         <div id="workingteamEditDialog-buttons">
-            <a  href="javascript:void(0)" class="easyui-linkbutton" onclick="workingteamSaveEditDialog()">保存</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="workingteamSaveEditDialog()">保存</a>
             <a href="javascript:void(0)" class="easyui-linkbutton" onclick="javascript:$('#workingteamEditDialog').dialog('close')">取消</a>
         </div>
     </div>

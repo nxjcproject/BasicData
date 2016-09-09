@@ -19,9 +19,9 @@ namespace BasicData.Web.UI_BasicData.MasterSlaveMachine
             {
                 ////////////////////调试用,自定义的数据授权
 #if DEBUG
-                List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_byc_byf" };
+                List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_qtx_tys","zc_nxjc_byc_byf","zc_nxjc_ychc_lsf"  };
                 AddDataValidIdGroup("ProductionOrganization", m_DataValidIdItems);
-                mPageOpPermission = "0000";
+                mPageOpPermission = "1111";
 #elif RELEASE
 #endif
                 this.TagsSelector_DcsTags.Organizations = GetDataValidIdGroup("ProductionOrganization");                 //向web用户控件传递数据授权参数
@@ -50,14 +50,22 @@ namespace BasicData.Web.UI_BasicData.MasterSlaveMachine
             return EasyUIJsonParser.DataGridJsonParser.DataTableToJson(m_MasterMachineInfo);
         }
         [WebMethod]
-        public static string AddMasterMachineInfo(string myOrganizationId, string myVariableId, string myVariableName, string myVariableDescription, string myDataBaseName, string myTableName, string myRecord, string myValidValues, string myRemarks)
+        public static string AddMasterMachineInfo(string myOrganizationId, string myEquipmentId, string myVariableId, string myOutputFormula, string myVariableName, string myVariableDescription, string myDataBaseName, string myTableName, string myRecord, string myValidValues, string myRemarks)
         {
             if (mPageOpPermission.ToArray()[1] == '1')
             {
                 if (mUserId != "")
                 {
-                    int ReturnValue = BasicData.Service.MasterSlaveMachine.MasterSlaveMachinedescription.AddMasterMachineInfo(myOrganizationId, myVariableId, myVariableName, myVariableDescription, myDataBaseName, myTableName, myRecord, myValidValues, myRemarks);
-                    return ReturnValue.ToString();
+                    DataTable m_EquipmentInfoTable = BasicData.Service.MasterSlaveMachine.MasterSlaveMachinedescription.GetMasterMachineInfobyId(myEquipmentId);
+                    if (m_EquipmentInfoTable != null && m_EquipmentInfoTable.Rows.Count == 0)
+                    {
+                        int ReturnValue = BasicData.Service.MasterSlaveMachine.MasterSlaveMachinedescription.AddMasterMachineInfo(myOrganizationId, myEquipmentId, myVariableId, myOutputFormula, myVariableName, myVariableDescription, myDataBaseName, myTableName, myRecord, myValidValues, myRemarks);
+                        return ReturnValue.ToString();
+                    }
+                    else
+                    {
+                        return "该设备已存在!";
+                    }
                 }
                 else
                 {
@@ -70,13 +78,13 @@ namespace BasicData.Web.UI_BasicData.MasterSlaveMachine
             }
         }
         [WebMethod]
-        public static string ModifyMasterMachineInfo(string myId, string myOrganizationId, string myVariableId, string myVariableName, string myVariableDescription, string myDataBaseName, string myTableName, string myRecord, string myValidValues, string myRemarks)
+        public static string ModifyMasterMachineInfo(string myEquipmentId, string myOrganizationId, string myVariableId, string myOutputFormula, string myVariableName, string myVariableDescription, string myDataBaseName, string myTableName, string myRecord, string myValidValues, string myRemarks)
         {
             if (mPageOpPermission.ToArray()[2] == '1')
             {
                 if (mUserId != "")
                 {
-                    int ReturnValue = BasicData.Service.MasterSlaveMachine.MasterSlaveMachinedescription.ModifyMasterMachineInfo(myId, myOrganizationId, myVariableId, myVariableName, myVariableDescription, myDataBaseName, myTableName, myRecord, myValidValues, myRemarks);
+                    int ReturnValue = BasicData.Service.MasterSlaveMachine.MasterSlaveMachinedescription.ModifyMasterMachineInfo(myEquipmentId, myOrganizationId, myVariableId, myOutputFormula, myVariableName, myVariableDescription, myDataBaseName, myTableName, myRecord, myValidValues, myRemarks);
                     return ReturnValue.ToString();
                 }
                 else
@@ -111,11 +119,12 @@ namespace BasicData.Web.UI_BasicData.MasterSlaveMachine
             }
         }
         [WebMethod]
-        public static string GetMasterMachineVariableId()
+        public static string GetMasterMachineEquipment(string myOrganizationId)
         {
-            List<string> m_OrganizationIds = GetDataValidIdGroup("ProductionOrganization");
-            DataTable m_MainMachineInfo = BasicData.Service.MasterSlaveMachine.MasterSlaveMachinedescription.GetMainMachineInfo(m_OrganizationIds);
-            return EasyUIJsonParser.TreeJsonParser.DataTableToJsonByLevelCodeWithIdColumn(m_MainMachineInfo, "LevelCode", "VariableId", "Name");
+            //List<string> m_OrganizationIds = GetDataValidIdGroup("ProductionOrganization");
+            DataTable m_MainMachineInfo = BasicData.Service.MasterSlaveMachine.MasterSlaveMachinedescription.GetMainMachineInfo(myOrganizationId);
+            string ReturnValue = EasyUIJsonParser.TreeJsonParser.DataTableToJson(m_MainMachineInfo, "EquipmentId", "Name", "EquipmentCommonId", "0", new string[] { "VariableId", "OrganizationId", "OutputFormula" });
+            return ReturnValue;
         }
         //////////////////////////////////////从机//////////////////////////////////////
 

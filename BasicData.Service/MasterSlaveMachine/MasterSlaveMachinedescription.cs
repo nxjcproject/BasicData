@@ -52,6 +52,7 @@ namespace BasicData.Service.MasterSlaveMachine
             string m_Sql = @"Select
                     A.ID as Id,  
                     A.OrganizationID as OrganizationId, 
+                    UPPER(A.ID) as EquipmentId,
                     B.Name as OrganizationName, 
                     A.VariableId as VariableId, 
                     A.VariableName as VariableName,
@@ -73,17 +74,19 @@ namespace BasicData.Service.MasterSlaveMachine
             }
             catch (Exception)
             {
-                return null;
+                return null;  //convert(varchar(64),A.ID)
             }
         }
-        public static int AddMasterMachineInfo(string myOrganizationId, string myVariableId, string myVariableName, string myVariableDescription, string myDataBaseName, string myTableName, string myRecord, string myValidValues, string myRemarks)
+        public static int AddMasterMachineInfo(string myOrganizationId, string myEquipmentId, string myVariableId, string myOutputFormula, string myVariableName, string myVariableDescription, string myDataBaseName, string myTableName, string myRecord, string myValidValues, string myRemarks)
         {
             string m_Sql = @" Insert into system_MasterMachineDescription 
-                ( OrganizationID, VariableId, VariableName, VariableDescription, DataBaseName, TableName, Record, ValidValues, Remarks) 
+                ( ID, OrganizationID, VariableId, OutputField, VariableName, VariableDescription, DataBaseName, TableName, Record, ValidValues, Remarks, KeyID) 
                 values
-                (@OrganizationID,@VariableId,@VariableName,@VariableDescription,@DataBaseName,@TableName,@Record,@ValidValues,@Remarks)";
-            SqlParameter[] m_Parameters = { new SqlParameter("@OrganizationID", myOrganizationId),
+                (@EquipmentId,@OrganizationID,@VariableId,@OutputFormula,@VariableName,@VariableDescription,@DataBaseName,@TableName,@Record,@ValidValues,@Remarks,@EquipmentId)";
+            SqlParameter[] m_Parameters = { new SqlParameter("@EquipmentId", myEquipmentId),
+                                          new SqlParameter("@OrganizationID", myOrganizationId),
                                           new SqlParameter("@VariableId", myVariableId),
+                                          new SqlParameter("@OutputFormula", myOutputFormula),
                                           new SqlParameter("@VariableName", myVariableName),
                                           new SqlParameter("@VariableDescription", myVariableDescription),
                                           new SqlParameter("@DataBaseName", myDataBaseName),
@@ -101,11 +104,12 @@ namespace BasicData.Service.MasterSlaveMachine
                 return -1;
             }
         }
-        public static int ModifyMasterMachineInfo(string myId, string myOrganizationId, string myVariableId, string myVariableName, string myVariableDescription, string myDataBaseName, string myTableName, string myRecord, string myValidValues, string myRemarks)
+        public static int ModifyMasterMachineInfo(string myEquipmentId, string myOrganizationId, string myVariableId, string myOutputFormula, string myVariableName, string myVariableDescription, string myDataBaseName, string myTableName, string myRecord, string myValidValues, string myRemarks)
         {
             string m_Sql = @"UPDATE system_MasterMachineDescription SET 
                             OrganizationID=@OrganizationID, 
                             VariableId=@VariableId,
+                            OutputField=@OutputFormula,
                             VariableName=@VariableName, 
                             VariableDescription=@VariableDescription, 
                             DataBaseName=@DataBaseName,
@@ -114,9 +118,10 @@ namespace BasicData.Service.MasterSlaveMachine
                             ValidValues=@ValidValues, 
                             Remarks=@Remarks
                             where ID=@ID";
-            SqlParameter[] m_Parameters = {new SqlParameter("@ID", myId),
+            SqlParameter[] m_Parameters = {new SqlParameter("@ID", myEquipmentId),
                                           new SqlParameter("@OrganizationID", myOrganizationId),
                                           new SqlParameter("@VariableId", myVariableId),
+                                          new SqlParameter("@OutputFormula", myOutputFormula),
                                           new SqlParameter("@VariableName", myVariableName),
                                           new SqlParameter("@VariableDescription", myVariableDescription),                       
                                           new SqlParameter("@DataBaseName", myDataBaseName),
@@ -146,59 +151,36 @@ namespace BasicData.Service.MasterSlaveMachine
                 return -1;
             }
         }
-        public static DataTable GetMainMachineInfo(List<string> myOrganizationIds)
+        public static DataTable GetMainMachineInfo(string myOrganizationId)
         {
-            List<string> m_LevelCodeList = _dataHelper.GetOrganisationLevelCodeById(myOrganizationIds);
-
-            string m_Sql = @"Select 
-                                A.OrganizationID as OrganizationID,
-                                A.Name + B.Name as Name,
-                                A.OrganizationID + '>' + B.VariableId as VariableId,
-                                C.LevelCode +  SUBSTRING(B.LevelCode,2,LEN(B.LevelCode) - 1) as LevelCode,
-                                B.LevelType as LevelType
-                                from tz_Formula A, formula_FormulaDetail B, system_Organization C
-                                where A.KeyID = B.KeyID
-                                and A.OrganizationID in (C.OrganizationID)
-                                and A.Type = 2 
-                                and A.ENABLE = 1
-                                and A.State = 0
-                                {0}
-                             union all
-                             Select 
-                                D.OrganizationID as OrganizationID, 
-                                D.Name as Name,
-                                '' as VariableId,
-                                D.LevelCode as LevelCode, 
-                                '' as LevelType 
-                                from system_Organization D
-                                where D.OrganizationID = D.OrganizationID 
-                                {1}";
-            if (m_LevelCodeList != null)
-            {
-                string m_ConditionTemp = "";   //" C.LevelCode like '{0}%' ";
-                string m_ConditionTemp1 = "";   //" C.LevelCode like '{0}%' ";
-                for (int i = 0; i < m_LevelCodeList.Count; i++)
-                {
-                    if (i == 0)
-                    {
-                        m_ConditionTemp = " and ( " + string.Format("C.LevelCode like '{0}%'", m_LevelCodeList[i]);
-                        m_ConditionTemp1 = " and ( " + string.Format("D.LevelCode like '{0}%' or CHARINDEX(D.LevelCode, '{0}') > 0 ", m_LevelCodeList[i]);
-                    }
-                    else
-                    {
-                        m_ConditionTemp = m_ConditionTemp + " or " + string.Format("C.LevelCode like '{0}%'", m_LevelCodeList[i]);
-                        m_ConditionTemp1 = m_ConditionTemp1 + " or " + string.Format("D.LevelCode like '{0}%' or CHARINDEX(D.LevelCode, '{0}') > 0", m_LevelCodeList[i]);
-                    }
-                }
-                m_ConditionTemp = m_ConditionTemp + " )";
-                m_ConditionTemp1 = m_ConditionTemp1 + " )";
-                m_Sql = string.Format(m_Sql, m_ConditionTemp, m_ConditionTemp1);
-            }
-            else
-            {
-                m_Sql = string.Format(m_Sql, " and C.OrganizationID = ''", " and D.OrganizationID = ''");
-            }
-
+            string m_Sql = @"Select B.EquipmentCommonId as EquipmentId
+                                  ,B.Name as Name
+                                  ,'0' as EquipmentCommonId
+                                  ,'' as VariableId
+                                  ,'' as OrganizationId
+                                  ,'' as OutputFormula
+	                              ,B.DisplayIndex as DisplayIndex
+                              FROM equipment_EquipmentCommonInfo B
+                              where B.EquipmentCommonId in 
+                              (select distinct A.EquipmentCommonId 
+                              from equipment_EquipmentDetail A, analyse_KPI_OrganizationContrast C
+                              where A.Enabled = 1 
+                              and A.OrganizationID = C.FactoryOrganizationID
+                              and C.OrganizationID = '{0}')
+                              union all 
+                              Select UPPER(A.EquipmentId) as EquipmentId
+                                  ,A.EquipmentName as Name
+                                  ,A.EquipmentCommonId as EquipmentCommonId
+                                  ,A.VariableId as VariableId
+                                  ,A.OrganizationId as OrganizationId
+                                  ,A.OutputFormula as OutputFormula
+	                              ,A.DisplayIndex as DisplayIndex
+                              FROM equipment_EquipmentDetail A, analyse_KPI_OrganizationContrast C
+                              where A.Enabled = 1
+                              and A.OrganizationID = C.FactoryOrganizationID
+                              and C.OrganizationID = '{0}'
+                              order by DisplayIndex";
+            m_Sql = string.Format(m_Sql, myOrganizationId);
             try
             {
                 return _dataFactory.Query(m_Sql);

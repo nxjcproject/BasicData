@@ -61,3 +61,14 @@ E:\NXJC\项目文件\BasicData\BasicData.Service\obj\Release\BasicData.Service.c
 E:\NXJC\项目文件\BasicData\BasicData.Service\obj\Release\BasicData.Service.csprojResolveAssemblyReference.cache
 E:\NXJC\项目文件\BasicData\BasicData.Service\obj\Release\BasicData.Service.dll
 E:\NXJC\项目文件\BasicData\BasicData.Service\obj\Release\BasicData.Service.pdb
+E:\1项目\BasicData\BasicData\BasicData.Service\bin\Release\BasicData.Service.dll
+E:\1项目\BasicData\BasicData\BasicData.Service\bin\Release\BasicData.Service.pdb
+E:\1项目\BasicData\BasicData\BasicData.Service\bin\Release\BasicData.Infrastructure.dll
+E:\1项目\BasicData\BasicData\BasicData.Service\bin\Release\Microsoft.QualityTools.Testing.Fakes.dll
+E:\1项目\BasicData\BasicData\BasicData.Service\bin\Release\AutoMapper.dll
+E:\1项目\BasicData\BasicData\BasicData.Service\bin\Release\BasicData.Infrastructure.pdb
+E:\1项目\BasicData\BasicData\BasicData.Service\bin\Release\RunIndicators.pdb
+E:\1项目\BasicData\BasicData\BasicData.Service\obj\Release\BasicData.Service.csprojFakesResolveAssemblyReference.cache
+E:\1项目\BasicData\BasicData\BasicData.Service\obj\Release\BasicData.Service.csprojResolveAssemblyReference.cache
+E:\1项目\BasicData\BasicData\BasicData.Service\obj\Release\BasicData.Service.dll
+E:\1项目\BasicData\BasicData\BasicData.Service\obj\Release\BasicData.Service.pdb

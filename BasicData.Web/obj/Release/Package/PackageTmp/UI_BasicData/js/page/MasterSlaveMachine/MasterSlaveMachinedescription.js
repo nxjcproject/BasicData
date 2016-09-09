@@ -2,10 +2,10 @@
 var SlaveMachineOpType;                //从机设备操作类型,1添加,2修改
 var MasterOrganizationId;              //主机组织机构代码,用于接收Web控件传递来的信息
 var MasterDataBaseName;                //主机变量数据库名称
-var MasterTableName = "ContrastTable";                   //主机变量表名
+var MasterTableName;                   //主机变量表名
 var SlaveOrganizationId;               //从机组织机构代码,用于接收Web控件传递来的信息
 var SlaveDataBaseName;                 //从机变量数据库名称
-var SlaveTableName = "ContrastTable";                    //从机变量表名
+var SlaveTableName;                    //从机变量表名
 var CurrentMachineEditFoucs            //当前编辑的是主机还是从机1表示主机，2表示从机
 var PageOpPermission;//页面操作权限控制
 $(function () {
@@ -17,6 +17,7 @@ $(function () {
     LoadSelectDcsTagsDialog();
     LoadMasterMachineVariables();
     initPageAuthority();
+    InitializingMasterMachineVariableCommbox({ "rows": [], "total": 0 });
 });
 
 //初始化页面的增删改查权限
@@ -131,16 +132,16 @@ function InitializeMaterMachineGrid(myData) {
             formatter: function (value, row, index) {
                 var str = '';
                 str = '<img class="iconImg" src = "/lib/extlib/themes/images/ext_icons/notes/note_edit.png" title="编辑" onclick="EditMasterMachineFun(\'' + row.Id + '\');"/>';
-                str = str + '<img class="iconImg" src = "/lib/extlib/themes/images/ext_icons/notes/note_delete.png" title="删除" onclick="DeleteMasterMachineFun(\'' + row.Id + '\',\'' + row.OrganizationId + '\',\'' + row.VariableDescription + '\');"/>';
-                str = str + '<img class="iconImg" src = "/lib/extlib/themes/images/ext_icons/folder/folder_go.png" title="添加从机" onclick="AddSlaveMachineFun(\'' + row.Id + '\',\'' + row.VariableDescription + '\');"/>';
+                str = str + '<img class="iconImg" src = "/lib/extlib/themes/images/ext_icons/notes/note_delete.png" title="删除" onclick="DeleteMasterMachineFun(\'' + row.Id + '\',\'' + row.OrganizationId + '\',\'' + row.VariableDescription + '\',\'' + row.KeyId + '\');"/>';
+                str = str + '<img class="iconImg" src = "/lib/extlib/themes/images/ext_icons/folder/folder_go.png" title="添加从机" onclick="AddSlaveMachineFun(\'' + row.KeyId + '\',\'' + row.VariableDescription + '\');"/>';
                 return str;
             }
         }]],
         toolbar: '#toolbar_MasterMachineInfo',
         onDblClickRow: function (rowIndex, rowData) {
             $('#HiddenField_MasterMachineId').attr('value', rowData.Id);
-            
-            LoadSlaveMachineData('last', rowData.Id);                //刷新从机列表
+            $('#HiddenField_KeyId').attr('value', rowData.KeyId);
+            LoadSlaveMachineData('last', rowData.KeyId);                //刷新从机列表
             $('#Text_SelectMasterMachine').attr('value', rowData.VariableDescription);
         }
     });
@@ -316,12 +317,14 @@ function GetTagInfo(myRowData, myDcsDataBaseName, myDcsOrganizationId) {
         $('#TextBox_MasterVariableDescription').textbox('setText', myRowData.VariableDescription);
         MasterOrganizationId = myDcsOrganizationId;
         MasterDataBaseName = myDcsDataBaseName;
+        MasterTableName = myRowData.TableName;
     }
     else if (CurrentMachineEditFoucs == 2) {
         $('#TextBox_SlaveVariableName').textbox('setText', myRowData.VariableName);
         $('#TextBox_SlaveVariableDescription').textbox('setText', myRowData.VariableDescription);
         SlaveOrganizationId = myDcsOrganizationId;
         SlaveDataBaseName = myDcsDataBaseName;
+        SlaveTableName = myRowData.TableName;
     }
 }
 function GetDcsTagsFun(myCurrentMachineEditFoucs) {
@@ -333,6 +336,7 @@ function QueryMasterMachineInfoFun() {
     var m_SelectDcs = $('#Combobox_DCSF').combotree("getValue");
     if (m_SelectDcs != "" && m_SelectDcs != null && m_SelectDcs != undefined) {
         LoadMaterMachineData('last', m_SelectDcs);
+        LoadMasterMachineVariables();
     }
     else {
         alert('请选择有效的DCS!');
@@ -344,7 +348,8 @@ function RefreshMasterMachineFun() {
 //////////////////////////////增加主机/////////////////////////////////
 function AddMasterMachineFun() {
     
-    $('#HiddenField_MasterMachineId').attr('value', "");   
+    $('#HiddenField_MasterMachineId').attr('value', "");
+    $('#HiddenField_KeyId').attr('value', "");
     $('#TextBox_MasterVariableName').textbox('setText', '');
     $('#TextBox_MasterVariableDescription').textbox('setText', '');
     $('#TextBox_MasterRemark').attr('value', '');
@@ -357,7 +362,7 @@ function AddMasterMachineFun() {
 
     LoadSlaveMachineData('last', "");                       //刷新从机列表
     $('#Text_SelectMasterMachine').attr('value', '');
-
+    $('#Commbox_EquipmentId').combotree('enable');
     $('#dlg_AddMasterMachine').dialog('open');
 }
 function EditMasterMachineFun(myId) {
@@ -375,6 +380,7 @@ function EditMasterMachineFun(myId) {
             var data = jQuery.parseJSON(msg.d)['rows'];
             if (data) {
                 $('#HiddenField_MasterMachineId').attr('value', data[0].Id);
+                $('#HiddenField_KeyId').attr('value', data[0].KeyId);
                 $('#TextBox_MasterVariableName').textbox('setText', data[0].VariableName);
                 $('#TextBox_MasterVariableDescription').textbox('setText', data[0].VariableDescription);
                 $('#TextBox_MasterRemark').attr('value', data[0].Remarks);
@@ -392,14 +398,15 @@ function EditMasterMachineFun(myId) {
                 else {
                     $('#Radio_MasterValidValueOff').attr('checked', true);
                 }
-                $('#Commbox_VariableId').combotree("setValue", data[0].VariableId);
-                LoadSlaveMachineData('last', data[0].Id);                     //刷新从机列表
+                $('#Commbox_EquipmentId').combotree('setValue', data[0].EquipmentId);
+                LoadSlaveMachineData('last', data[0].KeyId);                     //刷新从机列表
                 $('#Text_SelectMasterMachine').attr('value', data[0].VariableDescription);
             }
         }
     });
 
     MasterMachineOpType = 1;
+    $('#Commbox_EquipmentId').combotree('disable');
     $('#dlg_AddMasterMachine').dialog('open');
 
 }
@@ -413,8 +420,18 @@ function SaveMasterMachine() {
     var m_ValidValues = $("input[name='SelectRadio_MasterValidValues']:checked").val();
     var m_Remarks = $('#TextBox_MasterRemark').val();
     var m_Record = $('#Checkbox_MasterRecord').attr('checked');
-    var m_VariableId = $('#Commbox_VariableId').combotree("getValue");
-   
+
+    var m_EquipmentTreeNode = $('#Commbox_EquipmentId').combotree('tree').tree("getSelected");
+
+    var m_EquipmentId = "";
+    var m_VariableId = "";
+    var m_OutputFormula = "";
+    if (m_EquipmentTreeNode != undefined && m_EquipmentTreeNode != null && m_EquipmentTreeNode != "") {
+        m_EquipmentId = m_EquipmentTreeNode["id"];
+        m_VariableId = m_EquipmentTreeNode["VariableId"];
+        m_OutputFormula = m_EquipmentTreeNode["OutputFormula"];
+    }
+
     if (m_Record == 'checked') {
         m_Record = 1;
     }
@@ -433,38 +450,42 @@ function SaveMasterMachine() {
     //}
     else {
         if (MasterMachineOpType == 0) {              //添加主机设备
-
-            $.ajax({
-                type: "POST",
-                url: "MasterSlaveMachinedescription.aspx/AddMasterMachineInfo",
-                data: "{myOrganizationId:'" + m_OrganizationId + "',myVariableId:'" + m_VariableId + "',myVariableName:'" + m_VariableName + "',myVariableDescription:'" + m_VariableDescription
-                        + "',myDataBaseName:'" + m_DataBaseName + "',myTableName:'" + MasterTableName + "',myRecord:'" + m_Record + "',myValidValues:'" + m_ValidValues + "',myRemarks:'" + m_Remarks + "'}",
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (msg) {
-                    var m_Msg = msg.d;
-                    if (m_Msg == '1') {
-                        LoadMaterMachineData('last', m_OrganizationId);         //刷新主机列表
-                        $('#dlg_AddMasterMachine').dialog('close');
-                        alert('添加成功!');
+            if (m_EquipmentId == "" || m_EquipmentId == null || m_EquipmentId == undefined) {
+                alert('请选择主机设备!');
+            }
+            else {
+                $.ajax({
+                    type: "POST",
+                    url: "MasterSlaveMachinedescription.aspx/AddMasterMachineInfo",
+                    data: "{myOrganizationId:'" + m_OrganizationId + "',myEquipmentId:'" + m_EquipmentId + "',myVariableId:'" + m_VariableId + "',myOutputFormula:'" + m_OutputFormula + "',myVariableName:'" + m_VariableName + "',myVariableDescription:'" + m_VariableDescription
+                            + "',myDataBaseName:'" + m_DataBaseName + "',myTableName:'" + MasterTableName + "',myRecord:'" + m_Record + "',myValidValues:'" + m_ValidValues + "',myRemarks:'" + m_Remarks + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (msg) {
+                        var m_Msg = msg.d;
+                        if (m_Msg == '1') {
+                            LoadMaterMachineData('last', m_OrganizationId);         //刷新主机列表
+                            $('#dlg_AddMasterMachine').dialog('close');
+                            alert('添加成功!');
+                        }
+                        else if (m_Msg == '0') {
+                            alert('添加失败!');
+                        }
+                        else if (m_Msg == '-1') {
+                            alert('数据库错误!');
+                        }
+                        else {
+                            alert(m_Msg);
+                        }
                     }
-                    else if (m_Msg == '0') {
-                        alert('添加失败!');
-                    }
-                    else if (m_Msg == '-1') {
-                        alert('数据库错误!');
-                    }
-                    else {
-                        alert(m_Msg);
-                    }
-                }
-            });
+                });
+            }
         }
         else if (MasterMachineOpType == 1) {                                     //修改主机设备
             $.ajax({
                 type: "POST",
                 url: "MasterSlaveMachinedescription.aspx/ModifyMasterMachineInfo",
-                data: "{myId:'" + m_MasterMachineId + "',myOrganizationId:'" + m_OrganizationId + "',myVariableId:'" + m_VariableId + "',myVariableName:'" + m_VariableName + "',myVariableDescription:'" + m_VariableDescription
+                data: "{myEquipmentId:'" + m_MasterMachineId + "',myOrganizationId:'" + m_OrganizationId +  "',myVariableId:'" + m_VariableId + "',myOutputFormula:'" + m_OutputFormula + "',myVariableName:'" + m_VariableName + "',myVariableDescription:'" + m_VariableDescription
                         + "',myDataBaseName:'" + m_DataBaseName + "',myTableName:'" + MasterTableName + "',myRecord:'" + m_Record + "',myValidValues:'" + m_ValidValues + "',myRemarks:'" + m_Remarks + "'}",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
@@ -491,13 +512,14 @@ function SaveMasterMachine() {
 }
 
 ////////////////////////////////删除主机///////////////////////////////
-function DeleteMasterMachineFun(myId, myOrganizationId, myVariableDescription) {
+function DeleteMasterMachineFun(myId, myOrganizationId, myVariableDescription, myKeyId) {
     if (PageOpPermission[3] == "0") {
         $.messager.alert("提示", "该用户没有删除权限！");
         return;
     }
     $('#HiddenField_MasterMachineId').attr('value', myId);
-    LoadSlaveMachineData('last', myId);                     //刷新从机列表
+    $('#HiddenField_KeyId').attr('value', myKeyId);
+    LoadSlaveMachineData('last', myKeyId);                     //刷新从机列表
     $('#Text_SelectMasterMachine').attr('value', myVariableDescription);
     parent.$.messager.confirm('询问', '您确定要删除该主机以及属于该主机的所有从机?', function (r) {
         if (r) {
@@ -511,8 +533,9 @@ function DeleteMasterMachineFun(myId, myOrganizationId, myVariableDescription) {
                     var m_Msg = msg.d;
                     if (m_Msg == "1") {
                         $('#HiddenField_MasterMachineId').attr('value', '');
+                        $('#HiddenField_KeyId').attr('value', '');
                         LoadMaterMachineData('last', myOrganizationId);         //刷新主机列表
-                        LoadSlaveMachineData('last', myId);                     //刷新从机列表
+                        LoadSlaveMachineData('last', myKeyId);                     //刷新从机列表
                         $('#Text_SelectMasterMachine').attr('value', "");
                         alert("删除成功!");
                     }
@@ -533,23 +556,28 @@ function DeleteMasterMachineFun(myId, myOrganizationId, myVariableDescription) {
 }
 //初始化主机设备标签列表
 function LoadMasterMachineVariables() {
-    $.ajax({
-        type: "POST",
-        url: "MasterSlaveMachinedescription.aspx/GetMasterMachineVariableId",
-        data: "",
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: function (msg) {
-            var m_Data = jQuery.parseJSON(msg.d)
-            if (m_Data != null && m_Data != undefined) {
-                InitializingMasterMachineVariableCommbox(m_Data);
+    var m_OrganizationId = $('#Combobox_DCSF').combotree("getValue");
+    if (m_OrganizationId != undefined && m_OrganizationId != null & m_OrganizationId != "") {
+        $.ajax({
+            type: "POST",
+            url: "MasterSlaveMachinedescription.aspx/GetMasterMachineEquipment",
+            data: "{myOrganizationId:'" + m_OrganizationId + "'}",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (msg) {
+                var m_Data = jQuery.parseJSON(msg.d)
+                if (m_Data != null && m_Data != undefined) {
+                    //InitializingMasterMachineVariableCommbox(m_Data);
+                    $('#Commbox_EquipmentId').combotree('loadData', m_Data);
+                }
             }
-        }
-    });
-    //$('#Commbox_VariableId');
+        });
+    }
+
+    //$('#Commbox_EquipmentId');
 }
 function InitializingMasterMachineVariableCommbox(myData) {
-    $('#Commbox_VariableId').combotree({
+    $('#Commbox_EquipmentId').combotree({
         data: myData,
         dataType: "json",
         valueField: 'id',
@@ -558,7 +586,18 @@ function InitializingMasterMachineVariableCommbox(myData) {
         panelHeight: 200,   //'auto',
         editable: false,
         onLoadSuccess: function () {
-            $("#Commbox_VariableId").combotree('tree').tree("collapseAll");
+            $("#Commbox_EquipmentId").combotree('tree').tree("collapseAll");
+        },
+        onSelect: function (node) {
+            //返回树对象  
+            var tree = $(this).tree;
+            //选中的节点是否为叶子节点,如果不是叶子节点,清除选中  
+            var isLeaf = tree('isLeaf', node.target);
+            if (!isLeaf) {
+                //清除选中  
+                $('#Commbox_EquipmentId').combotree('clear');
+                alert("必须选择到具体设备!");
+            }
         }
     });
     
@@ -571,7 +610,7 @@ function AddSlaveMachineFun(myKeyId, myVariableDescription) {
         $.messager.alert("提示", "该用户没有增加权限！");
         return;
     }
-    $('#HiddenField_MasterMachineId').attr('value', myKeyId);
+    $('#HiddenField_KeyId').attr('value', myKeyId);
     $('#HiddenField_SlaveMachineId').attr('value', "");
     $('#TextBox_SlaveVariableName').textbox('setText', '');
     $('#TextBox_SlaveVariableDescription').textbox('setText', '');
@@ -629,7 +668,7 @@ function SaveSlaveMachine() {
     var m_DataBaseName = SlaveDataBaseName;
     var m_VariableName = $('#TextBox_SlaveVariableName').textbox('getText');
     var m_VariableDescription = $('#TextBox_SlaveVariableDescription').textbox('getText');
-    var m_KeyId = $('#HiddenField_MasterMachineId').val();
+    var m_KeyId = $('#HiddenField_KeyId').val();
     var m_ValidValues = $("input[name='SelectRadio_SlaveValidValues']:checked").val();
     var m_TimeDelay = $('#Text_TimeDelay').numberspinner('getValue');
     var m_Remarks = $('#TextBox_SlaveRemark').val();
@@ -710,6 +749,7 @@ function DeleteSlaveMachineFun(myId, myOrganizationId) {
     }
     parent.$.messager.confirm('询问', '您确定要删除该从机?', function (r) {
         if (r) {
+            var m_KeyId = $('#HiddenField_KeyId').val();
             $.ajax({
                 type: "POST",
                 url: "MasterSlaveMachinedescription.aspx/DeleteSlaveMachineInfo",
@@ -720,7 +760,7 @@ function DeleteSlaveMachineFun(myId, myOrganizationId) {
                     var m_Msg = msg.d;
                     if (m_Msg == "1") {
                         $('#HiddenField_SlaveMachineId').attr('value', '');
-                        LoadSlaveMachineData('last', myOrganizationId);                     //刷新从机列表
+                        LoadSlaveMachineData('last', m_KeyId);                     //刷新从机列表
                         alert("删除成功!");
                     }
                     else if (m_Msg == "-1") {
@@ -740,7 +780,7 @@ function DeleteSlaveMachineFun(myId, myOrganizationId) {
 }
 
 function RemoveAllSlaveMachineFun() {
-    var m_KeyId = $('#HiddenField_MasterMachineId').val();
+    var m_KeyId = $('#HiddenField_KeyId').val();
     if (m_KeyId != "" && m_KeyId != null && m_KeyId != undefined) {
         parent.$.messager.confirm('询问', '您确定要删除所有从机?', function (r) {
             if (r) {

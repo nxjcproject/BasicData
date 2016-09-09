@@ -17,3 +17,8 @@ C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Infrastructur
 C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.dll
 C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.pdb
 C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.csprojResolveAssemblyReference.cache
+E:\1项目\BasicData\BasicData\BasicData.Infrastructure\bin\Release\BasicData.Infrastructure.dll
+E:\1项目\BasicData\BasicData\BasicData.Infrastructure\bin\Release\BasicData.Infrastructure.pdb
+E:\1项目\BasicData\BasicData\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.csprojResolveAssemblyReference.cache
+E:\1项目\BasicData\BasicData\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.dll
+E:\1项目\BasicData\BasicData\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.pdb

@@ -21,7 +21,7 @@ namespace BasicData.Web.UI_BasicData.EnergyConsumption
             {
                 ////////////////////调试用,自定义的数据授权
 #if DEBUG
-                List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_ychc" };
+                List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_ychc","zc_nxjc_tsc_tsf" };
                 AddDataValidIdGroup("ProductionOrganization", m_DataValidIdItems);
                 mPageOpPermission = "1111";
 #elif RELEASE

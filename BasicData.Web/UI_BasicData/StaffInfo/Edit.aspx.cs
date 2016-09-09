@@ -22,7 +22,7 @@ namespace BasicData.Web.UI_BasicData.StaffInfo
                 // 调试用,自定义的数据授权
                 List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_byc_byf", "zc_nxjc_qtx_tys" };
                 AddDataValidIdGroup("ProductionOrganization", m_DataValidIdItems);
-                mPageOpPermission = "0000";
+                mPageOpPermission = "1111";
 #endif
                 this.OrganisationTree.Organizations = GetDataValidIdGroup("ProductionOrganization");                 //向web用户控件传递数据授权参数
                 this.OrganisationTree.PageName = "Edit.aspx";
@@ -47,7 +47,7 @@ namespace BasicData.Web.UI_BasicData.StaffInfo
         }
 
         [WebMethod]
-        public static string InsertStaffInfo(string organizationId, string staffId, string name, bool sex, string workingTeam, string phoneNumber, bool enabled)
+        public static string InsertStaffInfo(string organizationId, string staffInfoItemId, string staffId, string name, bool sex, string workingTeam, string phoneNumber, bool enabled)
         {
             if (mPageOpPermission.ToArray()[1] == '1')
             {
@@ -67,7 +67,7 @@ namespace BasicData.Web.UI_BasicData.StaffInfo
         }
 
         [WebMethod]
-        public static string UpdateStaffInfo(string organizationId, string staffId, string name, bool sex, string workingTeam, string phoneNumber, bool enabled)
+        public static string UpdateStaffInfo(string organizationId, string staffInfoItemId, string staffId, string name, bool sex, string workingTeam, string phoneNumber, bool enabled)
         {
             if (mPageOpPermission.ToArray()[2] == '1')
             {
@@ -78,7 +78,19 @@ namespace BasicData.Web.UI_BasicData.StaffInfo
                 if (string.IsNullOrWhiteSpace(name))
                     return "请输入姓名";
 
-                return StaffInfoService.UpdateStaffInfo(organizationId, staffId, workingTeam, name, sex, phoneNumber, enabled);
+                return StaffInfoService.UpdateStaffInfo(organizationId, staffInfoItemId, staffId, workingTeam, name, sex, phoneNumber, enabled);
+            }
+            else
+            {
+                return "该用户没有修改权限！";
+            }
+        }
+        [WebMethod]
+        public static string DeleteStaffInfo(string myStaffInfoItemId)
+        {
+            if (mPageOpPermission.ToArray()[3] == '1')
+            {
+                return StaffInfoService.DeleteStaffInfo(myStaffInfoItemId);   
             }
             else
             {

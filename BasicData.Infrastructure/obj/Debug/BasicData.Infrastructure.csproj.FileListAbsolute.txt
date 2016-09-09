@@ -15,3 +15,13 @@ C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Infrastructur
 C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Infrastructure\bin\Debug\BasicData.Infrastructure.pdb
 C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Infrastructure\obj\Debug\BasicData.Infrastructure.dll
 C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Infrastructure\obj\Debug\BasicData.Infrastructure.pdb
+E:\1项目\BasicData-master\BasicData-master\BasicData.Infrastructure\bin\Debug\BasicData.Infrastructure.dll
+E:\1项目\BasicData-master\BasicData-master\BasicData.Infrastructure\bin\Debug\BasicData.Infrastructure.pdb
+E:\1项目\BasicData-master\BasicData-master\BasicData.Infrastructure\obj\Debug\BasicData.Infrastructure.csprojResolveAssemblyReference.cache
+E:\1项目\BasicData-master\BasicData-master\BasicData.Infrastructure\obj\Debug\BasicData.Infrastructure.dll
+E:\1项目\BasicData-master\BasicData-master\BasicData.Infrastructure\obj\Debug\BasicData.Infrastructure.pdb
+E:\1项目\BasicData\BasicData\BasicData.Infrastructure\bin\Debug\BasicData.Infrastructure.dll
+E:\1项目\BasicData\BasicData\BasicData.Infrastructure\bin\Debug\BasicData.Infrastructure.pdb
+E:\1项目\BasicData\BasicData\BasicData.Infrastructure\obj\Debug\BasicData.Infrastructure.csprojResolveAssemblyReference.cache
+E:\1项目\BasicData\BasicData\BasicData.Infrastructure\obj\Debug\BasicData.Infrastructure.dll
+E:\1项目\BasicData\BasicData\BasicData.Infrastructure\obj\Debug\BasicData.Infrastructure.pdb

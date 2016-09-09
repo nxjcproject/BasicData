@@ -102,3 +102,17 @@ E:\NXJC\项目文件\BasicData\BasicData.Web\obj\Release\BasicData.Web.csprojFak
 E:\NXJC\项目文件\BasicData\BasicData.Web\obj\Release\BasicData.Web.csprojResolveAssemblyReference.cache
 E:\NXJC\项目文件\BasicData\BasicData.Web\obj\Release\BasicData.Web.dll
 E:\NXJC\项目文件\BasicData\BasicData.Web\obj\Release\BasicData.Web.pdb
+E:\1项目\BasicData\BasicData\BasicData.Web\bin\BasicData.Web.dll
+E:\1项目\BasicData\BasicData\BasicData.Web\bin\BasicData.Web.pdb
+E:\1项目\BasicData\BasicData\BasicData.Web\bin\BasicData.Infrastructure.dll
+E:\1项目\BasicData\BasicData\BasicData.Web\bin\BasicData.Service.dll
+E:\1项目\BasicData\BasicData\BasicData.Web\bin\Microsoft.QualityTools.Testing.Fakes.dll
+E:\1项目\BasicData\BasicData\BasicData.Web\bin\SqlServerDataAdapter.dll
+E:\1项目\BasicData\BasicData\BasicData.Web\bin\StatisticalReport.Infrastructure.dll
+E:\1项目\BasicData\BasicData\BasicData.Web\bin\AutoMapper.dll
+E:\1项目\BasicData\BasicData\BasicData.Web\bin\BasicData.Infrastructure.pdb
+E:\1项目\BasicData\BasicData\BasicData.Web\bin\BasicData.Service.pdb
+E:\1项目\BasicData\BasicData\BasicData.Web\obj\Release\BasicData.Web.csprojFakesResolveAssemblyReference.cache
+E:\1项目\BasicData\BasicData\BasicData.Web\obj\Release\BasicData.Web.csprojResolveAssemblyReference.cache
+E:\1项目\BasicData\BasicData\BasicData.Web\obj\Release\BasicData.Web.dll
+E:\1项目\BasicData\BasicData\BasicData.Web\obj\Release\BasicData.Web.pdb
