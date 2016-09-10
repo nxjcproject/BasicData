@@ -130,3 +130,17 @@ E:\1项目\BasicData\BasicData\BasicData.Web\obj\Debug\BasicData.Web.csprojFakes
 E:\1项目\BasicData\BasicData\BasicData.Web\obj\Debug\BasicData.Web.csprojResolveAssemblyReference.cache
 E:\1项目\BasicData\BasicData\BasicData.Web\obj\Debug\BasicData.Web.dll
 E:\1项目\BasicData\BasicData\BasicData.Web\obj\Debug\BasicData.Web.pdb
+E:\git仓库\BasicData\BasicData.Web\bin\BasicData.Web.dll
+E:\git仓库\BasicData\BasicData.Web\bin\BasicData.Web.pdb
+E:\git仓库\BasicData\BasicData.Web\bin\BasicData.Infrastructure.dll
+E:\git仓库\BasicData\BasicData.Web\bin\BasicData.Service.dll
+E:\git仓库\BasicData\BasicData.Web\bin\Microsoft.QualityTools.Testing.Fakes.dll
+E:\git仓库\BasicData\BasicData.Web\bin\SqlServerDataAdapter.dll
+E:\git仓库\BasicData\BasicData.Web\bin\StatisticalReport.Infrastructure.dll
+E:\git仓库\BasicData\BasicData.Web\bin\AutoMapper.dll
+E:\git仓库\BasicData\BasicData.Web\bin\BasicData.Infrastructure.pdb
+E:\git仓库\BasicData\BasicData.Web\bin\BasicData.Service.pdb
+E:\git仓库\BasicData\BasicData.Web\obj\Debug\BasicData.Web.csprojFakesResolveAssemblyReference.cache
+E:\git仓库\BasicData\BasicData.Web\obj\Debug\BasicData.Web.csprojResolveAssemblyReference.cache
+E:\git仓库\BasicData\BasicData.Web\obj\Debug\BasicData.Web.dll
+E:\git仓库\BasicData\BasicData.Web\obj\Debug\BasicData.Web.pdb

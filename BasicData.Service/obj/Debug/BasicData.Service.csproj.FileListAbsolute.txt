@@ -82,3 +82,14 @@ E:\1项目\BasicData\BasicData\BasicData.Service\obj\Debug\BasicData.Service.csp
 E:\1项目\BasicData\BasicData\BasicData.Service\obj\Debug\BasicData.Service.csprojResolveAssemblyReference.cache
 E:\1项目\BasicData\BasicData\BasicData.Service\obj\Debug\BasicData.Service.dll
 E:\1项目\BasicData\BasicData\BasicData.Service\obj\Debug\BasicData.Service.pdb
+E:\git仓库\BasicData\BasicData.Service\bin\Debug\BasicData.Service.dll
+E:\git仓库\BasicData\BasicData.Service\bin\Debug\BasicData.Service.pdb
+E:\git仓库\BasicData\BasicData.Service\bin\Debug\BasicData.Infrastructure.dll
+E:\git仓库\BasicData\BasicData.Service\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
+E:\git仓库\BasicData\BasicData.Service\bin\Debug\AutoMapper.dll
+E:\git仓库\BasicData\BasicData.Service\bin\Debug\BasicData.Infrastructure.pdb
+E:\git仓库\BasicData\BasicData.Service\bin\Debug\RunIndicators.pdb
+E:\git仓库\BasicData\BasicData.Service\obj\Debug\BasicData.Service.csprojFakesResolveAssemblyReference.cache
+E:\git仓库\BasicData\BasicData.Service\obj\Debug\BasicData.Service.csprojResolveAssemblyReference.cache
+E:\git仓库\BasicData\BasicData.Service\obj\Debug\BasicData.Service.dll
+E:\git仓库\BasicData\BasicData.Service\obj\Debug\BasicData.Service.pdb
