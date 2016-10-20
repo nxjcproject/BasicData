@@ -269,7 +269,7 @@ function InitializeComboTree(myData) {
         valueField: 'id',
         textField: 'text',
         required: false,
-        panelHeight: 'auto',
+        panelHeight: '500',
         editable: false
     });
 }

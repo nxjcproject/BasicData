@@ -25,3 +25,8 @@ E:\1项目\BasicData\BasicData\BasicData.Infrastructure\bin\Debug\BasicData.Infr
 E:\1项目\BasicData\BasicData\BasicData.Infrastructure\obj\Debug\BasicData.Infrastructure.csprojResolveAssemblyReference.cache
 E:\1项目\BasicData\BasicData\BasicData.Infrastructure\obj\Debug\BasicData.Infrastructure.dll
 E:\1项目\BasicData\BasicData\BasicData.Infrastructure\obj\Debug\BasicData.Infrastructure.pdb
+E:\git仓库\BasicData\BasicData.Infrastructure\bin\Debug\BasicData.Infrastructure.dll
+E:\git仓库\BasicData\BasicData.Infrastructure\bin\Debug\BasicData.Infrastructure.pdb
+E:\git仓库\BasicData\BasicData.Infrastructure\obj\Debug\BasicData.Infrastructure.csprojResolveAssemblyReference.cache
+E:\git仓库\BasicData\BasicData.Infrastructure\obj\Debug\BasicData.Infrastructure.dll
+E:\git仓库\BasicData\BasicData.Infrastructure\obj\Debug\BasicData.Infrastructure.pdb

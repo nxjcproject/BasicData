@@ -19,7 +19,7 @@ namespace BasicData.Web.UI_BasicData.MasterSlaveMachine
             {
                 ////////////////////调试用,自定义的数据授权
 #if DEBUG
-                List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_qtx_tys","zc_nxjc_byc_byf","zc_nxjc_ychc_lsf"  };
+                List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_qtx_tys", "zc_nxjc_byc_byf", "zc_nxjc_ychc_lsf", "zc_nxjc_ychc_yfcf", "zc_nxjc_qtx_efc", "zc_nxjc_szsc_szsf" };
                 AddDataValidIdGroup("ProductionOrganization", m_DataValidIdItems);
                 mPageOpPermission = "1111";
 #elif RELEASE
