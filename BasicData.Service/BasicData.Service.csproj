@@ -67,6 +67,8 @@
     <Compile Include="EnergyConsumption\EnergyConsumptionResultHelper.cs" />
     <Compile Include="EnergyConsumption\ProductionPlan.cs" />
     <Compile Include="EnergyConsumption\ProductionResult.cs" />
+    <Compile Include="EnergyConsumption\PurchaseSalesPlan.cs" />
+    <Compile Include="EnergyConsumption\PurchaseSalesResult.cs" />
     <Compile Include="EnergyDataManualInput\EnergyDataManualInputService.cs" />
     <Compile Include="EquipmentAccount\EquipmentAccountService.cs" />
     <Compile Include="KpiDefinition\KPIndexService.cs" />

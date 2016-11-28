@@ -8,11 +8,9 @@ using System.Text;
 using System.Data;
 using System.Web.Services;
 using WebStyleBaseForEnergy;
-
-
 namespace BasicData.Web.UI_BasicData.EnergyConsumption
 {
-    public partial class ProductionPlan : WebStyleBaseForEnergy.webStyleBase
+    public partial class PurchaseSalesPlan : WebStyleBaseForEnergy.webStyleBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,14 +19,14 @@ namespace BasicData.Web.UI_BasicData.EnergyConsumption
             {
                 ////////////////////调试用,自定义的数据授权
 #if DEBUG
-                List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_ychc","zc_nxjc_byc_byf" };
+                List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_ychc", "zc_nxjc_byc_byf" };
                 AddDataValidIdGroup("ProductionOrganization", m_DataValidIdItems);
                 mPageOpPermission = "1111";
 #elif RELEASE
 #endif
                 this.OrganisationTree_ProductionLine.Organizations = GetDataValidIdGroup("ProductionOrganization");                 //向web用户控件传递数据授权参数
-                this.OrganisationTree_ProductionLine.PageName = "ProductionPlan.aspx";                                     //向web用户控件传递当前调用的页面名称
-                HiddenField_PlanType.Value = "Production";    //HttpContext.Current.Request.QueryString["id"];
+                this.OrganisationTree_ProductionLine.PageName = "PurchaseSalesPlan.aspx";                                     //向web用户控件传递当前调用的页面名称
+                HiddenField_PlanType.Value = "PurchaseSales";    //HttpContext.Current.Request.QueryString["id"];
                 this.OrganisationTree_ProductionLine.LeveDepth = 5;
             }
         }
@@ -42,7 +40,7 @@ namespace BasicData.Web.UI_BasicData.EnergyConsumption
             return mPageOpPermission.ToArray();
         }
         [WebMethod]
-        public static string GetProductionPlanInfo(string myProductionPlanType, string myOrganizationId, string myPlanYear, string myPlanType)
+        public static string GetPurchaseSalesPlanInfo(string myPurchaseSalesPlanType, string myOrganizationId, string myPlanYear, string myPlanType)
         {
             string[] m_ColumnText = new string[] { "指标项ID", "主要设备ID", "指标项目名称", "一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月", "年度合计", "备注" };
             int[] m_ColumnWidth = new int[] { 180, 180, 180, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 100, 180 };
@@ -61,22 +59,22 @@ namespace BasicData.Web.UI_BasicData.EnergyConsumption
                 "\"type\":\"numberbox\", \"options\":{\"precision\":\"2\"}",
                 "\"type\":\"textbox\", \"options\":{\"validType\":\"length[0,200]\", \"invalidMessage\":\"不能超过200个字符!\"}" };
 
-            DataTable m_ProductionPlanInfo = BasicData.Service.EnergyConsumption.ProductionPlan.GetProductionPlanInfo(myProductionPlanType, myOrganizationId, myPlanYear, myPlanType);
+            DataTable m_PurchaseSalesPlanInfo = BasicData.Service.EnergyConsumption.PurchaseSalesPlan.GetPurchaseSalesPlanInfo(myPurchaseSalesPlanType, myOrganizationId, myPlanYear, myPlanType);
 
-            string m_Rows = EasyUIJsonParser.DataGridJsonParser.GetDataRowJson(m_ProductionPlanInfo);
+            string m_Rows = EasyUIJsonParser.DataGridJsonParser.GetDataRowJson(m_PurchaseSalesPlanInfo);
             StringBuilder m_Columns = new StringBuilder();
             if (m_Rows == "")
             {
                 m_Rows = "\"rows\":[],\"total\":0";
             }
             m_Columns.Append("\"columns\":[");
-            for (int i = 0; i < m_ProductionPlanInfo.Columns.Count; i++)
+            for (int i = 0; i < m_PurchaseSalesPlanInfo.Columns.Count; i++)
             {
                 m_Columns.Append("{");
                 m_Columns.Append("\"width\":\"" + m_ColumnWidth[i] + "\"");
                 m_Columns.Append(", \"title\":\"" + m_ColumnText[i] + "\"");
-                m_Columns.Append(", \"field\":\"" + m_ProductionPlanInfo.Columns[i].ColumnName.ToString() + "\"");
-                if (i == m_ProductionPlanInfo.Columns.Count - 2)
+                m_Columns.Append(", \"field\":\"" + m_PurchaseSalesPlanInfo.Columns[i].ColumnName.ToString() + "\"");
+                if (i == m_PurchaseSalesPlanInfo.Columns.Count - 2)
                 {
                     m_Columns.Append(", \"hidden\":true");
                 }
@@ -86,7 +84,7 @@ namespace BasicData.Web.UI_BasicData.EnergyConsumption
                 }
 
                 m_Columns.Append("}");
-                if (i < m_ProductionPlanInfo.Columns.Count - 1)
+                if (i < m_PurchaseSalesPlanInfo.Columns.Count - 1)
                 {
                     m_Columns.Append(",");
                 }
@@ -96,11 +94,11 @@ namespace BasicData.Web.UI_BasicData.EnergyConsumption
             return "{" + m_Rows + "," + m_Columns + "}";
         }
         [WebMethod]
-        public static string SetProductionPlanInfo(string myOrganizationId, string myPlanYear, string myPlanType, string myProductionPlanType, string myDataGridData)
+        public static string SetPurchaseSalesPlanInfo(string myOrganizationId, string myPlanYear, string myPlanType, string myPurchaseSalesPlanType, string myDataGridData)
         {
             if (mPageOpPermission.ToArray()[2] == '1')
             {
-                DataTable m_DataGridDataStruct = BasicData.Service.EnergyConsumption.ProductionPlan.CreateTableStructure("plan_ProductionYearlyPlan");
+                DataTable m_DataGridDataStruct = BasicData.Service.EnergyConsumption.PurchaseSalesPlan.CreateTableStructure("plan_PurchaseSalesYearlyPlan");
                 //m_DataGridDataStruct.Columns.Remove("QuotasItemID");       //去掉ID列，此列的数据由数据库自动生成
                 string[] m_DataGridDataGroup = EasyUIJsonParser.Utility.JsonPickArray(myDataGridData, "rows");
                 DataTable m_DataGridData = EasyUIJsonParser.DataGridJsonParser.JsonToDataTable(m_DataGridDataGroup, m_DataGridDataStruct);
@@ -119,16 +117,16 @@ namespace BasicData.Web.UI_BasicData.EnergyConsumption
                     }
                 }
                 ///////////////tz表里查找是否已经存在////////////////
-                string m_KeyId = BasicData.Service.EnergyConsumption.ProductionPlan.GetKeyIdFromTz(myPlanYear, myOrganizationId, myPlanType);
+                string m_KeyId = BasicData.Service.EnergyConsumption.PurchaseSalesPlan.GetKeyIdFromTz(myPlanYear, myOrganizationId, myPlanType);
                 if (m_KeyId != "")               //表示计划已经存在
                 {
-                    BasicData.Service.EnergyConsumption.ProductionPlan.UpdateTzPlan(m_KeyId, mUserId);    //更新TZ引领表
+                    BasicData.Service.EnergyConsumption.PurchaseSalesPlan.UpdateTzPlan(m_KeyId, mUserId);    //更新TZ引领表
                 }
                 else
                 {
                     m_KeyId = Guid.NewGuid().ToString();
                     //添加TZ引领
-                    BasicData.Service.EnergyConsumption.ProductionPlan.InsertTzPlan(m_KeyId, myOrganizationId, myPlanYear, mUserId, myPlanType);
+                    BasicData.Service.EnergyConsumption.PurchaseSalesPlan.InsertTzPlan(m_KeyId, myOrganizationId, myPlanYear, mUserId, myPlanType);
                 }
 
                 for (int i = 0; i < m_DataGridData.Rows.Count; i++)
@@ -138,8 +136,8 @@ namespace BasicData.Web.UI_BasicData.EnergyConsumption
                     m_DataGridData.Rows[i]["KeyID"] = m_KeyId;
                     m_DataGridData.Rows[i]["DisplayIndex"] = (i + 1).ToString();
                 }
-                BasicData.Service.EnergyConsumption.ProductionPlan.DeleteProductionPlanInfo(m_KeyId, myProductionPlanType);
-                int ReturnValue = BasicData.Service.EnergyConsumption.ProductionPlan.SaveProductionPlanInfo("plan_ProductionYearlyPlan", m_DataGridData);
+                BasicData.Service.EnergyConsumption.PurchaseSalesPlan.DeletePurchaseSalesPlanInfo(m_KeyId, myPurchaseSalesPlanType);
+                int ReturnValue = BasicData.Service.EnergyConsumption.PurchaseSalesPlan.SavePurchaseSalesPlanInfo("plan_PurchaseSalesYearlyPlan", m_DataGridData);
                 ReturnValue = ReturnValue > 0 ? 1 : ReturnValue;
                 return ReturnValue.ToString();
             }

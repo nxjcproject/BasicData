@@ -20,7 +20,7 @@ namespace BasicData.Web.UI_BasicData.EnergyConsumption
             {
                 ////////////////////调试用,自定义的数据授权
 #if DEBUG
-                List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_ychc" };
+                List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_ychc","zc_nxjc_byc" };
                 AddDataValidIdGroup("ProductionOrganization", m_DataValidIdItems);
                 mPageOpPermission = "1111";
 #elif RELEASE
@@ -65,6 +65,16 @@ namespace BasicData.Web.UI_BasicData.EnergyConsumption
                 DataTable m_ProductionResultTable = BasicData.Service.EnergyConsumption.ProductionResult.GetProductionResultInfo(myProductionQuotasId, myQuotasType, myOrganizationId, myPlanYear, myEquipmentCommonId); ;
 
                 int m_TableRowCount = m_ProductionPlanInfo.Rows.Count;
+                //int m_CurrentYear = Int32.Parse(myPlanYear);
+                //int m_MaxMonth = 0;
+                //if (m_CurrentYear < DateTime.Now.Year)
+                //{
+                //    m_MaxMonth = 12;
+                //}
+                //else if(m_CurrentYear == DateTime.Now.Year)
+                //{
+                //    m_MaxMonth = DateTime.Now.Month;
+                //}
                 for (int i = 0; i < m_TableRowCount; i++)
                 {
                     DataRow m_DataRow = m_ProductionPlanInfo.NewRow();
@@ -79,8 +89,9 @@ namespace BasicData.Web.UI_BasicData.EnergyConsumption
                                 m_DataRow[16] = 0;
                                 for (int z = 0; z < 12; z++)
                                 {
+                                    decimal m_ValueTemp = m_ProductionResultTable.Rows[j][z + 1] != DBNull.Value ? (decimal)m_ProductionResultTable.Rows[j][z + 1] : 0.0m;
                                     m_DataRow[z + 4] = m_ProductionResultTable.Rows[j][z + 1];
-                                    m_DataRow[16] = (decimal)m_ProductionResultTable.Rows[j][z + 1] + (decimal)m_DataRow[16];
+                                    m_DataRow[16] = m_ValueTemp + (decimal)m_DataRow[16];
                                 }
                                 m_ContainProductionResultTemp = true;
                                 break;
@@ -112,6 +123,10 @@ namespace BasicData.Web.UI_BasicData.EnergyConsumption
                 m_Columns.Append("\"width\":\"" + m_ColumnWidth[i] + "\"");
                 m_Columns.Append(", \"title\":\"" + m_ColumnText[i] + "\"");
                 m_Columns.Append(", \"field\":\"" + m_ProductionPlanInfo.Columns[i].ColumnName.ToString() + "\"");
+                if (i == 16)   //屏蔽合计
+                {
+                    m_Columns.Append(", \"hidden\":true");
+                }
                 m_Columns.Append("}");
                 if (i < m_ProductionPlanInfo.Columns.Count - 1)
                 {

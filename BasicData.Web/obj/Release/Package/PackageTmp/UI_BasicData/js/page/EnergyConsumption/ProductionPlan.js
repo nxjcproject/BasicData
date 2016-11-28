@@ -1,6 +1,6 @@
 ﻿var editIndex = undefined;
 var PlanYearCurrentDataGrid;                //当前datagrid显示的计划年
-var OrganizationIdCurrentDataGrid;            //当前datagrid显示的组织机构
+var OrganizationIdCurrentDataGrid = "";            //当前datagrid显示的组织机构
 var PlanType;                                 //计划类型
 $(document).ready(function () {
     //LoadProductionType('first');
@@ -95,31 +95,36 @@ function SaveProductionPlanFun() {
     var m_ProductionPlanType = $('#drpDisplayType').combobox('getValue');
     if (m_DataGridData['rows'].length > 0) {
         var m_DataGridDataJson = '{"rows":' + JSON.stringify(m_DataGridData['rows']) + '}';
-        $.ajax({
-            type: "POST",
-            url: "ProductionPlan.aspx/SetProductionPlanInfo",
-            data: "{myOrganizationId:'" + OrganizationIdCurrentDataGrid + "',myPlanYear:'" + PlanYearCurrentDataGrid + "',myPlanType:'" + PlanType + "',myProductionPlanType:'" + m_ProductionPlanType + "',myDataGridData:'" + m_DataGridDataJson + "'}",
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: function (msg) {
-                var m_Msg = msg.d;
-                if (m_Msg == '1') {
-                    alert('修改成功!');
+        if (OrganizationIdCurrentDataGrid == "") {
+            alert("请选择分厂!");
+        }
+        else {
+            $.ajax({
+                type: "POST",
+                url: "ProductionPlan.aspx/SetProductionPlanInfo",
+                data: "{myOrganizationId:'" + OrganizationIdCurrentDataGrid + "',myPlanYear:'" + PlanYearCurrentDataGrid + "',myPlanType:'" + PlanType + "',myProductionPlanType:'" + m_ProductionPlanType + "',myDataGridData:'" + m_DataGridDataJson + "'}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (msg) {
+                    var m_Msg = msg.d;
+                    if (m_Msg == '1') {
+                        alert('修改成功!');
+                    }
+                    else if (m_Msg == '0') {
+                        alert('修改失败!');
+                    }
+                    else if (m_Msg == '-1') {
+                        alert('数据库错误!');
+                    }
+                    else if (m_Msg == 'noright') {
+                        alert("该用户没有修改保存权限！");
+                    }
+                    else {
+                        alert(m_Msg);
+                    }
                 }
-                else if (m_Msg == '0') {
-                    alert('修改失败!');
-                }
-                else if (m_Msg == '-1') {
-                    alert('数据库错误!');
-                }
-                else if (m_Msg == 'noright') {
-                    alert("该用户没有修改保存权限！");
-                }
-                else {
-                    alert(m_Msg);
-                }
-            }
-        });
+            });
+        }
     }
     else {
         alert("没有任何数据需要保存!");

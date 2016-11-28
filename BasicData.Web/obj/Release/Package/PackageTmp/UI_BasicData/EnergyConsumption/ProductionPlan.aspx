@@ -44,6 +44,7 @@
                                     <select id="drpDisplayType" class="easyui-combobox" data-options="editable:false,panelHeight:'auto'">
                                         <option value="MaterialWeight">产量计划</option>
                                         <option value="EquipmentUtilization">设备利用计划</option>
+                                        <%--<option value="PurchaseSales">销售计划</option>--%>
                                     </select>
                                 </td>
                                 <td>

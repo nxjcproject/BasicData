@@ -1590,6 +1590,8 @@
     <Content Include="UI_BasicData\EnergyConsumption\EnergyConsumptionResult.aspx" />
     <Content Include="UI_BasicData\EnergyConsumption\ProductionPlan.aspx" />
     <Content Include="UI_BasicData\EnergyConsumption\ProductionResult.aspx" />
+    <Content Include="UI_BasicData\EnergyConsumption\PurchaseSalesPlan.aspx" />
+    <Content Include="UI_BasicData\EnergyConsumption\PurchaseSalesResult.aspx" />
     <Content Include="UI_BasicData\EnergyDataManualInput\EnergyDataManualInput.aspx" />
     <Content Include="UI_BasicData\EnergyDataManualInput\EnergyDataManualInputContrast.aspx" />
     <Content Include="UI_BasicData\EquipmentAccount\EquipmentAccountEdit.aspx" />
@@ -1600,6 +1602,8 @@
     <Content Include="UI_BasicData\js\page\EnergyConsumption\EnergyConsumptionResult.js" />
     <Content Include="UI_BasicData\js\page\EnergyConsumption\ProductionPlan.js" />
     <Content Include="UI_BasicData\js\page\EnergyConsumption\ProductionResult.js" />
+    <Content Include="UI_BasicData\js\page\EnergyConsumption\PurchaseSalesPlan.js" />
+    <Content Include="UI_BasicData\js\page\EnergyConsumption\PurchaseSalesResult.js" />
     <Content Include="UI_BasicData\js\page\EnergyDataManualInput\EnergyDataManualInput.js" />
     <Content Include="UI_BasicData\js\page\EnergyDataManualInput\EnergyDataManualInputContrast.js" />
     <Content Include="UI_BasicData\js\page\EquipmentAccount\EquipmentAccountEdit.js" />
@@ -1689,6 +1693,20 @@
     </Compile>
     <Compile Include="UI_BasicData\EnergyConsumption\ProductionResult.aspx.designer.cs">
       <DependentUpon>ProductionResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_BasicData\EnergyConsumption\PurchaseSalesPlan.aspx.cs">
+      <DependentUpon>PurchaseSalesPlan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_BasicData\EnergyConsumption\PurchaseSalesPlan.aspx.designer.cs">
+      <DependentUpon>PurchaseSalesPlan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_BasicData\EnergyConsumption\PurchaseSalesResult.aspx.cs">
+      <DependentUpon>PurchaseSalesResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_BasicData\EnergyConsumption\PurchaseSalesResult.aspx.designer.cs">
+      <DependentUpon>PurchaseSalesResult.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI_BasicData\EnergyDataManualInput\EnergyDataManualInput.aspx.cs">
       <DependentUpon>EnergyDataManualInput.aspx</DependentUpon>

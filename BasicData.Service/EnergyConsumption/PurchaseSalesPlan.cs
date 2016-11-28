@@ -10,10 +10,9 @@ using BasicData.Infrastructure.Configuration;
 using BasicData.Service.BasicService;
 using SqlServerDataAdapter;
 
-
 namespace BasicData.Service.EnergyConsumption
 {
-    public class ProductionPlan
+    public class PurchaseSalesPlan
     {
         private static readonly string _connStr = ConnectionStringFactory.NXJCConnectionString;
         private static readonly ISqlServerDataFactory _dataFactory = new SqlServerDataFactory(_connStr);
@@ -25,10 +24,10 @@ namespace BasicData.Service.EnergyConsumption
         /// <param name="myOrganizationId">产线ID</param>
         /// <param name="myPlanYear">年计划的年份</param>
         /// <returns></returns>
-        public static DataTable GetProductionPlanInfo(string myProductionPlanType, string myOrganizationId, string myPlanYear, string myPlanType)
+        public static DataTable GetPurchaseSalesPlanInfo(string myPurchaseSalesPlanType, string myOrganizationId, string myPlanYear, string myPlanType)
         {
             string m_Sql = @"Select M.QuotasID, 
-                M.EquipmentId, 
+                M.VariableId, 
 	            M.QuotasName,
 	            N.January as January,
 	            N.February as February,
@@ -46,26 +45,22 @@ namespace BasicData.Service.EnergyConsumption
 	            N.Remarks as Remarks
 	            from (Select
                             A.QuotasID as QuotasID,
-                            B.EquipmentId as EquipmentId,  
-                            B.EquipmentName + A.QuotasName as QuotasName,
-				            A.DisplayIndex as TemplateIndex,
-				            B.DisplayIndex as EquipmentIndex   
-                            from plan_ProductionPlan_Template A,
-                            equipment_EquipmentDetail B            
+                            A.QuotasName as QuotasName,
+                            A.VariableId as VariableId, 
+				            A.DisplayIndex as TemplateIndex
+                            from plan_PurchaseSalesPlan_Template A
                             where A.Type = @Type
-                            and (A.OrganizationID is null or A.OrganizationID = @OrganizationID)
-                            and B.OrganizationID = @OrganizationID
-                            and A.EquipmentCommonId = B.EquipmentCommonId) M
+                            and (A.OrganizationID is null or A.OrganizationID = @OrganizationID)) M
 	            left join (select C.*
-				            from plan_ProductionYearlyPlan C, tz_Plan D
+				            from plan_PurchaseSalesYearlyPlan C, tz_Plan D
 				            where C.KeyID = D.KeyID
 				            and D.OrganizationID=@OrganizationID
 				            and D.Date=@Date
-                            and D.PlanType = @PlanType) N on M.EquipmentId = N.EquipmentId and M.QuotasID = N.QuotasID
-	            order by M.EquipmentIndex, M.TemplateIndex";
+                            and D.PlanType = @PlanType) N on M.VariableId = N.VariableId and M.QuotasID = N.QuotasID
+	            order by M.TemplateIndex";
             try
             {
-                SqlParameter[] m_Parameters = { new SqlParameter("@Type", myProductionPlanType), 
+                SqlParameter[] m_Parameters = { new SqlParameter("@Type", myPurchaseSalesPlanType), 
                                                   new SqlParameter("@OrganizationID", myOrganizationId), 
                                                   new SqlParameter("@PlanType", myPlanType), 
                                                   new SqlParameter("@Date", myPlanYear) };
@@ -95,7 +90,7 @@ namespace BasicData.Service.EnergyConsumption
         /// <param name="myDataTableName">数据表的名称</param>
         /// <param name="myDataTable">数据表内容</param>
         /// <returns></returns>
-        public static int SaveProductionPlanInfo(string myDataTableName, DataTable myDataTable)
+        public static int SavePurchaseSalesPlanInfo(string myDataTableName, DataTable myDataTable)
         {
             return _dataFactory.Save(myDataTableName, myDataTable);
         }
@@ -104,10 +99,10 @@ namespace BasicData.Service.EnergyConsumption
         /// </summary>
         /// <param name="myKeyId">KeyId</param>
         /// <returns>是否删除成功</returns>
-        public static int DeleteProductionPlanInfo(string myKeyId, string myProductionPlanType)
+        public static int DeletePurchaseSalesPlanInfo(string myKeyId, string myPurchaseSalesPlanType)
         {
-            string m_Sql = @"DELETE FROM plan_ProductionYearlyPlan where KeyId=@KeyId and QuotasID in (Select A.QuotasID as QuotasID from plan_ProductionPlan_Template A where Type = @Type)";
-            SqlParameter[] m_Parameters = { new SqlParameter("@KeyId", myKeyId), new SqlParameter("@Type", myProductionPlanType) };
+            string m_Sql = @"DELETE FROM plan_PurchaseSalesYearlyPlan where KeyId=@KeyId and QuotasID in (Select A.QuotasID as QuotasID from plan_PurchaseSalesPlan_Template A where Type = @Type)";
+            SqlParameter[] m_Parameters = { new SqlParameter("@KeyId", myKeyId), new SqlParameter("@Type", myPurchaseSalesPlanType) };
             try
             {
                 return _dataFactory.ExecuteSQL(m_Sql, m_Parameters);
@@ -163,7 +158,7 @@ namespace BasicData.Service.EnergyConsumption
                                           new SqlParameter("@Date", myPlanYear),
                                           new SqlParameter("@ProductionLineType", "分厂"),
                                           new SqlParameter("@PlanType", myPlanType),
-                                          new SqlParameter("@TableName", "plan_ProductionPlan"),
+                                          new SqlParameter("@TableName", "plan_PurchaseSalesPlan"),
                                           new SqlParameter("@CreationDate", DateTime.Now),
                                           new SqlParameter("@Version", DateTime.Now),
                                           new SqlParameter("@ModifierID", myModifierId),

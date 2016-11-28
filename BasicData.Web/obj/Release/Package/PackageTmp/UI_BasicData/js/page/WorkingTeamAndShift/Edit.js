@@ -92,7 +92,7 @@ function loadWorkingTeamData() {
         success: function (msg) {
             var myData = jQuery.parseJSON(msg.d);
             if (myData.rows.length == 0) {
-                myData = { "total": 4, "rows": [{ "Name": "A班" }, { "Name": "B班" }, { "Name": "C班" }, { "Name": "D班" }] };
+                myData = { "total": 4, "rows": [{ "Name": "A班" }, { "Name": "B班" }, { "Name": "C班" }, { "Name": "D班" }, { "Name": "常白"}] };
             }
             else {
                 myData = jQuery.parseJSON(msg.d);
@@ -259,7 +259,7 @@ function workingteamReload() {
     $.messager.defaults = { ok: "是", cancel: "否" };
     $.messager.confirm('提示', '确定要重置？', function (r) {
         if (r) {
-            var data = [{ "Name": "A班" }, { "Name": "B班" }, { "Name": "C班" }, { "Name": "D班" }];
+            var data = [{ "Name": "A班" }, { "Name": "B班" }, { "Name": "C班" }, { "Name": "D班" }, { "Name": "常白"} ];
             $('#dg_workingteam').datagrid('loadData', data);
         }
     });

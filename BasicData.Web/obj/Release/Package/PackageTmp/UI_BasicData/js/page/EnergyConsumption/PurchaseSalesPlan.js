@@ -5,19 +5,18 @@ var PlanType;                                 //计划类型
 $(document).ready(function () {
     //LoadProductionType('first');
     //loadOrganisationTree('first');
-
-    //$('#TextBox_OrganizationId').textbox('hide');
     PlanType = $('#HiddenField_PlanType').val();
+    //$('#TextBox_OrganizationId').textbox('hide');
     SetYearValue();
 
-    LoadProductionPlanData('first');
+    LoadPurchaseSalesPlanData('first');
     initPageAuthority();
 });
 //初始化页面的增删改查权限
 function initPageAuthority() {
     $.ajax({
         type: "POST",
-        url: "ProductionPlan.aspx/AuthorityControl",
+        url: "PurchaseSalesPlan.aspx/AuthorityControl",
         data: "",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -49,36 +48,36 @@ function SetYearValue() {
     var m_PlanYear = new Date().getFullYear();
     $('#numberspinner_PlanYear').numberspinner('setValue', m_PlanYear);
 }
-function QueryProductionPlanInfoFun() {
+function QueryPurchaseSalesPlanInfoFun() {
     endEditing();           //关闭正在编辑
 
     var m_OrganizationId = $('#TextBox_OrganizationId').val();
     var m_PlanYear = $('#numberspinner_PlanYear').numberspinner('getValue');
-    //var m_ProductionPlanType = $('#drpDisplayType').combobox('select');
+    //var m_PurchaseSalesPlanType = $('#drpDisplayType').combobox('select');
     PlanYearCurrentDataGrid = m_PlanYear;
     OrganizationIdCurrentDataGrid = m_OrganizationId;
     if (m_OrganizationId != "") {
-        LoadProductionPlanData('last');
+        LoadPurchaseSalesPlanData('last');
     }
     else {
         alert("请选择正确的产线!");
     }
 }
-function LoadProductionPlanData(myLoadType) {
+function LoadPurchaseSalesPlanData(myLoadType) {
     var m_OrganizationId = $('#TextBox_OrganizationId').val();
     var m_PlanYear = $('#numberspinner_PlanYear').numberspinner('getValue');
-    var m_ProductionPlanType = $('#drpDisplayType').combobox('getValue');
-    var m_GridCommonName = "ProductionPlanInfo";
+    var m_PurchaseSalesPlanType = $('#drpDisplayType').combobox('getValue');
+    var m_GridCommonName = "PurchaseSalesPlanInfo";
     $.ajax({
         type: "POST",
-        url: "ProductionPlan.aspx/GetProductionPlanInfo",
-        data: "{myProductionPlanType:'" + m_ProductionPlanType + "',myOrganizationId:'" + m_OrganizationId + "',myPlanYear:'" + m_PlanYear + "',myPlanType:'" + PlanType + "'}",
+        url: "PurchaseSalesPlan.aspx/GetPurchaseSalesPlanInfo",
+        data: "{myPurchaseSalesPlanType:'" + m_PurchaseSalesPlanType + "',myOrganizationId:'" + m_OrganizationId + "',myPlanYear:'" + m_PlanYear + "',myPlanType:'" + PlanType + "'}",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (msg) {
             var m_MsgData = jQuery.parseJSON(msg.d);
             if (myLoadType == 'first') {
-                InitializeProductionPlanGrid(m_GridCommonName, m_MsgData);
+                InitializePurchaseSalesPlanGrid(m_GridCommonName, m_MsgData);
             }
             else if (myLoadType == 'last') {
                 $('#grid_' + m_GridCommonName).datagrid('loadData', m_MsgData);
@@ -86,13 +85,13 @@ function LoadProductionPlanData(myLoadType) {
         }
     });
 }
-function RefreshProductionPlanFun() {
-    QueryProductionPlanInfoFun();
+function RefreshPurchaseSalesPlanFun() {
+    QueryPurchaseSalesPlanInfoFun();
 }
-function SaveProductionPlanFun() {
+function SavePurchaseSalesPlanFun() {
     endEditing();           //关闭正在编辑
-    var m_DataGridData = $('#grid_ProductionPlanInfo').datagrid('getData');
-    var m_ProductionPlanType = $('#drpDisplayType').combobox('getValue');
+    var m_DataGridData = $('#grid_PurchaseSalesPlanInfo').datagrid('getData');
+    var m_PurchaseSalesPlanType = $('#drpDisplayType').combobox('getValue');
     if (m_DataGridData['rows'].length > 0) {
         var m_DataGridDataJson = '{"rows":' + JSON.stringify(m_DataGridData['rows']) + '}';
         if (OrganizationIdCurrentDataGrid == "") {
@@ -101,8 +100,8 @@ function SaveProductionPlanFun() {
         else {
             $.ajax({
                 type: "POST",
-                url: "ProductionPlan.aspx/SetProductionPlanInfo",
-                data: "{myOrganizationId:'" + OrganizationIdCurrentDataGrid + "',myPlanYear:'" + PlanYearCurrentDataGrid + "',myPlanType:'" + PlanType + "',myProductionPlanType:'" + m_ProductionPlanType + "',myDataGridData:'" + m_DataGridDataJson + "'}",
+                url: "PurchaseSalesPlan.aspx/SetPurchaseSalesPlanInfo",
+                data: "{myOrganizationId:'" + OrganizationIdCurrentDataGrid + "',myPlanYear:'" + PlanYearCurrentDataGrid + "',myPlanType:'" + PlanType + "',myPurchaseSalesPlanType:'" + m_PurchaseSalesPlanType + "',myDataGridData:'" + m_DataGridDataJson + "'}",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (msg) {
@@ -131,7 +130,7 @@ function SaveProductionPlanFun() {
     }
 }
 //////////////////////////////////初始化基础数据//////////////////////////////////////////
-function InitializeProductionPlanGrid(myGridId, myData) {
+function InitializePurchaseSalesPlanGrid(myGridId, myData) {
 
     var m_IdColumn = myData['columns'].splice(0, 2);
     $('#grid_' + myGridId).datagrid({
@@ -155,10 +154,10 @@ function InitializeProductionPlanGrid(myGridId, myData) {
 }
 function endEditing() {
     if (editIndex == undefined) { return true }
-    if ($('#grid_ProductionPlanInfo').datagrid('validateRow', editIndex)) {
-        $('#grid_ProductionPlanInfo').datagrid('endEdit', editIndex);
+    if ($('#grid_PurchaseSalesPlanInfo').datagrid('validateRow', editIndex)) {
+        $('#grid_PurchaseSalesPlanInfo').datagrid('endEdit', editIndex);
 
-        //MathSumColumnsValue('grid_ProductionPlanInfo', editIndex);             //计算合计列
+        //MathSumColumnsValue('grid_PurchaseSalesPlanInfo', editIndex);             //计算合计列
         editIndex = undefined;
         return true;
     } else {
@@ -168,14 +167,14 @@ function endEditing() {
 
 function onClickCell(index, field) {
     if (endEditing()) {
-        //var m_Rows = $('#grid_ProductionPlanInfo').datagrid("getRows")
+        //var m_Rows = $('#grid_PurchaseSalesPlanInfo').datagrid("getRows")
         //var m_Formula = m_Rows[index]["StatisticalFormula"];         //屏蔽根据行的内容进行计算的行，这些行自动改变值
         //if (m_Formula.indexOf("{Line|") == -1) {
-        $('#grid_ProductionPlanInfo').datagrid('selectRow', index)
+        $('#grid_PurchaseSalesPlanInfo').datagrid('selectRow', index)
                         .datagrid('editCell', { index: index, field: field });
         editIndex = index;
         //
-        //     SelectedTagValue = GetTagValue('grid_ProductionPlanInfo', index);
+        //     SelectedTagValue = GetTagValue('grid_PurchaseSalesPlanInfo', index);
         //}
     }
 }
