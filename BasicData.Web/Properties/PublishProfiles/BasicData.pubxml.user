@@ -14,14 +14,17 @@
     <File Include="bin/AutoMapper.dll">
       <publishTime>03/28/2015 18:10:18</publishTime>
     </File>
+    <File Include="bin/AutoSetParameters.dll">
+      <publishTime>11/04/2016 12:02:27</publishTime>
+    </File>
     <File Include="bin/BasicData.Infrastructure.dll">
-      <publishTime>11/01/2016 21:04:35</publishTime>
+      <publishTime>11/22/2016 14:23:27</publishTime>
     </File>
     <File Include="bin/BasicData.Service.dll">
-      <publishTime>11/08/2016 20:17:15</publishTime>
+      <publishTime>11/22/2016 14:23:29</publishTime>
     </File>
     <File Include="bin/BasicData.Web.dll">
-      <publishTime>11/08/2016 20:17:17</publishTime>
+      <publishTime>11/23/2016 15:14:00</publishTime>
     </File>
     <File Include="bin/EasyUIJsonParser.dll">
       <publishTime>01/18/2016 14:08:49</publishTime>
@@ -36,10 +39,13 @@
       <publishTime>07/26/2012 19:41:24</publishTime>
     </File>
     <File Include="bin/RunIndicators.dll">
-      <publishTime>10/20/2016 09:29:43</publishTime>
+      <publishTime>10/12/2016 16:57:12</publishTime>
     </File>
     <File Include="bin/SqlServerDataAdapter.dll">
       <publishTime>07/29/2015 10:56:04</publishTime>
+    </File>
+    <File Include="bin/Standard_GB16780-2012.dll">
+      <publishTime>11/04/2016 12:02:26</publishTime>
     </File>
     <File Include="bin/StatisticalReport.Infrastructure.dll">
       <publishTime>01/18/2016 14:08:49</publishTime>
@@ -4557,7 +4563,7 @@
       <publishTime>10/20/2016 09:29:43</publishTime>
     </File>
     <File Include="UI_BasicData/EnergyConsumption/EnergyConsumptionResult.aspx">
-      <publishTime>10/20/2016 09:29:43</publishTime>
+      <publishTime>11/21/2016 17:35:32</publishTime>
     </File>
     <File Include="UI_BasicData/EnergyConsumption/ProductionPlan.aspx">
       <publishTime>10/28/2016 21:37:42</publishTime>
@@ -4569,7 +4575,7 @@
       <publishTime>11/08/2016 11:19:07</publishTime>
     </File>
     <File Include="UI_BasicData/EnergyConsumption/PurchaseSalesResult.aspx">
-      <publishTime>11/08/2016 19:54:50</publishTime>
+      <publishTime>11/21/2016 14:31:56</publishTime>
     </File>
     <File Include="UI_BasicData/EnergyConsumptionPredict/EnergyPredit.aspx">
       <publishTime>10/20/2016 09:29:43</publishTime>
@@ -4590,22 +4596,22 @@
       <publishTime>10/20/2016 09:29:43</publishTime>
     </File>
     <File Include="UI_BasicData/js/page/EnergyConsumption/EnergyConsumptionPlan.js">
-      <publishTime>10/20/2016 09:29:43</publishTime>
+      <publishTime>11/23/2016 15:08:52</publishTime>
     </File>
     <File Include="UI_BasicData/js/page/EnergyConsumption/EnergyConsumptionResult.js">
-      <publishTime>10/20/2016 09:29:43</publishTime>
+      <publishTime>11/23/2016 14:55:10</publishTime>
     </File>
     <File Include="UI_BasicData/js/page/EnergyConsumption/ProductionPlan.js">
-      <publishTime>11/08/2016 11:42:51</publishTime>
+      <publishTime>11/23/2016 15:08:52</publishTime>
     </File>
     <File Include="UI_BasicData/js/page/EnergyConsumption/ProductionResult.js">
-      <publishTime>10/20/2016 09:29:43</publishTime>
+      <publishTime>11/23/2016 15:08:52</publishTime>
     </File>
     <File Include="UI_BasicData/js/page/EnergyConsumption/PurchaseSalesPlan.js">
-      <publishTime>11/08/2016 11:42:51</publishTime>
+      <publishTime>11/23/2016 15:08:52</publishTime>
     </File>
     <File Include="UI_BasicData/js/page/EnergyConsumption/PurchaseSalesResult.js">
-      <publishTime>11/08/2016 19:54:50</publishTime>
+      <publishTime>11/23/2016 15:08:52</publishTime>
     </File>
     <File Include="UI_BasicData/js/page/EnergyConsumptionPredict/EnergyPredit.js">
       <publishTime>10/20/2016 09:29:43</publishTime>
@@ -4701,7 +4707,7 @@
       <publishTime>10/20/2016 09:29:43</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/08/2016 20:17:44</publishTime>
+      <publishTime>11/23/2016 15:14:07</publishTime>
     </File>
   </ItemGroup>
 </Project>

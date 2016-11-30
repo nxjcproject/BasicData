@@ -116,3 +116,7 @@ E:\1项目\BasicData\BasicData\BasicData.Web\obj\Release\BasicData.Web.csprojFak
 E:\1项目\BasicData\BasicData\BasicData.Web\obj\Release\BasicData.Web.csprojResolveAssemblyReference.cache
 E:\1项目\BasicData\BasicData\BasicData.Web\obj\Release\BasicData.Web.dll
 E:\1项目\BasicData\BasicData\BasicData.Web\obj\Release\BasicData.Web.pdb
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Web\bin\AutoSetParameters.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Web\bin\Standard_GB16780-2012.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Web\bin\AutoSetParameters.pdb
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Web\bin\Standard_GB16780-2012.pdb

@@ -129,12 +129,14 @@ function SaveEnergyConsumptionPlanFun() {
 function InitializeEnergyConsumptionGrid(myGridId, myData) {
 
     var m_IdColumn = myData['columns'].splice(0, 1);
+    var m_FrozenColumns = myData['columns'].splice(0, 1);
     $('#grid_' + myGridId).datagrid({
         title: '',
         data: myData,
         dataType: "json",
         striped: true,
         idField: m_IdColumn[0].field,
+        frozenColumns: [m_FrozenColumns],
         columns: [myData['columns']],
         //loadMsg: '',   //设置本身的提示消息为空 则就不会提示了的。这个设置很关键的
         rownumbers: true,

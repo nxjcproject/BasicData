@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoSetParameters">
+      <HintPath>..\..\..\组件\StandardCalculation\AutoSetParameters\bin\Debug\AutoSetParameters.dll</HintPath>
+    </Reference>
     <Reference Include="EasyUIJsonParser">
       <HintPath>..\..\Lib\EasyUIJsonParser.dll</HintPath>
     </Reference>
@@ -41,6 +44,9 @@
     </Reference>
     <Reference Include="SqlServerDataAdapter">
       <HintPath>..\..\Lib\SqlServerDataAdapter.dll</HintPath>
+    </Reference>
+    <Reference Include="Standard_GB16780-2012">
+      <HintPath>..\..\..\组件\StandardCalculation\AutoSetParameters\bin\Debug\Standard_GB16780-2012.dll</HintPath>
     </Reference>
     <Reference Include="StatisticalReport.Infrastructure, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

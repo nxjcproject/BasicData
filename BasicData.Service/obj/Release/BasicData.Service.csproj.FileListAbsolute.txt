@@ -72,3 +72,9 @@ E:\1项目\BasicData\BasicData\BasicData.Service\obj\Release\BasicData.Service.c
 E:\1项目\BasicData\BasicData\BasicData.Service\obj\Release\BasicData.Service.csprojResolveAssemblyReference.cache
 E:\1项目\BasicData\BasicData\BasicData.Service\obj\Release\BasicData.Service.dll
 E:\1项目\BasicData\BasicData\BasicData.Service\obj\Release\BasicData.Service.pdb
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Service\bin\Release\AutoSetParameters.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Service\bin\Release\Standard_GB16780-2012.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Service\bin\Release\mDbDataAdaper.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Service\bin\Release\AutoSetParameters.pdb
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Service\bin\Release\Standard_GB16780-2012.pdb
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Service\bin\Release\mDbDataAdaper.pdb

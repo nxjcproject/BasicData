@@ -44,7 +44,7 @@
                                         onclick="QueryEnergyConsumptionResultInfoFun();">查询</a>
                                 </td>
                                 <td>
-                                    <input id="TextBox_OrganizationLevelCode" style="width: 10px; visibility: hidden;" />
+                                    <input id="TextBox_OrganizationId" style="width: 10px; visibility: hidden;" />
                                 </td>
                             </tr>
                         </table>

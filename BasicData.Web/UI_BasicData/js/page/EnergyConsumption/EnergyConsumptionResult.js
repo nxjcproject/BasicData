@@ -8,11 +8,15 @@
 });
 function onOrganisationTreeClick(myNode) {
     //alert(myNode.text);
-    //$('#TextBox_OrganizationId').attr('value', myNode.OrganizationId); 
-    $('#TextBox_OrganizationLevelCode').attr('value', myNode.id);  //textbox('setText', myNode.OrganizationId);
-
-    $('#TextBox_OrganizationText').textbox('setText', myNode.text);
-    $('#TextBox_OrganizationType').textbox('setText', myNode.OrganizationType);
+    if(myNode.id.length == 7)
+    {
+        $('#TextBox_OrganizationId').attr('value', myNode.OrganizationId);
+        $('#TextBox_OrganizationText').textbox('setText', myNode.text);
+    }
+    else
+    {
+        alert("请选择到产线!");
+    }
 }
 function SetYearValue() {
     var m_PlanYear = new Date().getFullYear();
@@ -23,14 +27,19 @@ function QueryEnergyConsumptionResultInfoFun() {
 }
 
 function LoadEnergyConsumptionData(myLoadType) {
-    var m_LevelCode = $('#TextBox_OrganizationLevelCode').val();
+    $.messager.progress({
+        title: 'Please waiting',
+        msg: 'Loading data...'
+    });
+
+    var m_OrganizationId = $('#TextBox_OrganizationId').val();
     var m_PlanYear = $('#numberspinner_PlanYear').numberspinner('getValue');
     //var m_OrganizationType = $('#TextBox_OrganizationType').textbox('getText');
     var m_GridCommonName = "EnergyConsumptionResultInfo";
     $.ajax({
         type: "POST",
-        url: "EnergyConsumptionResult.aspx/GetEnergyConsumptionInfo",
-        data: "{myLevelCode:'" + m_LevelCode + "',myPlanYear:'" + m_PlanYear + "'}",
+        url: "EnergyConsumptionResult.aspx/GetEnergyInfo",
+        data: "{myOrganizationId:'" + m_OrganizationId + "',myPlanYear:'" + m_PlanYear + "'}",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (msg) {
@@ -41,108 +50,44 @@ function LoadEnergyConsumptionData(myLoadType) {
             else if (myLoadType == 'last') {
                 $('#grid_' + m_GridCommonName).datagrid('loadData', m_MsgData);
             }
+            if (m_MsgData != null && m_MsgData != undefined) {
+                for (var i = 0; i < m_MsgData.rows.length / 2; i++) {
+                    $('#grid_' + m_GridCommonName).datagrid('mergeCells', {
+                        index: i * 2,
+                        field: 'QuotasName',
+                        rowspan: 2
+                    });
+                }
+            }
+            $.messager.progress('close');
+        },
+        error: function (msg) {
+            $.messager.progress('close');
         }
     });
 }
 
 //////////////////////////////////初始化基础数据//////////////////////////////////////////
 function InitializeEnergyConsumptionGrid(myGridId, myData) {
-
+    var m_FrozenColumns = myData['columns'].splice(0, 4);
+    m_FrozenColumns[0]["hidden"] = true;
+    m_FrozenColumns[1]["hidden"] = true;
     $('#grid_' + myGridId).datagrid({
         title: '',
         data: myData,
         dataType: "json",
         striped: true,
+        idField: m_FrozenColumns[0].field,
+        frozenColumns: [m_FrozenColumns],
+        columns: [myData['columns']],
         //loadMsg: '',   //设置本身的提示消息为空 则就不会提示了的。这个设置很关键的
         rownumbers: true,
+        //pagination: true,
         singleSelect: true,
-        idField: 'OrganizationID',
-        columns: [[{
-            width: 120,
-            title: '产线类型',
-            field: 'Type',
-            formatter: function (value, row, index) {
-                if (value == 1) {
-                    return "熟料";
-                }
-                else if (value == 2) {
-                    return "水泥磨";
-                }
-                else if (value == 3) {
-                    return "余热发电"
-                }
-                else {
-                    return "其它";
-                }
-            }
-        }, {
-            width: 120,
-            title: '指标名称',
-            field: 'IndicatorName'
-        }, {
-            width: '120',
-            title: '一月',
-            field: 'January'
-        }, {
-            width: 120,
-            title: '二月',
-            field: 'February'
-        }, {
-            width: 150,
-            title: '三月',
-            field: 'March'
-        }, {
-            width: '120',
-            title: '四月',
-            field: 'April'
-        }
-        , {
-            width: '120',
-            title: '五月',
-            field: 'May'
-        }
-        , {
-            width: '120',
-            title: '六月',
-            field: 'June'
-        }
-        , {
-            width: '120',
-            title: '七月',
-            field: 'July'
-        }
-        , {
-            width: '120',
-            title: '八月',
-            field: 'August'
-        }
-        , {
-            width: '120',
-            title: '九月',
-            field: 'September'
-        }
-        , {
-            width: '120',
-            title: '十月',
-            field: 'October'
-        }
-        , {
-            width: '120',
-            title: '十一月',
-            field: 'November'
-        }, {
-            width: 120,
-            title: '十二月',
-            field: 'December'
-        }, {
-            width: 60,
-            title: '合计',
-            field: 'Totals'
-        }, {
-            width: 150,
-            title: '备注',
-            field: 'Remarks'
-        }]],
+        //idField: m_IdAndNameColumn[0].field,
+        //pageSize: 20,
+        //pageList: [20, 50, 100, 500],
+
         toolbar: '#toolbar_' + myGridId
     });
 }

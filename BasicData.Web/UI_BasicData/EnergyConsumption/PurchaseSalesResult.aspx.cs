@@ -44,7 +44,7 @@ namespace BasicData.Web.UI_BasicData.EnergyConsumption
         public static string GetPurchaseSalesResultInfo(string myOrganizationId, string myType, string myPlanYear)
         {
             string[] m_ColumnText = new string[] { "指标项ID", "变量ID", "指标项目名称", "类别", "一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月", "年度合计", "备注" };
-            int[] m_ColumnWidth = new int[] { 180, 180, 180, 100, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 100, 180 };
+            int[] m_ColumnWidth = new int[] { 180, 180, 180, 60, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 100, 180 };
 
             DataTable m_PurchaseSalesPlanInfo = BasicData.Service.EnergyConsumption.PurchaseSalesResult.GetPurchaseSalesPlanInfo(myOrganizationId, myType, myPlanType, myPlanYear);
             if (m_PurchaseSalesPlanInfo != null)
@@ -71,7 +71,7 @@ namespace BasicData.Web.UI_BasicData.EnergyConsumption
                     {
                         for (int j = 0; j < m_PurchaseSalesResultTable.Rows.Count; j++)
                         {
-                            if (m_PurchaseSalesResultTable.Rows[j]["VariableId"].ToString() == m_PurchaseSalesPlanInfo.Rows[i]["VariableId"].ToString())
+                            if (m_PurchaseSalesResultTable.Rows[j]["VariableId"].ToString() == m_PurchaseSalesPlanInfo.Rows[2*i]["VariableId"].ToString())
                             {
                                 m_DataRow[16] = 0;
                                 for (int z = 0; z < 12; z++)

@@ -58,6 +58,11 @@ function QueryPurchaseSalesResultInfoFun() {
 }
 
 function LoadPurchaseSalesResultData(myLoadType) {
+    $.messager.progress({
+        title: 'Please waiting',
+        msg: 'Loading data...'
+    });
+
     var m_OrganizationId = $('#TextBox_OrganizationId').val();
     var m_PlanYear = $('#numberspinner_PlanYear').numberspinner('getValue');
     var m_Type = $('#drpDisplayType').combobox('getValue');
@@ -85,7 +90,10 @@ function LoadPurchaseSalesResultData(myLoadType) {
                     });
                 }
             }
-
+            $.messager.progress('close');
+        },
+        error: function (msg) {
+            $.messager.progress('close');
         }
     });
 }
@@ -96,13 +104,16 @@ function RefreshPurchaseSalesResultFun() {
 //////////////////////////////////初始化基础数据//////////////////////////////////////////
 function InitializePurchaseSalesResultGrid(myGridId, myData) {
 
-    var m_IdColumn = myData['columns'].splice(0, 2);
+    var m_FrozenColumns = myData['columns'].splice(0, 4);
+    m_FrozenColumns[0]["hidden"] = true;
+    m_FrozenColumns[1]["hidden"] = true;
     $('#grid_' + myGridId).datagrid({
         title: '',
         data: myData,
         dataType: "json",
         striped: true,
-        idField: m_IdColumn[0].field,
+        idField: m_FrozenColumns[0].field,
+        frozenColumns: [m_FrozenColumns],
         columns: [myData['columns']],
         //loadMsg: '',   //设置本身的提示消息为空 则就不会提示了的。这个设置很关键的
         rownumbers: true,

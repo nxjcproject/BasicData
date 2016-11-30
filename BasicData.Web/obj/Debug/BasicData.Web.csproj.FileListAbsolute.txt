@@ -101,7 +101,6 @@ E:\NXJC\项目文件\BasicData\BasicData.Web\obj\Debug\BasicData.Web.csprojFakes
 E:\NXJC\项目文件\BasicData\BasicData.Web\obj\Debug\BasicData.Web.csprojResolveAssemblyReference.cache
 E:\NXJC\项目文件\BasicData\BasicData.Web\obj\Debug\BasicData.Web.dll
 E:\NXJC\项目文件\BasicData\BasicData.Web\obj\Debug\BasicData.Web.pdb
-C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Web\obj\Debug\BasicData.Web.csprojResolveAssemblyReference.cache
 E:\1项目\BasicData-master\BasicData-master\BasicData.Web\bin\BasicData.Web.dll
 E:\1项目\BasicData-master\BasicData-master\BasicData.Web\bin\BasicData.Web.pdb
 E:\1项目\BasicData-master\BasicData-master\BasicData.Web\bin\BasicData.Infrastructure.dll
@@ -144,3 +143,8 @@ E:\git仓库\BasicData\BasicData.Web\obj\Debug\BasicData.Web.csprojFakesResolveA
 E:\git仓库\BasicData\BasicData.Web\obj\Debug\BasicData.Web.csprojResolveAssemblyReference.cache
 E:\git仓库\BasicData\BasicData.Web\obj\Debug\BasicData.Web.dll
 E:\git仓库\BasicData\BasicData.Web\obj\Debug\BasicData.Web.pdb
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Web\bin\AutoSetParameters.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Web\bin\Standard_GB16780-2012.dll
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Web\bin\AutoSetParameters.pdb
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Web\bin\Standard_GB16780-2012.pdb
+C:\工作\编程\恒拓软件\三层框架V3.1\BasicData\BasicData.Web\obj\Debug\BasicData.Web.csprojResolveAssemblyReference.cache
