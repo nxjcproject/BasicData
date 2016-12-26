@@ -23,7 +23,7 @@
 </head>
 <body>
     <div class="easyui-layout" data-options="fit:true,border:false" style="padding: 5px;">
-        <div data-options="region:'west',border:false,collapsible:false" style="width: 230px;">
+        <div data-options="region:'west',border:false,collapsible:false" style="width: 150px;">
             <uc1:OrganisationTree runat="server" ID="OrganisationTree" />
         </div>
         <div data-options="region:'center',border:false,collapsible:false" style="padding-left: 10px;">

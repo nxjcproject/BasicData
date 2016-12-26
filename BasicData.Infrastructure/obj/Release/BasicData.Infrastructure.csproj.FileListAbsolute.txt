@@ -22,3 +22,8 @@ E:\1项目\BasicData\BasicData\BasicData.Infrastructure\bin\Release\BasicData.In
 E:\1项目\BasicData\BasicData\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.csprojResolveAssemblyReference.cache
 E:\1项目\BasicData\BasicData\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.dll
 E:\1项目\BasicData\BasicData\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.pdb
+H:\徐一帅项目\第一轮修改\BasicData-master\BasicData-master\BasicData.Infrastructure\bin\Release\BasicData.Infrastructure.dll
+H:\徐一帅项目\第一轮修改\BasicData-master\BasicData-master\BasicData.Infrastructure\bin\Release\BasicData.Infrastructure.pdb
+H:\徐一帅项目\第一轮修改\BasicData-master\BasicData-master\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.csprojResolveAssemblyReference.cache
+H:\徐一帅项目\第一轮修改\BasicData-master\BasicData-master\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.dll
+H:\徐一帅项目\第一轮修改\BasicData-master\BasicData-master\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.pdb

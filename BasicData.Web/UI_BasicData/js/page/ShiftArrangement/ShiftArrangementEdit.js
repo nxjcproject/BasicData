@@ -34,8 +34,8 @@ function initDatagrid() {
     $('#dg').datagrid({
         //data: myData,
         columns: [[
-            { field: 'WorkingTeam', title: '班组', width: 130 },
-            { field: 'ShiftDate', title: '首次白班日期', width: 180, editor: { type: 'datebox' } },
+            { field: 'WorkingTeam', title: '班组', width: 50 },
+            { field: 'ShiftDate', title: '首次白班日期', width: 80, editor: { type: 'datebox' } },
         ]],
         rownumbers: true,
         singleSelect: true,

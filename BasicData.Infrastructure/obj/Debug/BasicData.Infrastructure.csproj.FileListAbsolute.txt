@@ -30,3 +30,8 @@ E:\git仓库\BasicData\BasicData.Infrastructure\bin\Debug\BasicData.Infrastructu
 E:\git仓库\BasicData\BasicData.Infrastructure\obj\Debug\BasicData.Infrastructure.csprojResolveAssemblyReference.cache
 E:\git仓库\BasicData\BasicData.Infrastructure\obj\Debug\BasicData.Infrastructure.dll
 E:\git仓库\BasicData\BasicData.Infrastructure\obj\Debug\BasicData.Infrastructure.pdb
+H:\徐一帅项目\第一轮修改\BasicData-master\BasicData-master\BasicData.Infrastructure\bin\Debug\BasicData.Infrastructure.dll
+H:\徐一帅项目\第一轮修改\BasicData-master\BasicData-master\BasicData.Infrastructure\bin\Debug\BasicData.Infrastructure.pdb
+H:\徐一帅项目\第一轮修改\BasicData-master\BasicData-master\BasicData.Infrastructure\obj\Debug\BasicData.Infrastructure.csprojResolveAssemblyReference.cache
+H:\徐一帅项目\第一轮修改\BasicData-master\BasicData-master\BasicData.Infrastructure\obj\Debug\BasicData.Infrastructure.dll
+H:\徐一帅项目\第一轮修改\BasicData-master\BasicData-master\BasicData.Infrastructure\obj\Debug\BasicData.Infrastructure.pdb

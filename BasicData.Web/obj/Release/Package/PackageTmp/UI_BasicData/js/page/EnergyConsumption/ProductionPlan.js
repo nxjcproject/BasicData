@@ -69,6 +69,10 @@ function LoadProductionPlanData(myLoadType) {
     var m_PlanYear = $('#numberspinner_PlanYear').numberspinner('getValue');
     var m_ProductionPlanType = $('#drpDisplayType').combobox('getValue');
     var m_GridCommonName = "ProductionPlanInfo";
+    var win = $.messager.progress({
+        title: '请稍后',
+        msg: '数据载入中...'
+    });
     $.ajax({
         type: "POST",
         url: "ProductionPlan.aspx/GetProductionPlanInfo",
@@ -76,6 +80,7 @@ function LoadProductionPlanData(myLoadType) {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (msg) {
+            $.messager.progress('close');
             var m_MsgData = jQuery.parseJSON(msg.d);
             if (myLoadType == 'first') {
                 InitializeProductionPlanGrid(m_GridCommonName, m_MsgData);
@@ -83,6 +88,9 @@ function LoadProductionPlanData(myLoadType) {
             else if (myLoadType == 'last') {
                 $('#grid_' + m_GridCommonName).datagrid('loadData', m_MsgData);
             }
+        },
+        beforeSend: function (XMLHttpRequest) {
+            win;
         }
     });
 }

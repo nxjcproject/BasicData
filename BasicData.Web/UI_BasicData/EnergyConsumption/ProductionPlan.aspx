@@ -22,7 +22,7 @@
 </head>
 <body>
     <div class="easyui-layout" data-options="fit:true,border:false">
-        <div data-options="region:'west',border:false " style="width: 230px;">
+        <div data-options="region:'west',border:false " style="width: 150px;">
             <uc1:OrganisationTree ID="OrganisationTree_ProductionLine" runat="server" />
         </div>
         <div id="toolbar_ProductionPlanInfo" style="display: none;">
@@ -32,16 +32,16 @@
                         <table>
                             <tr>
                                 <td>选择年份</td>
-                                <td style="width: 150px;">
-                                    <input id="numberspinner_PlanYear" class="easyui-numberspinner" data-options="min:1900,max:2999" style="width: 140px;" />
+                                <td style="width: 80px;">
+                                    <input id="numberspinner_PlanYear" class="easyui-numberspinner" data-options="min:1900,max:2999" style="width: 80px;" />
                                 </td>
                                 <td>生产区域</td>
-                                <td style="width: 200px;">
-                                    <input id="TextBox_OrganizationText" class="easyui-textbox" data-options="editable:false, readonly:true" style="width: 180px;" />
+                                <td style="width: 80px;">
+                                    <input id="TextBox_OrganizationText" class="easyui-textbox" data-options="editable:false, readonly:true" style="width: 80px;" />
                                 </td>
                                 <td>类型</td>
                                 <td>
-                                    <select id="drpDisplayType" class="easyui-combobox" data-options="editable:false,panelHeight:'auto'">
+                                    <select id="drpDisplayType" class="easyui-combobox" data-options="editable:false,panelHeight:'auto'" style="width: 100px;">
                                         <option value="MaterialWeight">产量计划</option>
                                         <option value="EquipmentUtilization">设备利用计划</option>
                                         <%--<option value="PurchaseSales">销售计划</option>--%>

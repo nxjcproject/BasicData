@@ -31,7 +31,7 @@
 </head>
 <body>
     <div class="easyui-layout" data-options="fit:true,border:false" style="padding: 5px;">
-        <div data-options="region:'west',border:false,collapsible:false" style="width: 240px;">
+        <div data-options="region:'west',border:false,collapsible:false" style="width: 150px;">
             <uc1:OrganisationTree runat="server" ID="OrganisationTree_ProductionLine" />
         </div>
         <div data-options="region:'center',border:false">
@@ -41,7 +41,7 @@
 
     <div id="equipmentAccount_ToolBar">
         <div style="padding: 10px" id="PanelToolBar">
-            <span>机构名称：</span><input id="productLineName" class="easyui-textbox" style="width: 180px;" readonly="true" />
+            <span>机构名称：</span><input id="productLineName" class="easyui-textbox" style="width: 130px;" readonly="true" />
             <a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true"
                 onclick="QueryReportFun();">查询</a>
             <input id="organizationId" readonly="true" style="display: none;" />

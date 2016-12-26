@@ -12,9 +12,9 @@ function loadDataGrid(data,type){
             singleSelect: true,
             rownumbers: true,
             columns: [[
-                { field: 'LevelCode', title: '层次码', width: 130 },
-                { field: 'AmmeterNumber', title: '电表编号', width: 130, editor: { type: 'text', options: { required: true } } },
-                { field: 'ElectricRoom', title: '电气室', width: 120 },
+                { field: 'LevelCode', title: '层次码', width: 160 },
+                { field: 'AmmeterNumber', title: '电表编号', width: 90, editor: { type: 'text', options: { required: true } } },
+                { field: 'ElectricRoom', title: '电气室', width: 100 },
                 { field: 'AmmeterName', title: '电表名称', width: 120 }
             ]],
             idField: 'id',
@@ -125,6 +125,10 @@ function endEditing() {
 function queryAmmeterInfo() {
     var organizationId = $('#organizationId').val();
     var sendData = "{organizationId:'" + organizationId + "'}";
+    var win = $.messager.progress({
+        title: '请稍后',
+        msg: '数据载入中...'
+    });
     $.ajax({
         type: "POST",
         url: "AmmeterLevelMaintenance.aspx/GetAmmeterInfo",
@@ -133,8 +137,12 @@ function queryAmmeterInfo() {
         dataType: "json",
         async: false,
         success: function (msg) {
+            $.messager.progress('close');
             myData = JSON.parse(msg.d);
             return myData;
+        },
+        beforeSend: function (XMLHttpRequest) {
+            win;
         }
     })
 }

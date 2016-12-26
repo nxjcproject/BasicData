@@ -47,6 +47,10 @@ function initPageAuthority() {
     });
 }
 function LoadMaterMachineData(myLoadType, myDcsId) {
+    var win = $.messager.progress({
+        title: '请稍后',
+        msg: '数据载入中...'
+    });
     $.ajax({
         type: "POST",
         url: "MasterSlaveMachinedescription.aspx/GetMasterMachineInfo",
@@ -54,6 +58,7 @@ function LoadMaterMachineData(myLoadType, myDcsId) {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (msg) {
+            $.messager.progress('close');
             var m_MsgData = jQuery.parseJSON(msg.d);
             if (myLoadType == 'first') {
                 InitializeMaterMachineGrid(m_MsgData);
@@ -61,6 +66,9 @@ function LoadMaterMachineData(myLoadType, myDcsId) {
             else if (myLoadType == 'last') {
                 $('#grid_MasterMachineInfo').datagrid('loadData', m_MsgData);
             }
+        },
+        beforeSend: function (XMLHttpRequest) {
+            win;
         }
     });
 }
@@ -82,15 +90,15 @@ function InitializeMaterMachineGrid(myData) {
             field: 'OrganizationId',
             hidden: true
         }, {
-            width: 110,
+            width: 70,
             title: 'DCS名称',
             field: 'OrganizationName'
         }, {
-            width: 110,
+            width: 90,
             title: '变量名',
             field: 'VariableName'
         }, {
-            width: 140,
+            width: 120,
             title: '变量描述',
             field: 'VariableDescription'
         }, {
@@ -109,7 +117,7 @@ function InitializeMaterMachineGrid(myData) {
             field: 'VariableId',
             hidden: true
         }, {
-            width: 100,
+            width: 90,
             title: '主机停机信息',
             field: 'Record'
         }, {
@@ -182,7 +190,7 @@ function InitializeSlaveMachineGrid(myData) {
             field: 'OrganizationId',
             hidden: true
         }, {
-            width: 120,
+            width: 70,
             title: 'DCS名称',
             field: 'OrganizationName'
         }, {
@@ -196,7 +204,7 @@ function InitializeSlaveMachineGrid(myData) {
             field: 'KeyName',
             hidden: true
         }, {
-            width: 120,
+            width: 90,
             title: '变量名',
             field: 'VariableName'
         }, {

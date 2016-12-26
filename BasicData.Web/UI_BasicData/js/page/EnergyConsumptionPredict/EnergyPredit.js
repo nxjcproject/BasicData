@@ -12,6 +12,10 @@ function loadGridData(myLoadType) {
     var m_OrganizationId = $('#organizationId').val();
     //alert(m_OrganizationId);
     var m_MsgData;
+    var win = $.messager.progress({
+        title: '请稍后',
+        msg: '数据载入中...'
+    });
     $.ajax({
         type: "POST",
         url: "EnergyPredit.aspx/GetReportData",
@@ -19,6 +23,7 @@ function loadGridData(myLoadType) {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (msg) {
+            $.messager.progress('close');
             if (myLoadType == 'first') {
                 m_MsgData = jQuery.parseJSON(msg.d);
                 InitializeGrid(m_MsgData);
@@ -28,7 +33,13 @@ function loadGridData(myLoadType) {
                 $('#gridMain_ReportTemplate').datagrid('loadData', m_MsgData['rows']);
             }
         },
-        error: handleError
+        beforeSend: function (XMLHttpRequest) {
+            win;
+        },
+        error: function () {
+            $.messager.progress('close');
+            handleError
+        }
     });
 }
 
@@ -46,20 +57,20 @@ function InitializeGrid(myData) {
         //idField: "field",//指示哪个字段是标识字段。
         //frozenColumns: [[m_IdAndNameColumn[1]]],
         columns: [[
-            	{ field: 'IndicatorName', title: '指标项目名称', width: 100 },
-                { field: 'January', title: '一月', width: 100 },
-                { field: 'February', title: '二月', width: 100 },
-                { field: 'March', title: '三月', width: 100 },
-                { field: 'April', title: '四月', width: 100 },
-                { field: 'May', title: '五月', width: 100 },
-                { field: 'June', title: '六月', width: 100 },
-                { field: 'July', title: '七月', width: 100 },
-                { field: 'August', title: '八月', width: 100 },
-                { field: 'September', title: '九月', width: 100 },
-                { field: 'October', title: '十月', width: 100 },
-                { field: 'November', title: '十一月', width: 100 },
-                { field: 'December', title: '十二月', width: 100 },
-                { field: 'Totals', title: '年度', width: 100 },
+            	{ field: 'IndicatorName', title: '指标项目名称', width: 140 },
+                { field: 'January', title: '一月', width: 60 },
+                { field: 'February', title: '二月', width: 60 },
+                { field: 'March', title: '三月', width: 60 },
+                { field: 'April', title: '四月', width: 60 },
+                { field: 'May', title: '五月', width: 60 },
+                { field: 'June', title: '六月', width: 60 },
+                { field: 'July', title: '七月', width: 60 },
+                { field: 'August', title: '八月', width: 60 },
+                { field: 'September', title: '九月', width: 60 },
+                { field: 'October', title: '十月', width: 60 },
+                { field: 'November', title: '十一月', width: 60 },
+                { field: 'December', title: '十二月', width: 60 },
+                { field: 'Totals', title: '年度', width: 60 },
                 { field: 'Remarks', title: '备注', width: 100 },
         ]],
         //loadMsg: '',   //设置本身的提示消息为空 则就不会提示了的。这个设置很关键的

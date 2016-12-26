@@ -52,6 +52,10 @@ function initPageAuthority() {
 
 function loadGridData(myLoadType) {
     var m_OrganizationId = $("#organizationId").val();
+    var win = $.messager.progress({
+        title: '请稍后',
+        msg: '数据载入中...'
+    });
     $.ajax({
         type: "POST",
         url: "EquipmentAccountEdit.aspx/GetEquipmentsInfo",
@@ -59,6 +63,7 @@ function loadGridData(myLoadType) {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (msg) {
+            $.messager.progress('close');
             if (myLoadType == 'first') {
                 m_MsgData = jQuery.parseJSON(msg.d);
                 InitializeGrid(m_MsgData);
@@ -68,7 +73,13 @@ function loadGridData(myLoadType) {
                 $('#equipmentAccount_Info').datagrid('loadData', m_MsgData['rows']);
             }
         },
-        error: handleError
+        beforeSend: function (XMLHttpRequest) {
+            win;
+        },
+        error: function () {
+            $.messager.progress('close');
+            handleError
+        }
     });
 }
 
@@ -76,8 +87,8 @@ function InitializeGrid(myData) {
     $('#equipmentAccount_Info').datagrid({
         data:myData,
         columns: [[
-            { field: 'EquipmentName', title: '设备名称', width: 130 },
-            { field: 'VariableId', title: '变量ID', width: 250 },            
+            { field: 'EquipmentName', title: '设备名称', width: 110 },
+            { field: 'VariableId', title: '变量ID', width: 200 },            
             //{ field: 'OrganizationID', title: '组织机构ID', width: 200 },
             { field: 'Name', title: '产线名称', width: 70 },
             { field: 'OrganizationID', title: '组织机构ID', width: 70, hidden: true },

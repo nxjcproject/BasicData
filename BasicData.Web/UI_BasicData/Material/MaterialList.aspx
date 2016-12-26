@@ -22,7 +22,7 @@
 <body>
     <div class="easyui-layout" data-options="fit:true,border:false" style="padding: 5px;">
         <!-- 左侧目录树开始 -->
-        <div data-options="region:'west',border:false,collapsible:false" style="width: 230px;">
+        <div data-options="region:'west',border:false,collapsible:false" style="width: 150px;">
             <uc1:OrganisationTree runat="server" ID="OrganisationTree" />
         </div>
         <div data-options="region:'center',border:false">
@@ -39,12 +39,12 @@
                         </tr>
                     </table>
                 </div>
-                <div data-options="region:'west'" title="物料信息列表" style="width:250px;">
+                <div data-options="region:'west'" title="物料信息列表" style="width:200px;">
 	                <table id="dgMaterial" class="easyui-datagrid" data-options="rownumbers:true,singleSelect:true,toolbar:'#tbMaterialList',onDblClickRow:OnDgMaterialClicked" style="width:100%;height:100%;">
 		                <thead>
 			                <tr>
                                 <th data-options="field:'KeyID',hidden:true">KeyID</th>
-				                <th data-options="field:'Name',width:140">名称</th>
+				                <th data-options="field:'Name',width:100">名称</th>
                                 <th data-options="field:'CreatedDate',width:80">创建时间</th>
                                 <!--<th data-options="field:'OperateColumn',formatter:MaterialListOperateColumnFormatter,width:80">操作</th>-->
 			                </tr>
@@ -56,8 +56,8 @@
 		                <thead>
 			                <tr>
                                 <th data-options="field:'MaterialId',hidden:true">MaterialId</th>
-				                <th data-options="field:'Name',width:140">名称</th>
-                                <th data-options="field:'VariableId',width:140">变量ID</th>
+				                <th data-options="field:'Name',width:100">名称</th>
+                                <th data-options="field:'VariableId',width:100">变量ID</th>
                                 <th data-options="field:'Type',width:80,formatter:TypeFormatter">类型</th>
                                 <th data-options="field:'Unit',width:40">单位</th>
                                 <th data-options="field:'MaterialErpCode',width:80">ERP编码</th>

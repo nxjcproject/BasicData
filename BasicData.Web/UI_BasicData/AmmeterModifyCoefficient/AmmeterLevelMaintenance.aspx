@@ -47,13 +47,13 @@
 </head>
 <body>
     <div class="easyui-layout" data-options="fit:true,border:false" style="padding: 5px;">
-        <div data-options="region:'west',border:false,collapsible:false" style="width: 240px;">
+        <div data-options="region:'west',border:false,collapsible:false" style="width: 150px;">
             <uc1:organisationtree runat="server" id="OrganisationTree_ProductionLine" />
         </div>
         <div data-options="region:'center',border:false">
             <div id="ToolBar" style="padding-top:18px;padding-left:10px;height:30px">
                 <label>组织机构:</label>
-                <input id="txtOrganization" class="easyui-textbox" data-options="editable:false" style="width: 150px;" />
+                <input id="txtOrganization" class="easyui-textbox" data-options="editable:false" style="width: 100px;" />
                 <input id="organizationId" readonly="true" style="display: none;" />               
                 <a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-add'" onclick="query();">增加根节点</a>   
                 <a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-remove'" onclick="query();">删除节点</a>      

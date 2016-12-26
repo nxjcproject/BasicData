@@ -22,7 +22,7 @@
 <body>
     <div class="easyui-layout" data-options="fit:true,border:false" style="padding: 5px;">
         <!-- 左侧目录树开始 -->
-        <div data-options="region:'west',border:false,collapsible:false" style="width: 230px;">
+        <div data-options="region:'west',border:false,collapsible:false" style="width: 150px;">
             <uc1:OrganisationTree runat="server" ID="OrganisationTree" />
         </div>
         <div data-options="region:'center',border:false">
@@ -33,18 +33,18 @@
                         <tr>
                             <td>组织机构：</td>
                             <td>
-                                <input id="txtOrganization" class="easyui-textbox" data-options="editable:false" style="width: 150px;" /><input id="organizationId" readonly="true" style="display: none;" /></td>
+                                <input id="txtOrganization" class="easyui-textbox" data-options="editable:false" style="width: 130px;" /><input id="organizationId" readonly="true" style="display: none;" /></td>
                             <td><div class="datagrid-btn-separator"></div></td>
                             <td><a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search'" onclick="Query();">查询</a></td>
                         </tr>
                     </table>
                 </div>
-                <div data-options="region:'west'" title="物料信息列表" style="width:250px;">
+                <div data-options="region:'west'" title="物料信息列表" style="width:200px;">
 	                <table id="dgMaterial" class="easyui-datagrid" data-options="rownumbers:true,singleSelect:true,onDblClickRow:OnDgMaterialClicked" style="width:100%;height:100%;">
 		                <thead>
 			                <tr>
                                 <th data-options="field:'KeyID',hidden:true">KeyID</th>
-				                <th data-options="field:'Name',width:140">名称</th>
+				                <th data-options="field:'Name',width:100">名称</th>
                                 <th data-options="field:'CreatedDate',width:80">创建时间</th>
 			                </tr>
 		                </thead>
@@ -55,8 +55,8 @@
 		                <thead>
 			                <tr>
                                 <th data-options="field:'MaterialId',hidden:true">MaterialId</th>
-				                <th data-options="field:'Name',width:140">名称</th>
-                                <th data-options="field:'VariableId',width:140">变量ID</th>
+				                <th data-options="field:'Name',width:100">名称</th>
+                                <th data-options="field:'VariableId',width:200">变量ID</th>
                                 <th data-options="field:'Unit',width:40">单位</th>
                                 <th data-options="field:'Coefficient',width:80,editor:{type:'numberbox',options:{min:0,max:99,precision:4}}">系数</th>
 			                </tr>

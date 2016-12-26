@@ -22,7 +22,7 @@
 </head>
 <body>
     <div class="easyui-layout" data-options="fit:true,border:false">
-        <div data-options="region:'west',border:false " style="width: 230px;">
+        <div data-options="region:'west',border:false " style="width: 150px;">
             <uc1:OrganisationTree ID="OrganisationTree_ProductionLine" runat="server" />
         </div>
         <div id="toolbar_ProductionResultInfo" style="display: none;">
@@ -32,20 +32,20 @@
                         <table>
                             <tr>
                                 <td>选择年份</td>
-                                <td style="width: 90px;">
+                                <td style="width: 70px;">
                                     <input id="numberspinner_PlanYear" class="easyui-numberspinner" data-options="min:1900,max:2999" style="width: 70px;" />
                                 </td>
                                 <td>生产区域</td>
-                                <td style="width: 100px;">
+                                <td style="width: 80px;">
                                     <input id="TextBox_OrganizationText" class="easyui-textbox" data-options="editable:false, readonly:true" style="width: 80px;" />
                                 </td>
                                 <td>主要设备</td>
-                                <td style="width: 100px;">
+                                <td style="width: 80px;">
                                     <select id="Combobox_Equipment" class="easyui-combobox" data-options="editable:false,panelHeight:'auto'" style="width: 80px;">
                                     </select>
                                 </td>
                                 <td>主要指标</td>
-                                <td style="width: 170px;">
+                                <td style="width: 150px;">
                                     <select id="Combobox_Quotas" class="easyui-combobox" data-options="editable:false,panelHeight:'auto'" style="width: 150px;">
                                     </select>
                                 </td>

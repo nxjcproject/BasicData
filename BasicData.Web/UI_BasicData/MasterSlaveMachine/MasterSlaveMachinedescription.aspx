@@ -56,7 +56,7 @@
                 </tr>
             </table>
         </div>
-        <div data-options="region:'west',collapsible:false" style="width: 800px;">
+        <div data-options="region:'west',collapsible:false" style="width: 700px;">
             <table id="grid_MasterMachineInfo" data-options="fit:true,border:false"></table>
         </div>
         <div id="toolbar_SlaveMachineInfo" style="display: none;">

@@ -20,7 +20,7 @@
 <body>
     <div class="easyui-layout" data-options="fit:true,border:false" style="padding: 5px;">
         <!-- 左侧目录树开始 -->
-        <div data-options="region:'west',border:false,collapsible:false" style="width: 230px;">
+        <div data-options="region:'west',border:false,collapsible:false" style="width: 150px;">
             <uc1:OrganisationTree runat="server" ID="OrganisationTree" />
         </div>
         <!-- 左侧目录树结束 -->
@@ -34,16 +34,16 @@
                             <table>
                                 <tr>
                                     <td>当前分厂：</td>
-                                    <td><input id="organizationName" class="easyui-textbox" readonly="readonly" style="width:100px" /></td>
-                                    <td style="width:10px;"></td>
+                                    <td><input id="organizationName" class="easyui-textbox" readonly="readonly" style="width:80px" /></td>
+                                    <%--<td style="width:10px;"></td>--%>
                                     <td>姓名：</td>
-                                    <td><input id="searchName" class="easyui-textbox" style="width:100px" /></td>
-                                    <td style="width:10px;"></td>
+                                    <td><input id="searchName" class="easyui-textbox" style="width:80px" /></td>
+                                    <%--<td style="width:10px;"></td>--%>
                                     <td>工号：</td>
                                     <td><input id="searchId" class="easyui-textbox" style="width:100px" /></td>
-                                    <td style="width:10px;"></td>
+                                    <%--<td style="width:10px;"></td>--%>
                                     <td>班组：</td>
-                                    <td><input id="searchTeamName" class="easyui-textbox" style="width:100px" /></td>
+                                    <td><input id="searchTeamName" class="easyui-textbox" style="width:80px" /></td>
                                     <td style="width:10px;"></td>
                                     <td><a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" onclick="loadStaffInfo()">搜索</a></td>
                                 </tr>

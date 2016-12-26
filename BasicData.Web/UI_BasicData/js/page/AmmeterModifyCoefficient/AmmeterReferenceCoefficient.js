@@ -46,7 +46,7 @@ function query() {
     var startDate = $('#StartTime').datebox('getValue');
     var endDate = $('#EndTime').datebox('getValue');
     var organizationId = $('#organizationId').val();
-    var sendData="{organizationId:'"+organizationId+"',startTime:'"+startDate+"',endTime:'"+endDate+"'}";
+    var sendData = "{organizationId:'" + organizationId + "',startTime:'" + startDate + "',endTime:'" + endDate + "'}";
     $.ajax({
         type: "POST",
         url: "AmmeterReferenceCoefficient.aspx/GetData",
@@ -56,7 +56,8 @@ function query() {
         success: function (msg) {
             var myData = JSON.parse(msg.d);
             loadDataGrid(myData,'last');
-        }})
+        }
+    })
 }
 
 

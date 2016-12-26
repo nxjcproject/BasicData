@@ -22,7 +22,7 @@
 </head>
 <body>
     <div class="easyui-layout" data-options="fit:true,border:false">
-        <div data-options="region:'west',border:false " style="width: 230px;">
+        <div data-options="region:'west',border:false " style="width: 150px;">
             <uc1:OrganisationTree ID="OrganisationTree_ProductionLine" runat="server" />
         </div>
         <div id="toolbar_EnergyConsumptionPlanInfo" style="display: none;">
@@ -32,18 +32,18 @@
                         <table>
                             <tr>
                                 <td>选择年份</td>
-                                <td style="width: 150px;">
-                                    <input id="numberspinner_PlanYear" class="easyui-numberspinner" data-options="min:1900,max:2999" style="width: 140px;" />
+                                <td style="width: 80px;">
+                                    <input id="numberspinner_PlanYear" class="easyui-numberspinner" data-options="min:1900,max:2999" style="width: 80px;" />
                                 </td>
                                 <td>当前产线</td>
-                                <td style="width: 200px;">
+                                <td style="width: 80px;">
 
-                                    <input id="TextBox_OrganizationText" class="easyui-textbox" data-options="editable:false, readonly:true" style="width: 180px;" />
+                                    <input id="TextBox_OrganizationText" class="easyui-textbox" data-options="editable:false, readonly:true" style="width: 80px;" />
 
                                 </td>
                                 <td>产线类型</td>
-                                <td style="width: 200px;">
-                                    <input id="TextBox_OrganizationType" class="easyui-textbox" data-options="editable:false, readonly:true" style="width: 180px;" />
+                                <td style="width: 80px;">
+                                    <input id="TextBox_OrganizationType" class="easyui-textbox" data-options="editable:false, readonly:true" style="width: 80px;" />
                                 </td>
                                 <td>
                                     <a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true"

@@ -57,7 +57,7 @@ namespace BasicData.Web.UI_BasicData.EnergyConsumption
         public static string GetProductionResultInfo(string myProductionQuotasId, string myQuotasType, string myOrganizationId, string myPlanYear, string myEquipmentCommonId)
         {
             string[] m_ColumnText = new string[] { "指标项ID", "主要设备ID", "指标项目名称", "类别", "一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月", "年度合计", "备注" };
-            int[] m_ColumnWidth = new int[] { 180, 180, 180, 60, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 100, 180 };
+            int[] m_ColumnWidth = new int[] { 160, 160, 160, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 100 };
 
             DataTable m_ProductionPlanInfo = BasicData.Service.EnergyConsumption.ProductionResult.GetProductionPlanInfo(myProductionQuotasId, myOrganizationId, myPlanYear, myEquipmentCommonId);
             if (m_ProductionPlanInfo != null)

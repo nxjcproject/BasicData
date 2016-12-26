@@ -25,14 +25,14 @@
 </head>
 <body>
     <div id="cc" class="easyui-layout" data-options="fit:true,border:false" style="padding: 5px;">
-        <div data-options="region:'west',border:false,collapsible:false" style="width: 230px;">
+        <div data-options="region:'west',border:false,collapsible:false" style="width: 150px;">
             <uc1:OrganisationTree runat="server" ID="OrganisationTree" />
         </div>
         <div data-options="region:'center'">
             <div id="tb" style="padding:5px;">
                 <div >
                     <label>当前产线名称：</label>
-                    <input id="organizationName" class="easyui-textbox" style="width: 180px;" readonly="true" />
+                    <input id="organizationName" class="easyui-textbox" style="width: 100px;" readonly="true" />
                     <input id="organizationId" readonly="true" style="display: none;" />
                     <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-undo',plain:true" onclick="reject()">撤销</a>
                     <a id="id_save" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="saveShiftArrangement()">保存</a>
