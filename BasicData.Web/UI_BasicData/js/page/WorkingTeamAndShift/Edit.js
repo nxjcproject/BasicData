@@ -168,21 +168,31 @@ function shiftInitializeGrid(myData) {
 }
 
 function shiftEditItem() {
-    var row = $("#dg_shift").datagrid('getSelected');
-    publicData.editRow = row;
-    publicData.editIndex = $("#dg_shift").datagrid('getRowIndex', row);
-    if (row == null) {
+    var row2 = $("#dg_shift").datagrid('getSelected');
+    publicData.editRow = row2;
+    publicData.editIndex = $("#dg_shift").datagrid('getRowIndex', row2);
+    if (row2 == null) {
         alert('请选中一行数据！');
     }
     else {
+        if (publicData.editIndex==2  && (Object.keys($("#dg_shift").datagrid('getRows')[1]).length==1)) {
+            alert('请先编辑乙班时间');
+            return;
+        }
+        if (publicData.editIndex == 1 && (Object.keys($("#dg_shift").datagrid('getRows')[0]).length == 1)) {
+            alert('请先编辑甲班时间');
+            return;
+        }
         if (publicData.editIndex > 0) {
             var row = $("#dg_shift").datagrid('getRows')[publicData.editIndex - 1];
             var row1 = $("#dg_shift").datagrid('getRows')[0];
             $('#startTime').timespinner('setValue', row["EndTime"]);
             $('#startTime').timespinner('readonly', true);
-            $('#endTime').timespinner('setValue', row1["StartTime"]);
+            $('#endTime').timespinner('setValue', row2["EndTime"]);
             if (publicData.editIndex == 2) {
                 $('#endTime').timespinner('readonly', true);
+                $('#endTime').timespinner('setValue', row1["StartTime"]);
+
             }
             else {
                 $('#endTime').timespinner('readonly', false);
@@ -190,16 +200,17 @@ function shiftEditItem() {
         }
         else {
             $('#startTime').timespinner('readonly', false);
+            $('#endTime').timespinner('readonly', false);
+            $('#startTime').timespinner('setValue', row2["StartTime"]);
+            $('#endTime').timespinner('setValue', row2["EndTime"]);
         }
-        $('#name').val(row["Shifts"]);
+        $('#name').val(row2["Shifts"]);
         $('#shiftEditDialog').dialog('open');
     }
 }
 function shiftSaveEditDialog() {
-    var startTime = $('#startTime').timespinner('getValue');
-    var endTime = $('#endTime').timespinner('getValue');
-    publicData.editRow["StartTime"] = startTime
-    publicData.editRow["EndTime"] = endTime
+    publicData.editRow["StartTime"] = $('#startTime').timespinner('getValue');
+    publicData.editRow["EndTime"] = $('#endTime').timespinner('getValue');
     publicData.editRow["Description"] = $('#description').textbox('getText');
     publicData.editRow["Flag"] = $("input[name='radiobutton']:checked").val();
     $('#dg_shift').datagrid('updateRow', {
@@ -208,6 +219,19 @@ function shiftSaveEditDialog() {
     });
     $('#shiftEditDialog').dialog('close');
 }
+//function shiftEditDialog() {
+//    var startTime = $('#startTime').timespinner('getValue');
+//    var endTime = $('#endTime').timespinner('getValue');
+//    publicData.editRow["StartTime"] = startTime
+//    publicData.editRow["EndTime"] = endTime
+//    publicData.editRow["Description"] = $('#description').textbox('getText');
+//    publicData.editRow["Flag"] = $("input[name='radiobutton']:checked").val();
+//    $('#dg_shift').datagrid('updateRow', {
+//        index: publicData.editIndex,
+//        row: publicData.editRow
+//    });
+//    $('#shiftEditDialog').dialog('close');
+//}
 
 function shiftSave() {
     var rows = $("#dg_shift").datagrid('getRows');
@@ -307,6 +331,22 @@ function shifteditItem() {
         alert('请选中一行数据！');
     }
     else {
+        if (publicData.editIndex == 2 && (Object.keys($("#dg_workingteam").datagrid('getRows')[1]).length == 1)) {
+            alert('请先编辑B组负责人');
+            return;
+        }
+        if (publicData.editIndex == 1 && (Object.keys($("#dg_workingteam").datagrid('getRows')[0]).length == 1)) {
+            alert('请先编辑A组负责人');
+            return;
+        }
+        if (publicData.editIndex == 3 && (Object.keys($("#dg_workingteam").datagrid('getRows')[2]).length == 1)) {
+            alert('请先编辑C组负责人');
+            return;
+        }
+        if (publicData.editIndex == 4 && (Object.keys($("#dg_workingteam").datagrid('getRows')[3]).length == 1)) {
+            alert('请先编辑D组负责人');
+            return;
+        }
         var name = row["Name"];
         var comboboxItem = [];
         for (var i = publicData.comboboxValue.length - 1; i >= 0; i--) {

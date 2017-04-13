@@ -25,7 +25,7 @@ namespace BasicData.Web.UI_BasicData.WorkingTeamAndShift
             this.OrganisationTree.LeveDepth = 5;
 #if DEBUG
             ////////////////////调试用,自定义的数据授权
-            List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_byc_byf", "zc_nxjc_tsc_tsf", "zc_nxjc_qtx_tys", "zc_nxjc_qtx_efc", "zc_nxjc_klqc_klqf" };
+            List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_byc_byf", "zc_nxjc_tsc_tsf", "zc_nxjc_qtx_tys", "zc_nxjc_qtx_efc", "zc_nxjc_klqc_klqf", "zc_nxjc_znc_znf" };
             AddDataValidIdGroup("ProductionOrganization", m_DataValidIdItems);
             //页面操作权限控制
             mPageOpPermission = "1111";

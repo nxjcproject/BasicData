@@ -37,6 +37,7 @@ namespace BasicData.Service.WorkingTeamAndShift
             {
                 dr["OrganizationID"] = organizationId;
                 dr["CreatedDate"] = time;
+                dr["ShiftDescriptionID"] = System.Guid.NewGuid().ToString();
             }
             try
             {
@@ -87,7 +88,9 @@ namespace BasicData.Service.WorkingTeamAndShift
 
         public static DataTable QueryShiftsInfo(string organizationId)
         {
-            string queryStr = @"SELECT * FROM system_ShiftDescription WHERE OrganizationID=@organizationId";
+            string queryStr = @"SELECT * FROM system_ShiftDescription WHERE OrganizationID=@organizationId
+                              and [Shifts] IN ('甲班','乙班','丙班')
+                              order by CHARINDEX(',' + CONVERT(VARCHAR(64),Shifts)+ ',',',甲班,乙班,丙班,')";
             DataTable dt = _dataFactory.Query(queryStr, new SqlParameter("@organizationId", organizationId));
 
             return dt;
@@ -95,7 +98,8 @@ namespace BasicData.Service.WorkingTeamAndShift
 
         public static DataTable QueryWorkingTeamInfo(string organizationId)
         {
-            string queryStr = @"SELECT * FROM system_WorkingTeam WHERE OrganizationID=@organizationId";
+            string queryStr = @"SELECT * FROM system_WorkingTeam WHERE OrganizationID=@organizationId
+                               order by [Name]";
             DataTable dt = _dataFactory.Query(queryStr, new SqlParameter("@organizationId", organizationId));
 
             return dt;
