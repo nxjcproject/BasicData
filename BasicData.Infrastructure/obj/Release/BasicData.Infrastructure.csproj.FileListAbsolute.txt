@@ -32,3 +32,8 @@ E:\2017-04-07后银川出差工作\BasicData-master\BasicData.Infrastructure\bin
 E:\2017-04-07后银川出差工作\BasicData-master\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.csprojResolveAssemblyReference.cache
 E:\2017-04-07后银川出差工作\BasicData-master\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.dll
 E:\2017-04-07后银川出差工作\BasicData-master\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.pdb
+C:\Users\Administrator\Desktop\只放最新程序\BasicData-master\BasicData.Infrastructure\bin\Release\BasicData.Infrastructure.dll
+C:\Users\Administrator\Desktop\只放最新程序\BasicData-master\BasicData.Infrastructure\bin\Release\BasicData.Infrastructure.pdb
+C:\Users\Administrator\Desktop\只放最新程序\BasicData-master\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\只放最新程序\BasicData-master\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.dll
+C:\Users\Administrator\Desktop\只放最新程序\BasicData-master\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.pdb

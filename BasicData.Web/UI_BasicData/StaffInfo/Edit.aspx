@@ -64,17 +64,17 @@
                 </table>
             </div>
             <!-- 工具栏结束 -->
-            <table id="dgStaffInfo" class="easyui-datagrid" data-options="idField:'StaffInfoID',toolbar:'#toolbar_StaffInfo',rownumbers:true,singleSelect:true,pagination:true,pageSize:10"" title="" style="width:100%;height:100%">
+            <table id="dgStaffInfo" class="easyui-datagrid" data-options="idField:'StaffInfoItemId',toolbar:'#toolbar_StaffInfo',rownumbers:true,singleSelect:true"" title="" style="width:100%;height:100%">
 		        <thead>
 			        <tr>
-                        <th data-options="field:'StaffInfoItemId',width:150, hidden:true">唯一标识</th>
-                        <th data-options="field:'StaffInfoID',width:150">工号</th>
-				        <th data-options="field:'WorkingTeamName',width:150">所属班组</th>
-                        <th data-options="field:'Name',width:150">姓名</th>
+                        <th data-options="field:'StaffInfoItemId',width:60, hidden:true">唯一标识</th>
+                        <th data-options="field:'StaffInfoID',width:60">工号</th>
+				        <th data-options="field:'WorkingTeamName',width:60">所属班组</th>
+                        <th data-options="field:'Name',width:60">姓名</th>
 				        <th data-options="field:'Sex',formatter:formatSexColumn,width:50">性别</th>
-                        <th data-options="field:'PhoneNumber',width:150">电话号码</th>
+                        <th data-options="field:'PhoneNumber',width:120">电话号码</th>
                         <th data-options="field:'Enabled',hidden:true">启用标志</th>
-                        <th data-options="field:'OperateColumn',formatter:formatOperateColumn,width:200">操作</th>
+                        <th data-options="field:'OperateColumn',formatter:formatOperateColumn,width:80">操作</th>
 			        </tr>
 		        </thead>
             </table>
@@ -237,6 +237,8 @@
                 $('#enabled').combobox('select', 'True');
             }
             else {
+                //$('#dgStaffInfo').datagrid('selectRecord', myStaffInfoItemId);
+                //var data = $('#dgStaffInfo').datagrid('getSelected');
                 isStaffInfoInsert = false;
                 StaffInfoItemId = myStaffInfoItemId;
                 $('#dgStaffInfo').datagrid('selectRecord', StaffInfoItemId);

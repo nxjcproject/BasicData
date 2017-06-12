@@ -17,9 +17,9 @@ namespace BasicData.Web.UI_BasicData.ShiftArrangement
         {
             base.InitComponts();
 #if DEBUG
-            List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_byc_byf" };
+            List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_byc_byf", "zc_nxjc_qtx_efc", "zc_nxjc_qtx_tys" };
             AddDataValidIdGroup("ProductionOrganization", m_DataValidIdItems);
-            mPageOpPermission = "0000";
+            mPageOpPermission = "1111";
 #elif RELEASE
 #endif
             this.OrganisationTree.Organizations = GetDataValidIdGroup("ProductionOrganization");                 //向web用户控件传递数据授权参数
@@ -44,11 +44,11 @@ namespace BasicData.Web.UI_BasicData.ShiftArrangement
         }
 
         [WebMethod]
-        public static string SaveData(string json)
+        public static string SaveData(string organizationId, string json)
         {
             if (mPageOpPermission.ToArray()[2] == '1')
             {
-                int count = ShiftArrangementService.SaveShiftArrange(json);
+                int count = ShiftArrangementService.SaveShiftArrange(organizationId,json);
                 if (count == -1)
                 {
                     return "failure";

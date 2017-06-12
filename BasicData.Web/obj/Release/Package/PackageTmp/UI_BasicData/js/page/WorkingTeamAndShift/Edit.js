@@ -57,6 +57,10 @@ function InitializePage() {
 function onOrganisationTreeClick(node) {
     publicData.organizationId = node.OrganizationId;
     $('#organizationName').textbox('setText', node.text);
+    if (publicData.organizationId=="" || publicData.organizationId.length==5) {
+        alert('请选择分厂组织机构')
+        return;
+    }
     InitializePage();
 }
 

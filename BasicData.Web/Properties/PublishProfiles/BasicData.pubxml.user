@@ -18,13 +18,13 @@
       <publishTime>12/25/2016 23:13:32</publishTime>
     </File>
     <File Include="bin/BasicData.Infrastructure.dll">
-      <publishTime>04/12/2017 17:49:52</publishTime>
+      <publishTime>05/17/2017 15:45:02</publishTime>
     </File>
     <File Include="bin/BasicData.Service.dll">
-      <publishTime>04/12/2017 17:49:53</publishTime>
+      <publishTime>05/17/2017 15:45:03</publishTime>
     </File>
     <File Include="bin/BasicData.Web.dll">
-      <publishTime>04/12/2017 17:49:54</publishTime>
+      <publishTime>05/17/2017 15:45:05</publishTime>
     </File>
     <File Include="bin/EasyUIJsonParser.dll">
       <publishTime>12/25/2016 23:13:32</publishTime>
@@ -4659,10 +4659,10 @@
       <publishTime>12/25/2016 23:13:32</publishTime>
     </File>
     <File Include="UI_BasicData/js/page/ShiftArrangement/ShiftArrangementEdit.js">
-      <publishTime>12/25/2016 23:13:32</publishTime>
+      <publishTime>05/16/2017 17:34:38</publishTime>
     </File>
     <File Include="UI_BasicData/js/page/WorkingTeamAndShift/Edit.js">
-      <publishTime>04/12/2017 17:26:32</publishTime>
+      <publishTime>05/03/2017 14:30:20</publishTime>
     </File>
     <File Include="UI_BasicData/KpiDefinition/KpiList.aspx">
       <publishTime>12/25/2016 23:13:32</publishTime>
@@ -4698,16 +4698,16 @@
       <publishTime>12/25/2016 23:13:32</publishTime>
     </File>
     <File Include="UI_BasicData/ShiftArrangement/ShiftArrangementEdit.aspx">
-      <publishTime>12/25/2016 23:13:32</publishTime>
+      <publishTime>04/13/2017 16:28:36</publishTime>
     </File>
     <File Include="UI_BasicData/StaffInfo/Edit.aspx">
-      <publishTime>12/25/2016 23:13:32</publishTime>
+      <publishTime>05/17/2017 15:53:32</publishTime>
     </File>
     <File Include="UI_BasicData/WorkingTeamAndShift/Edit.aspx">
       <publishTime>12/25/2016 23:13:32</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/12/2017 17:49:57</publishTime>
+      <publishTime>05/17/2017 15:54:16</publishTime>
     </File>
   </ItemGroup>
 </Project>

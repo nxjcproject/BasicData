@@ -35,7 +35,7 @@
                     <input id="organizationName" class="easyui-textbox" style="width: 100px;" readonly="true" />
                     <input id="organizationId" readonly="true" style="display: none;" />
                     <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-undo',plain:true" onclick="reject()">撤销</a>
-                    <a id="id_save" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="saveShiftArrangement()">保存</a>
+                    <a id="id_save" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="saveShiftArrangement()">保存</a>
                 </div>
             </div>
             <table id="dg" ></table>
