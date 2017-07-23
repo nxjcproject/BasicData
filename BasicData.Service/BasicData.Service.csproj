@@ -80,6 +80,7 @@
     <Compile Include="KpiDefinition\KPIndexService.cs" />
     <Compile Include="KpiDefinition\KpiService.cs" />
     <Compile Include="KpiDefinition\ProdunctionService.cs" />
+    <Compile Include="LowLoadOperation\LowLoadOperationService.cs" />
     <Compile Include="MachineHaltReasons\MachineHaltReasonsService.cs" />
     <Compile Include="MasterSlaveMachine\MasterSlaveMachinedescription.cs" />
     <Compile Include="MasterSlaveMachine\OrganizationInstrumentation.cs" />

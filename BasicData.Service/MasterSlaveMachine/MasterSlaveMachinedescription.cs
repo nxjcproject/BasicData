@@ -35,7 +35,8 @@ namespace BasicData.Service.MasterSlaveMachine
 					A.KeyID as KeyId  
                     from system_MasterMachineDescription A 
                     left join system_Organization B on A.OrganizationID = B.OrganizationID
-					where A.OrganizationID=@OrganizationId";
+					where A.OrganizationID=@OrganizationId
+                    order by A.VariableName asc";
             try
             {
                 SqlParameter[] m_Parameters = { new SqlParameter("@OrganizationId", myDcsId) };
@@ -65,7 +66,8 @@ namespace BasicData.Service.MasterSlaveMachine
 					A.KeyID as KeyId  
                     from system_MasterMachineDescription A 
                     left join system_Organization B on A.OrganizationID = B.OrganizationID
-					where A.ID=@Id";
+					where A.ID=@Id
+                    order by A.VariableName asc";
             try
             {
                 SqlParameter[] m_Parameters = { new SqlParameter("@Id", myId) };
@@ -209,7 +211,8 @@ namespace BasicData.Service.MasterSlaveMachine
                     from system_SlaveMachineDescription A 
                     left join system_Organization B on A.OrganizationID = B.OrganizationID 
                     left join system_MasterMachineDescription C on A.KeyID = C.ID
-					where A.KeyID=@KeyId";
+					where A.KeyID=@KeyId
+                    order by A.VariableName asc";
             try
             {
                 SqlParameter[] m_Parameters = { new SqlParameter("@KeyId", myKeyId) };
@@ -239,7 +242,8 @@ namespace BasicData.Service.MasterSlaveMachine
                     from system_SlaveMachineDescription A 
                     left join system_Organization B on A.OrganizationID = B.OrganizationID 
                     left join system_MasterMachineDescription C on A.KeyID = C.ID
-					where A.ID=@Id";
+					where A.ID=@Id
+                    order by A.VariableName asc";
             try
             {
                 SqlParameter[] m_Parameters = { new SqlParameter("@Id", myId) };

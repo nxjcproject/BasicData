@@ -1610,6 +1610,7 @@
     <Content Include="UI_BasicData\js\page\KpiDefinition\KpiList.js" />
     <Content Include="UI_BasicData\js\page\KpiDefinition\KPIndexEnergy.js" />
     <Content Include="UI_BasicData\js\page\KpiDefinition\KPIndexProduction.js" />
+    <Content Include="UI_BasicData\js\page\LowLoadOperation\LowLoadOperation.js" />
     <Content Include="UI_BasicData\js\page\MachineHaltReasons\Edit.js" />
     <Content Include="UI_BasicData\js\page\MasterSlaveMachine\MasterSlaveMachinedescription.js" />
     <Content Include="UI_BasicData\js\page\Material\MaterialList.js" />
@@ -1622,6 +1623,7 @@
     <Content Include="UI_BasicData\KpiDefinition\KpiList.aspx" />
     <Content Include="UI_BasicData\KpiDefinition\KPIndexEnergy.aspx" />
     <Content Include="UI_BasicData\KpiDefinition\KPIndexProduction.aspx" />
+    <Content Include="UI_BasicData\LowLoadOperation\LowLoadOperation.aspx" />
     <Content Include="UI_BasicData\MachineHaltReasons\Edit.aspx" />
     <Content Include="UI_BasicData\MasterSlaveMachine\MasterSlaveMachinedescription.aspx" />
     <Content Include="UI_BasicData\Material\CoefficientUpdater.aspx" />
@@ -1750,6 +1752,13 @@
     <Compile Include="UI_BasicData\KpiDefinition\KPIndexProduction.aspx.designer.cs">
       <DependentUpon>KPIndexProduction.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI_BasicData\LowLoadOperation\LowLoadOperation.aspx.cs">
+      <DependentUpon>LowLoadOperation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_BasicData\LowLoadOperation\LowLoadOperation.aspx.designer.cs">
+      <DependentUpon>LowLoadOperation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI_BasicData\MachineHaltReasons\Edit.aspx.cs">
       <DependentUpon>Edit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1828,6 +1837,7 @@
     <None Include="Properties\PublishProfiles\BasicData.pubxml" />
     <None Include="Properties\PublishProfiles\my.pubxml" />
     <None Include="Properties\PublishProfiles\NXJC.pubxml" />
+    <None Include="Properties\PublishProfiles\test.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

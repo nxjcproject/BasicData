@@ -157,9 +157,9 @@
                         <input id="TextBox_SlaveVariableDescription" data-options="buttonText:'标签',buttonIcon:'icon-search',prompt:'查找DCS标签……',editable:false,onClickButton:function(){GetDcsTagsFun(2);}" class="easyui-textbox" style="width: 180px;" /></td>
                 </tr>
                 <tr>
-                    <th style="height: 30px;">允许时间(分钟)</th>
+                    <th style="height: 30px;">允许时间(秒)</th>
                     <td>
-                        <input id="Text_TimeDelay" class="easyui-numberspinner" data-options="min:1,max:9999,editable:false" style="width: 140px;" /><%--<input id="Text_TimeDelay" class="easyui-timespinner" data-options="value:'00:05', min:'00:01',max:'23:59'" style="width: 140px;"/>--%>
+                        <input id="Text_TimeDelay" class="easyui-numberspinner" data-options="min:1,max:9999,editable:true" style="width: 140px;" /><%--<input id="Text_TimeDelay" class="easyui-timespinner" data-options="value:'00:05', min:'00:01',max:'23:59'" style="width: 140px;"/>--%>
                     </td>
                     <th>停机状态位</th>
                     <td>

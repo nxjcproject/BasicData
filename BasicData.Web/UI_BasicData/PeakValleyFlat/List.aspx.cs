@@ -13,21 +13,21 @@ namespace BasicData.Web.UI_BasicData.PeakValleyFlat
 {
     public partial class List : WebStyleBaseForEnergy.webStyleBase
     {
-        private static char[] CRUD = mPageOpPermission.ToArray();
         protected void Page_Load(object sender, EventArgs e)
         {
             base.InitComponts();
             ////////////////////调试用,自定义的数据授权
-            //List<string> m_DataValidIdItems = new List<string>() { "C41B1F47-A48A-495F-A890-0AABB2F3BFF7                            ", "43F1EA8C-FF77-4BC5-BACB-531DC56A2512                            " };
+            //List<string> m_DataValidIdItems = new List<string>() { "C41B1F47-A48A-495F-A890-0AABB2F3BFF7", "43F1EA8C-FF77-4BC5-BACB-531DC56A2512" };
             //AddDataValidIdGroup("ProductionOrganization", m_DataValidIdItems);
             this.OrganisationTree.Organizations = GetDataValidIdGroup("ProductionOrganization");                 //向web用户控件传递数据授权参数
-            this.OrganisationTree.PageName = "List.aspx";
+            this.OrganisationTree.PageName = "List.aspx";            
+            OrganisationTree.LeveDepth = 5;
 #if DEBUG
             ////////////////////调试用,自定义的数据授权
-            List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_byc" };
+            List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_byc", "zc_nxjc_qtx_efc", "zc_nxjc_qtx_tys" };
             AddDataValidIdGroup("ProductionOrganization", m_DataValidIdItems);
             //页面操作权限控制
-            mPageOpPermission = "0100";
+            mPageOpPermission = "1111";      
 #endif
         }
         /// <summary>
@@ -46,11 +46,10 @@ namespace BasicData.Web.UI_BasicData.PeakValleyFlat
             string result = EasyUIJsonParser.DataGridJsonParser.DataTableToJson(dt);
             return result;
         }
-
         [WebMethod]
         public static string DeletePVFList(string keyId)
         {
-            if (CRUD[3] == '1')
+            if (mPageOpPermission.Substring(3,1) == "1")
             {
                 int result = PeakValleyFlatService.DeletePVFData(keyId);
 
@@ -68,7 +67,7 @@ namespace BasicData.Web.UI_BasicData.PeakValleyFlat
         [WebMethod]
         public static string UpdatePVFList(string id, string startUsing, string endUsing, string flag)
         {
-            if (CRUD[2] == '1')
+            if (mPageOpPermission.Substring(2,1) == "1")
             {
                 int result = PeakValleyFlatService.UpdatePVFData(id, startUsing, endUsing, flag);
 
@@ -86,7 +85,7 @@ namespace BasicData.Web.UI_BasicData.PeakValleyFlat
         [WebMethod]
         public static string Save(string organizationId, string myJsonData)
         {
-            if (CRUD[2] == '1')
+            if (mPageOpPermission.Substring(1,1) == "1")
             {
                 string morganizationId = myJsonData.JsonPick("organizationId");
                 //string startUsing = myJsonData.JsonPick("tzStartDate");
@@ -112,5 +111,17 @@ namespace BasicData.Web.UI_BasicData.PeakValleyFlat
             string result = EasyUIJsonParser.DataGridJsonParser.DataTableToJson(dt);
             return result;
         }
+        [WebMethod]
+        public static int deletePVF(string PVFId)
+        {
+            int result = PeakValleyFlatService.DeletePVFInfo(PVFId);
+            return result;
+        }
+        [WebMethod]
+        public static int editPVF(string PVFid, string mKeyId, string mStartTime, string mEndTime, string typeValue)
+        {
+            int result = PeakValleyFlatService.editPVFInfo(PVFid, mKeyId, mStartTime, mEndTime, typeValue);
+            return result;
+        }    
     }
 }

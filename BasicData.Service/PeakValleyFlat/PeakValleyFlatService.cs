@@ -39,8 +39,8 @@ namespace BasicData.Service.PeakValleyFlat
         }
 
         public static DataTable GetPVFDetail(string keyId)
-        {
-            string queryStr = @"SELECT * FROM system_PVF_Detail WHERE KeyID=@keyid";
+        {        
+            string queryStr = @"SELECT * FROM system_PVF_Detail WHERE KeyID=@keyid order by [StartTime]";
             DataTable result = _dataFactory.Query(queryStr, new SqlParameter("@keyid", keyId));
             return result;
         }
@@ -108,7 +108,6 @@ namespace BasicData.Service.PeakValleyFlat
             }
             return result;
         }
-
         public static int UpdatePVFData(string id, string startUsing, string endUsing, string flag)
         {
             int result;
@@ -124,6 +123,34 @@ namespace BasicData.Service.PeakValleyFlat
             }
 
             return result;
+        }
+        public static int DeletePVFInfo(string PVFId)
+        {
+            string connectionString = ConnectionStringFactory.NXJCConnectionString;
+            ISqlServerDataFactory factory = new SqlServerDataFactory(connectionString);
+            string mySql = @"delete from [dbo].[system_PVF_Detail]
+                         WHERE [ID]=@PVFId";
+            SqlParameter para = new SqlParameter("@PVFId", PVFId);
+            int dt = factory.ExecuteSQL(mySql, para);
+            return dt;
+        }
+        public static int editPVFInfo(string PVFid, string mKeyId, string mStartTime, string mEndTime, string typeValue)
+        {
+            string connectionString = ConnectionStringFactory.NXJCConnectionString;
+            ISqlServerDataFactory factory = new SqlServerDataFactory(connectionString);
+            string mySql = @"update [dbo].[system_PVF_Detail]
+                             set [KeyID]=@mKeyId
+                                ,[StartTime]=@mStartTime
+                                ,[EndTime]=@mEndTime
+                                ,[Type]=@typeValue
+                           WHERE [ID]=@PVFid";
+            SqlParameter[] paras = { new SqlParameter("@mKeyId", mKeyId),
+                                     new SqlParameter("@mStartTime", mStartTime),
+                                     new SqlParameter("@mEndTime", mEndTime),
+                                     new SqlParameter("@typeValue", typeValue),
+                                     new SqlParameter("@PVFid", PVFid)};
+            int dt = factory.ExecuteSQL(mySql, paras);
+            return dt;
         }
     }
 }

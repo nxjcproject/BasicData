@@ -37,3 +37,13 @@ C:\Users\Administrator\Desktop\只放最新程序\BasicData-master\BasicData.Inf
 C:\Users\Administrator\Desktop\只放最新程序\BasicData-master\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\只放最新程序\BasicData-master\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.dll
 C:\Users\Administrator\Desktop\只放最新程序\BasicData-master\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.pdb
+C:\Users\Administrator\Desktop\7.7修改权限\BasicData-master\BasicData.Infrastructure\bin\Release\BasicData.Infrastructure.dll
+C:\Users\Administrator\Desktop\7.7修改权限\BasicData-master\BasicData.Infrastructure\bin\Release\BasicData.Infrastructure.pdb
+C:\Users\Administrator\Desktop\7.7修改权限\BasicData-master\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\7.7修改权限\BasicData-master\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.dll
+C:\Users\Administrator\Desktop\7.7修改权限\BasicData-master\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.pdb
+C:\Users\Administrator\Desktop\宁夏建材\BasicData-master\BasicData.Infrastructure\bin\Release\BasicData.Infrastructure.dll
+C:\Users\Administrator\Desktop\宁夏建材\BasicData-master\BasicData.Infrastructure\bin\Release\BasicData.Infrastructure.pdb
+C:\Users\Administrator\Desktop\宁夏建材\BasicData-master\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\宁夏建材\BasicData-master\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.dll
+C:\Users\Administrator\Desktop\宁夏建材\BasicData-master\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.pdb

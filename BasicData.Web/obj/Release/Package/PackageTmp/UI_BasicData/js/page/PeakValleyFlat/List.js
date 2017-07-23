@@ -1,7 +1,6 @@
 ﻿$(function () {
     InitializePage();
     //publicData.organizationId = $.getUrlParam('organizationId');
-
     loadGridData('first');
     initPageAuthority();
 });
@@ -72,7 +71,6 @@ function InitializePage() {
 
 function loadGridData(myLoadType) {
     var selectedDate = $('#selectedDate').datetimespinner('getValue');
-
     $.ajax({
         type: "POST",
         url: "List.aspx/GetPVFList",
@@ -125,27 +123,23 @@ function InitializeGrid(myData) {
                 formatter: function (value, row, index) {
                     //var s = '<a href="Detail.aspx?keyid=' + row['KeyID'] + '">详细</a> ';
                     //detailItem(row['KeyID']);
-                    var s = '<a href="javascript:void(0)" onclick="detailItem()">详细</a> ';
+                    var s = '<a href="javascript:void(0)" onclick="detailItem(\'' + row.KeyID + '\')">详细</a> ';
                     return s;
                 }
             }
         ]]
     });
 }
-
-function detailItem(myKeyId) {
+var KeyId = ''; 
+function detailItem(keyId) {
     var row = $("#dg").datagrid('getSelected');
-    publicData.editRow = row;
-    if (row == null) {
-        alert('请选中目标行！');
-    }
-    else {
-        //parent.$.messager.progress({ text: '数据加载中....' });
+    publicData.editRow = row;   
+    KeyId = row.KeyID;
         var m_MsgData;
         $.ajax({
             type: "POST",
             url: "List.aspx/GetPVFDetail",
-            data: "{keyId: '" + row['KeyID'] + "'}",
+            data: "{keyId: '" + keyId + "'}",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function (msg) {
@@ -154,15 +148,22 @@ function detailItem(myKeyId) {
             }
         });
     }
-}
 function showIngrid(myData) {
     $('#detaildg').datagrid({
         data: myData,
         iconCls: 'icon-edit', singleSelect: true, rownumbers: true, striped: true,
         columns: [[
-            { field: 'StartTime', title: '起始时间', width: '40%', align: 'center' },
-            { field: 'EndTime', title: '终止时间', width: '40%', align: 'center' },
-            { field: 'Type', title: '类型', width: '19%', align: 'center' },
+            { field: 'StartTime', title: '起始时间', width: '30%', align: 'center' },
+            { field: 'EndTime', title: '终止时间', width: '30%', align: 'center' },
+            { field: 'Type', title: '类型', width: '20%', align: 'center' },
+            { 
+                field: 'edit', title: '编辑', width: '19%', formatter: function (value, row, index) {
+                    var str = "";
+                    str = '<a href="#" onclick="editPVF(\'' + row.ID + '\')"><img class="iconImg" src = "/lib/extlib/themes/images/ext_icons/notes/note_edit.png" title="编辑页面"/>编辑</a>';
+                    str = str + '<a href="#" onclick="deletePVF(\'' + row.ID + '\')"><img class="iconImg" src = "/lib/extlib/themes/images/ext_icons/notes/note_delete.png" title="删除页面"/>删除</a>';
+                    return str;
+                }              
+            }
         ]]
     });
     $('#detailDialog').dialog('open');
@@ -172,7 +173,7 @@ function editItem() {
     var row = $("#dg").datagrid('getSelected');
     publicData.editRow = row;
     if (row == null) {
-        alert('请选中一行数据！');
+        $.messager.alert('提示','请选中一行数据！');
     }
     else {
         var index = $("#dg").datagrid('getRowIndex', row);
@@ -204,7 +205,7 @@ function saveEditDialog() {
     var startUsing = $('#startUsing').datebox('getValue');
     var endUsing = $('#endUsing').datebox('getValue');
     if (startUsing == "" || endUsing == "") {
-        alert("请填写启停时间！");
+        $.messager.alert('提示',"请填写启停时间！");
     }
     else {
         var flag = $("input[name='radiobutton']:checked").val();
@@ -231,12 +232,12 @@ function editData(id, startUsing, endUsing, flag) {
         dataType: "json",
         success: function (msg) {
             if (msg.d == '1') {
-                alert("修改成功！");
+                $.messager.alert('提示',"修改成功！");
             } else if (msg.d =="noright" ) {
-                alert("用户没有修改权限！");
+                $.messager.alert('提示',"用户没有修改权限！");
             }
             else {
-                alert("修改失败！");
+                $.messager.alert('提示',"修改失败！");
             }
         }
     });
@@ -245,7 +246,7 @@ function editData(id, startUsing, endUsing, flag) {
 function deleteItem() {
     var row = $("#dg").datagrid('getSelected');
     if (row == null) {
-        alert('请选中一行数据！');
+        $.messager.alert('提示','请选中一行数据！');
     }
     else {
         var index = $("#dg").datagrid('getRowIndex', row);
@@ -268,20 +269,20 @@ function deleteData(keyId) {
         dataType: "json",
         success: function (msg) {
             if (msg.d == '1') {
-                alert("删除成功！");
+                $.messager.alert('提示',"删除成功！");
             }
             else if(msg.d=='noright'){
-                alert("用户没有删除权限！");
+                $.messager.alert('提示',"用户没有删除权限！");
             }
             else {
-                alert("删除失败！");
+                $.messager.alert('提示',"删除失败！");
             }
         }
     });
 }
 function addItem() {
     if (publicData.organizationId == "") {
-        alert("请选择生产线！");
+        $.messager.alert('提示',"请选择生产线！");
     }
     else {
         //window.location.href = "Edit.aspx?organizationId=" + publicData.organizationId;
@@ -322,7 +323,7 @@ function saveAddDialog() {
         $('#adddg').datagrid('appendRow', { 'StartTime': startTime, 'EndTime': endTime, 'Type': type });
     }
     else {
-        alert('起止时间格式不正确');
+        $.messager.alert('提示','起止时间格式不正确');
     }
     $('#edit').dialog('close');
 }
@@ -346,7 +347,7 @@ function validateTime(startTime, endTime) {
 function saveItem() {
     var items = $('#adddg').datagrid('getRows');
     if (items[items.length - 1].EndTime != "23:59:59") {
-        alert('请完成24小时的定义！');
+        $.messager.alert('提示','请完成24小时的定义！');
     }
     else {
         //pvfData.organizationId = publicData.organizationId;
@@ -364,14 +365,14 @@ function saveItem() {
             success: function (msg) {
                 if (msg.d == "1") {
                     $('#addDialog').dialog('close');
-                    alert("更新成功!");
+                    $.messager.alert('提示',"更新成功!");
                     loadGridData('first');
                 } else if (msg.d == "noright") {
-                    alert("用户没有更新权限！");
+                    $.messager.alert('提示',"用户没有更新权限！");
                 }
                 else {
                     $('#addDialog').dialog('close');
-                    alert("更新失败!");
+                    $.messager.alert('提示',"更新失败!");
                 }
             }
         });
@@ -393,6 +394,68 @@ function clearAllItems() {
     $.messager.confirm('提示', '确定要清除所有列？', function (r) {
         if (r) {
             var index = $('#adddg').datagrid('loadData', []);
+        }
+    });
+}
+function deletePVF(PVFId) {
+    $.messager.confirm('提示', '确定要删除吗？', function (r) {
+        if (r) {
+            $.ajax({
+                type: "POST",
+                url: "List.aspx/deletePVF",
+                data: "{PVFId:'" + PVFId + "'}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (msg) {
+                    var myData = msg.d;
+                    if (myData == 1) {
+                        $.messager.alert('提示', '删除成功！', 'info', function () { detailItem(KeyId) });                      
+                    }
+                    else {
+                        $.messager.alert('提示', '操作失败！', 'info', function () { detailItem(KeyId) });
+                    }
+                },
+                error: function () {
+                    $.messager.alert('提示', '操作失败！', 'info', function () { detailItem(KeyId) });
+                }
+            });
+        }
+    });
+}
+var PVFid = '';
+function editPVF(editPVFId) {
+    PVFid = editPVFId;
+    $('#detaildg').datagrid('selectRecord', editPVFId);
+    var data = $('#detaildg').datagrid('getSelected');
+    $("#editStartTime").timespinner('setValue', data.StartTime);
+    $("#editEndTime").timespinner('setValue', data.EndTime);
+    $("#pvfType").combobox('setValue', data.Type);
+    $('#editPVFLog').dialog('open');
+}
+function saveEditPVFInfo() {
+    var mStartTime = $("#editStartTime").timespinner('getValue');
+    var mEndTime = $("#editEndTime").timespinner('getValue');
+    var typeValue = $("#pvfType").combobox('getValue');
+    $.ajax({
+        type: "POST",
+        url: "List.aspx/editPVF",
+        data: "{PVFid:'" + PVFid + "',mKeyId:'" + KeyId + "',mStartTime:'" + mStartTime + "',mEndTime:'" + mEndTime + "',typeValue:'" + typeValue + "'}",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (msg) {
+            var myData = msg.d;
+            if (myData == 1) {
+                $('#editPVFLog').dialog('close');
+                $.messager.alert('提示', '操作成功！', 'info', function () { detailItem(KeyId) });
+            }
+            else {
+                $('#editPVFLog').dialog('close');
+                $.messager.alert('提示', '操作失败！', 'info', function () { detailItem(KeyId) });
+            }
+        },
+        error: function () {
+            $('#editPVFLog').dialog('close');
+            $.messager.alert('提示', '操作失败！', 'info', function () { detailItem(KeyId) });
         }
     });
 }

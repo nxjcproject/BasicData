@@ -52,7 +52,8 @@ namespace BasicData.Service.AmmeterModifyCoefficient
                                     B.CommPort, B.CT,B.PT, B.PowerFieldNameSave, B.Status
                                     from {0}.dbo.AmmeterModifyCoefficientReference A left join {0}.dbo.AmmeterContrast B
                                     on ( A.OrganizationID=B.OrganizationID
-                                    and A.AmmeterNumber=B.AmmeterNumber)";
+                                    and A.AmmeterNumber=B.AmmeterNumber)
+                                    where B.[EnabledFlag]=1 or B.[EnabledFlag] is null";
             DataTable fieldTable = dataFactory.Query(string.Format(myFieldSql, meterDatabase));
             DataColumn column = new DataColumn("Value", typeof(decimal));
             column.DefaultValue = 0;

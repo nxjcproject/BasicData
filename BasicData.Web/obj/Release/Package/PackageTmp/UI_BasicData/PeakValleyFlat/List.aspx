@@ -113,7 +113,7 @@
             <tr>
                 <td>类型</td>
                 <td>
-                    <select id="type" class="easyui-combobox" style="width:200px;">
+                    <select id="type" class="easyui-combobox" style="width:200px;" data-options="panelHeight:'auto'">
                         <option value="峰期">峰期</option>
                         <option value="谷期">谷期</option>
                         <option value="平期">平期</option>
@@ -130,6 +130,37 @@
     <div id="detailDialog" class="easyui-dialog" title="编辑" data-options="iconCls:'icon-edit',closed:true," style="width: 800px; height: 400px; padding: 10px">
         <table id="detaildg" class="easyui-datagrid" title="" style="width:100%;height:auto">
 	    </table>
+    </div>
+
+    <div id="editPVFLog" class="easyui-dialog" title="编辑" data-options="iconCls:'icon-save',closed:true,buttons:'#editPVFLog-buttons'" style="width: 250px; height: 170px; padding: 10px">
+        <table>
+            <tr>
+                <td>起始时间</td>
+                <td>
+                    <input id="editStartTime" class="easyui-timespinner" style="width: 100px;" />
+                </td>
+            </tr>
+            <tr>
+                <td>终止时间</td>
+                <td>
+                    <input id="editEndTime" class="easyui-timespinner" style="width: 100px;" />
+                </td>
+            </tr>
+            <tr>
+                <td>类型</td>
+                <td>
+                    <select id="pvfType" class="easyui-combobox" style="width:100px;" data-options="panelHeight:'auto'">
+                        <option value="峰期">峰期</option>
+                        <option value="谷期">谷期</option>
+                        <option value="平期">平期</option>
+                    </select>                  
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="editPVFLog-buttons">
+        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="saveEditPVFInfo()">保存</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="javascript:$('#editPVFLog').dialog('close')">取消</a>
     </div>
 </body>
 </html>
