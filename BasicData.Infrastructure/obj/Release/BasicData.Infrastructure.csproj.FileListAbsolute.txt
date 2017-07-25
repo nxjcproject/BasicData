@@ -47,3 +47,8 @@ C:\Users\Administrator\Desktop\宁夏建材\BasicData-master\BasicData.Infrastru
 C:\Users\Administrator\Desktop\宁夏建材\BasicData-master\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\宁夏建材\BasicData-master\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.dll
 C:\Users\Administrator\Desktop\宁夏建材\BasicData-master\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.pdb
+C:\Users\Administrator\Desktop\BasicData-master\BasicData.Infrastructure\bin\Release\BasicData.Infrastructure.dll
+C:\Users\Administrator\Desktop\BasicData-master\BasicData.Infrastructure\bin\Release\BasicData.Infrastructure.pdb
+C:\Users\Administrator\Desktop\BasicData-master\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\BasicData-master\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.dll
+C:\Users\Administrator\Desktop\BasicData-master\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.pdb

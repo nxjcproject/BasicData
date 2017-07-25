@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head id="Head1" runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="/lib/ealib/themes/gray/easyui.css" />
     <link rel="stylesheet" type="text/css" href="/lib/ealib/themes/icon.css" />
@@ -48,7 +48,7 @@
     </div>
 
     <div id="addDialog" class="easyui-dialog" title="添加录入信息" data-options="iconCls:'icon-save',closed:true,buttons:'#addDialog-buttons'" style="width:500px;height:200px;padding:10px">
-        <table>
+        <table style="border-spacing:5px">
             <tr>
                 <td style="width:15%;">变量ID</td>
                 <td style="width:35%;">
@@ -66,7 +66,7 @@
                     </select>
                 </td>--%>
             </tr>
-            <tr>
+            <%--<tr>
                 <td style="width:15%;">创建人</td>
                 <td style="width:35%;">
                     <input id="addCreator" class="easyui-textbox" required="required" />
@@ -75,14 +75,19 @@
                 <td style="width:35%;">
                     <input id="addCreateTime" class="easyui-datetimebox" required="required" />
                 </td>
-            </tr>
+            </tr>--%>
             <tr>
                 <td>启用标志</td>
                 <td>
                     <input id="addradioTrue" type="radio" name="radiobutton" value="True" checked="checked"/>启用
                     <input id="addradioFalse" type="radio" name="radiobutton" value="False" />停用
                 </td>
+                <td>变量分组</td>
+                <td>
+                    <input id="cbo_AddRole" class="easyui-combobox" data-option="required:required"/>
+                </td>
             </tr>
+            <tr><td>          </td></tr>
             <tr>
                 <td>备注</td>
                 <td colspan="3">
@@ -97,14 +102,18 @@
 	</div>
 
     <div id="editDialog" class="easyui-dialog" title="编辑录入信息" data-options="iconCls:'icon-save',closed:true,buttons:'#editDialog-buttons'" style="width:500px;height:200px;padding:10px">
-        <table>
+        <table style="border-spacing:5px">
             <tr>
+                <td style="width:15%;">变量ID</td>
+                <td style="width:35%;">
+                    <input id="editVariableId" class="easyui-textbox" required="required" readonly="true" />
+                </td>
                 <td style="width:15%;">变量名称</td>
                 <td style="width:35%;">
                     <input id="editVariableName" class="easyui-textbox" required="required" />
                 </td>
             </tr>
-            <tr>
+            <%--<tr>
                 <td style="width:15%;">创建人</td>
                 <td style="width:35%;">
                     <input id="editCreator" class="easyui-textbox" required="required" />
@@ -113,12 +122,18 @@
                 <td style="width:35%;">
                     <input id="editCreateTime" class="easyui-datetimebox" required="required" />
                 </td>
-            </tr>
+            </tr>--%>
             <tr>
                 <td>启用标志</td>
                 <td>
                     <input id="editradioTrue" type="radio" name="editradiobutton" value="True" checked="checked"/>启用
                     <input id="editradioFalse" type="radio" name="editradiobutton" value="False" />停用
+                </td>
+                 <td>
+                    变量分组
+                </td>
+                <td>
+                    <input id="cbo_editRole" class="easyui-combobox"/>
                 </td>
             </tr>
             <tr>

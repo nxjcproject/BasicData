@@ -20,9 +20,12 @@ namespace BasicData.Web.UI_BasicData.EnergyDataManualInput
             ////////////////////调试用,自定义的数据授权
             List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_byc" };
             AddDataValidIdGroup("ProductionOrganization", m_DataValidIdItems);
-            mPageOpPermission = "1011";
+            mPageOpPermission = "1111";
 #elif RELEASE
 #endif
+            string m_PageId = Request.QueryString["PageId"] != null ? Request.QueryString["PageId"] : "";
+            Hiddenfield_PageId.Value = m_PageId;
+            // Hiddenfield_PageId.Value = "7E5BB013-E142-49F3-9E22-81224AB4141A";
             this.OrganisationTree.Organizations = GetDataValidIdGroup("ProductionOrganization");                 //向web用户控件传递数据授权参数
             this.OrganisationTree.PageName = "EnergyDataManualInput.aspx";                                     //向web用户控件传递当前调用的页面名称
             this.OrganisationTree.LeveDepth = 5;
@@ -38,18 +41,26 @@ namespace BasicData.Web.UI_BasicData.EnergyDataManualInput
         public static char[] AuthorityControl()
         {
             return mPageOpPermission.ToArray();
-        }
 
+        }
         [WebMethod]
-        public static string GetEnergyDataManualInputData(string organizationId)
+        public static string SystemVariableTypeList(string nodeID)
         {
-            DataTable dt = BasicData.Service.EnergyDataManualInput.EnergyDataManualInputService.GetEnergyDataManualInput(organizationId);
+            DataTable table = BasicData.Service.EnergyDataManualInput.EnergyDataManualInputService.GetSystemVariableTypeList(nodeID);
+            string result = EasyUIJsonParser.DataGridJsonParser.DataTableToJson(table);
+            return result;
+        }
+        [WebMethod]
+        public static string GetEnergyDataManualInputData(string organizationId, string startTime, string endTime, string nodeID)
+        {
+            DataTable dt = BasicData.Service.EnergyDataManualInput.EnergyDataManualInputService.GetEnergyDataManualInput(organizationId, startTime, endTime, nodeID);
             string result = EasyUIJsonParser.DataGridJsonParser.DataTableToJson(dt);
             return result;
         }
         [WebMethod]
         public static string GetVariableNameData()
-        {           
+        {
+
             DataTable dt = BasicData.Service.EnergyDataManualInput.EnergyDataManualInputService.GetVariableNameData();
             string result = EasyUIJsonParser.ComboboxJsonParser.DataTableToJson(dt);
             return result;

@@ -205,3 +205,11 @@ C:\Users\Administrator\Desktop\宁夏建材\BasicData-master\BasicData.Service\b
 C:\Users\Administrator\Desktop\宁夏建材\BasicData-master\BasicData.Service\obj\Debug\BasicData.Service.csprojFakesResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\宁夏建材\BasicData-master\BasicData.Service\obj\Debug\BasicData.Service.dll
 C:\Users\Administrator\Desktop\宁夏建材\BasicData-master\BasicData.Service\obj\Debug\BasicData.Service.pdb
+C:\Users\Administrator\Desktop\BasicData-master\BasicData.Service\bin\Debug\BasicData.Service.dll
+C:\Users\Administrator\Desktop\BasicData-master\BasicData.Service\bin\Debug\BasicData.Service.pdb
+C:\Users\Administrator\Desktop\BasicData-master\BasicData.Service\bin\Debug\BasicData.Infrastructure.dll
+C:\Users\Administrator\Desktop\BasicData-master\BasicData.Service\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
+C:\Users\Administrator\Desktop\BasicData-master\BasicData.Service\bin\Debug\BasicData.Infrastructure.pdb
+C:\Users\Administrator\Desktop\BasicData-master\BasicData.Service\obj\Debug\BasicData.Service.csprojFakesResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\BasicData-master\BasicData.Service\obj\Debug\BasicData.Service.dll
+C:\Users\Administrator\Desktop\BasicData-master\BasicData.Service\obj\Debug\BasicData.Service.pdb

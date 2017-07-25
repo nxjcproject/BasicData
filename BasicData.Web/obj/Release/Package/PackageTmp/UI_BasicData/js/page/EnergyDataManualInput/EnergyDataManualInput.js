@@ -1,6 +1,9 @@
-﻿$(function () {
+﻿var nodeID;
+$(function () {
+    nodeID = $('#Hiddenfield_PageId').val();
     loadDataGrid("first");
     initPageAuthority();
+    initDate();
 });
 
 var publicData = {
@@ -8,6 +11,7 @@ var publicData = {
     editIndex: "",
     editRow: {}
 }
+
 //初始化页面的增删改查权限
 function initPageAuthority() {
     $.ajax({
@@ -34,32 +38,60 @@ function initPageAuthority() {
         }
     });
 }
+//初始化时间框
+function initDate() {
+    var myDate = new Date()
+    var nowDate = myDate.getFullYear() + '-' + (myDate.getMonth() + 1) + '-' + myDate.getDate() + " " + (myDate.getHours()) + ':' + (myDate.getMinutes()) + ':' + (myDate.getSeconds());
+    var beforeMonthDate = myDate.getFullYear() + '-' + myDate.getMonth() + '-' + myDate.getDate() + " " + (myDate.getHours()) + ':' + (myDate.getMinutes()) + ':' + (myDate.getSeconds());
+    $('#db_endTime').datetimebox({ value: nowDate, showSeconds: true });
+    $('#db_startTime').datetimebox('setValue', beforeMonthDate);
+}
+
 function onOrganisationTreeClick(node) {
     publicData.organizationId = node.OrganizationId;
     $('#organizationName').textbox('setText', node.text);
 }
 function loadVaribleNameData() {
+    var dataToServer = {
+        nodeID: nodeID
+    };
     $.ajax({
         type: "POST",
-        url: "EnergyDataManualInput.aspx/GetVariableNameData",
-        data: "",
+        // url: "EnergyDataManualInput.aspx/GetVariableNameData",
+        url: "EnergyDataManualInput.aspx/SystemVariableTypeList",
+        //data: '{nodeId:"' + nodeID + '"}',
+        data: JSON.stringify(dataToServer),
+        // data:"",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
-        async:false,//同步执行
+        async: true,//同步执行
         success: function (msg) {
-            var comboboxValue = jQuery.parseJSON(msg.d);
+            m_MsgData = jQuery.parseJSON(msg.d);
+            // var comboboxValue = jQuery.parseJSON(msg.d);
             $('#addVariableName').combobox({
-                data: comboboxValue,
+                data: m_MsgData.rows,
                 valueField: 'VariableId',
                 textField: 'VariableName'
             });
+        },
+        error: function () {
+            alert('加载失败');
         }
     });
 }
 
 function query() {
+    var startTime = $('#db_startTime').datetimebox('getValue');
+    var endTime = $('#db_endTime').datetimebox('getValue');
+    if (startTime == '' || endTime == '' || startTime > endTime || startTime == endTime) {
+        $.messager.alert('提示', '请选择合适的开始时间和结束时间');
+        return;
+    }
     var dataToServer = {
-        organizationId: publicData.organizationId
+        organizationId: publicData.organizationId,
+        startTime: startTime,
+        endTime: endTime,
+        nodeID: nodeID
     };
     var win = $.messager.progress({
         title: '请稍后',
@@ -69,12 +101,13 @@ function query() {
         type: "POST",
         url: "EnergyDataManualInput.aspx/GetEnergyDataManualInputData",
         data: JSON.stringify(dataToServer),
+        //     data: "{nodeID: '" + nodeID + "'}",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (msg) {
             $.messager.progress('close');
             m_MsgData = jQuery.parseJSON(msg.d);
-            loadDataGrid("last",m_MsgData);
+            loadDataGrid("last", m_MsgData);
         },
         beforeSend: function (XMLHttpRequest) {
             win;
@@ -123,6 +156,7 @@ function addItem() {
         alert("请选择分厂！");
     }
     else {
+        //  $('#addDialog').dialog('open');
         loadVaribleNameData();
         $('#addDialog').dialog('open');
     }
@@ -196,7 +230,7 @@ function deleteData(id) {
             if (msg.d == '1') {
                 alert("删除成功！");
             }
-            else if(msg.d == 'noright'){
+            else if (msg.d == 'noright') {
                 alert("用户没有删除权限！");
             }
             else {

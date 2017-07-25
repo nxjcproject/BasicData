@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head id="Head1" runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="/lib/ealib/themes/gray/easyui.css" />
     <link rel="stylesheet" type="text/css" href="/lib/ealib/themes/icon.css" />
@@ -21,6 +21,7 @@
     <title></title>
 </head>
 <body>
+    <%-- 手动数据补录--%>
     <div class="easyui-layout" data-options="fit:true,border:false" style="padding: 5px;">
         <div data-options="region:'west',border:false,collapsible:false" style="width: 150px;">
             <uc1:OrganisationTree runat="server" ID="OrganisationTree" />
@@ -30,7 +31,11 @@
                 <div  style="height: 25px; padding-top: 10px;padding-left:10px">
                     <span>组织机构名称:</span>
                     <span>
-                        <input id="organizationName" class="easyui-textbox" style="width: 100px" /></span>
+                        <input id="organizationName" class="easyui-textbox" style="width: 100px"/></span>
+                          <span>开始时间</span>
+                    <span id="db_startTime" class="easyui-datetimebox" data-option="required:true"></span>
+                    <span>结束时间</span>
+                    <span id="db_endTime" class="easyui-datetimebox"  data-option="required:true"></span>
                     <span><a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-ok',plain:true" onclick="query()">查询</a></span>
                 </div>
                 <div id="tb" style="padding: 5px; height: auto">
@@ -52,7 +57,7 @@
             <tr>
                 <td style="width: 15%;">变量名称</td>
                 <td style="width: 35%;">
-                    <input id="addVariableName" style="width: 150px;" />
+                    <input id="addVariableName" class="easyui-combobox" style="width: 150px;" data-options="panelHeight:'auto'"/>
                 </td>
                 <td style="width: 15%;">更新周期</td>
                 <td style="width: 35%;">
@@ -119,5 +124,10 @@
         <a href="javascript:void(0)" class="easyui-linkbutton" onclick="saveEditDialog()">保存</a>
         <a href="javascript:void(0)" class="easyui-linkbutton" onclick="javascript:$('#editDialog').dialog('close')">取消</a>
     </div>
+        <form id="form_EnergyConsumptionPlan" runat="server">
+        <div>
+            <asp:HiddenField ID="Hiddenfield_PageId" runat="server" />
+        </div>
+    </form>
 </body>
 </html>

@@ -11,7 +11,7 @@ namespace BasicData.Web.UI_BasicData.EnergyDataManualInput
 {
     public partial class EnergyDataManualInputContrast : WebStyleBaseForEnergy.webStyleBase
     {
-        private static char[] CRUD; 
+        private static char[] CRUD;
         protected void Page_Load(object sender, EventArgs e)
         {
             base.InitComponts();
@@ -22,8 +22,8 @@ namespace BasicData.Web.UI_BasicData.EnergyDataManualInput
             ////////////////////调试用,自定义的数据授权
             List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_byc" };
             AddDataValidIdGroup("ProductionOrganization", m_DataValidIdItems);
-            mPageOpPermission = "0000";
-            
+            mPageOpPermission = "1111";
+
 #elif RELEASE
 #endif
             CRUD = mPageOpPermission.ToArray();
@@ -44,7 +44,14 @@ namespace BasicData.Web.UI_BasicData.EnergyDataManualInput
             string result = EasyUIJsonParser.DataGridJsonParser.DataTableToJson(dt);
             return result;
         }
+        [WebMethod]
+        public static string GetRoles()
+        {
+            DataTable dt = BasicData.Service.EnergyDataManualInput.EnergyDataManualInputService.GetIndustryEnergy_SHRoles();
+            string result = EasyUIJsonParser.DataGridJsonParser.DataTableToJson(dt);
+            return result;
 
+        }
         [WebMethod]
         public static string AddEnergyDataManualInputContrastData(string maddData)
         {
@@ -86,6 +93,7 @@ namespace BasicData.Web.UI_BasicData.EnergyDataManualInput
         [WebMethod]
         public static string EditEnergyDataManualInputContrastData(string editData)
         {
+
             if (CRUD[2] == '1')
             {
                 int result = BasicData.Service.EnergyDataManualInput.EnergyDataManualInputService.EditEnergyDataManualInputContrast(editData);

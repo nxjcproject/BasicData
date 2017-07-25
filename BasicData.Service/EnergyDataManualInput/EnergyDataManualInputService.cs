@@ -12,16 +12,69 @@ namespace BasicData.Service.EnergyDataManualInput
 {
     public class EnergyDataManualInputService
     {
+
         private readonly static string _connStr = ConnectionStringFactory.NXJCConnectionString;
         private static ISqlServerDataFactory _dataFactory = new SqlServerDataFactory(_connStr);
+        // private static string nodeID = ""; 
+        public static DataTable GetIndustryEnergy_SHRoles()
+        {
+            string connectionString = ConnectionStringFactory.NXJCConnectionString;
+            ISqlServerDataFactory dataFactory = new SqlServerDataFactory(connectionString);
+            DataTable result;
+            string querySql = "";
+            querySql = "select [ROLE_ID] AS ID,[ROLE_NAME] AS Name from [IndustryEnergy_SH].[dbo].[roles]";
+            result = dataFactory.Query(querySql);
+            return result;
+        }
+        public static string GetPageID(string nodeID)
+        {
+            string connectionString = ConnectionStringFactory.NXJCConnectionString;
+            ISqlServerDataFactory dataFactory = new SqlServerDataFactory(connectionString);
+            string SqlPage = @"SELECT [PAGE_ID]FROM [IndustryEnergy_SH].[dbo].[content] A where A.[NODE_ID]=@nodeID
+                          ";
+            SqlParameter mPara = new SqlParameter("nodeID", nodeID);
+            DataTable dtPage = dataFactory.Query(SqlPage, mPara);
+            string mPageId = "";
+            if (dtPage.Rows.Count != 0)
+            {
+                mPageId = dtPage.Rows[0]["PAGE_ID"].ToString();
+            }
+            return mPageId;
+        }
+        //根据对照表角色分组显示变量
 
+        public static DataTable GetSystemVariableTypeList(string nodeID)
+        {
+            string connectionString = ConnectionStringFactory.NXJCConnectionString;
+            ISqlServerDataFactory dataFactory = new SqlServerDataFactory(connectionString);
+            string mPageId = GetPageID(nodeID);//获取page_ID
+            DataTable resultTable = new DataTable();
+            //if (mPageId == "")
+            //{
+            //    string mSql = @"SELECT [VariableId],[VariableName] FROM [NXJC].[dbo].[system_EnergyDataManualInputContrast]";
+            //    resultTable = dataFactory.Query(mSql);
+
+            //}
+            //else
+            //{
+            string mSql = @"(SELECT A.[VariableId],A.[VariableName] 
+                               FROM system_EnergyDataManualInputContrast A,[IndustryEnergy_SH].[dbo].[content] B
+                               WHERE A.[GroupId]=B.[PAGE_ID] AND B.[PAGE_ID]=@m_pageid)
+                               union (SELECT [VariableId],[VariableName]
+                                   FROM system_EnergyDataManualInputContrast
+                                   WHERE [GroupId] is NULL)";
+            SqlParameter para = new SqlParameter("m_pageid", mPageId);
+            resultTable = dataFactory.Query(mSql, para);
+            //}
+            return resultTable;
+        }
         public static DataTable GetEnergyDataManualInputContrast(string variableName)
         {
             DataTable result;
 
             string querySql = "";
             IList<SqlParameter> parameters = new List<SqlParameter>();
-            
+
             if (variableName == "")
             {
                 querySql = "select * from system_EnergyDataManualInputContrast";
@@ -47,8 +100,8 @@ namespace BasicData.Service.EnergyDataManualInput
 
             if (testTable.Rows.Count == 0)
             {
-                string insertSql = @"insert into system_EnergyDataManualInputContrast (VariableId,VariableName,Type,Enabled,Creator,CreateTime,Remark) 
-                                values (@variableId,@variableName,@type,@enabled,@creator,@createTime,@remark)";
+                string insertSql = @"insert into system_EnergyDataManualInputContrast (VariableId,VariableName,Type,Enabled,Creator,CreateTime,Remark,GroupId) 
+                                values (@variableId,@variableName,@type,@enabled,@creator,@createTime,@remark,@role)";
                 IList<SqlParameter> parameters = new List<SqlParameter>();
                 parameters.Add(new SqlParameter("@variableId", addData.JsonPick("variableId")));
                 parameters.Add(new SqlParameter("@variableName", addData.JsonPick("variableName")));
@@ -57,7 +110,7 @@ namespace BasicData.Service.EnergyDataManualInput
                 parameters.Add(new SqlParameter("@creator", addData.JsonPick("creator")));
                 parameters.Add(new SqlParameter("@createTime", addData.JsonPick("createTime")));
                 parameters.Add(new SqlParameter("@remark", addData.JsonPick("remark")));
-
+                parameters.Add(new SqlParameter("@role", addData.JsonPick("role")));
                 result = _dataFactory.ExecuteSQL(insertSql, parameters.ToArray());
             }
             else
@@ -71,7 +124,7 @@ namespace BasicData.Service.EnergyDataManualInput
         public static int DeleteEnergyDataManualInputContrast(string variableId)
         {
             string deleteSql = @"delete from system_EnergyDataManualInputContrast where VariableId=@variableId";
-            SqlParameter[] parameters = {new SqlParameter("@variableId",variableId)};
+            SqlParameter[] parameters = { new SqlParameter("@variableId", variableId) };
 
             int result = _dataFactory.ExecuteSQL(deleteSql, parameters);
             return result;
@@ -81,7 +134,7 @@ namespace BasicData.Service.EnergyDataManualInput
         {
             int result = 0;
             string updateSql = @"update system_EnergyDataManualInputContrast set VariableName=@variableName,Enabled=@enabled,
-                                Creator=@creator,CreateTime=@createTime,Remark=@remark where VariableId=@variableId";
+                                Creator=@creator,CreateTime=@createTime,Remark=@remark,GroupId=@role where VariableId=@variableId";
             IList<SqlParameter> parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@variableId", editData.JsonPick("variableId")));
             parameters.Add(new SqlParameter("@variableName", editData.JsonPick("variableName")));
@@ -89,36 +142,82 @@ namespace BasicData.Service.EnergyDataManualInput
             parameters.Add(new SqlParameter("@creator", editData.JsonPick("creator")));
             parameters.Add(new SqlParameter("@createTime", editData.JsonPick("createTime")));
             parameters.Add(new SqlParameter("@remark", editData.JsonPick("remark")));
+            parameters.Add(new SqlParameter("@role", editData.JsonPick("role")));
 
             result = _dataFactory.ExecuteSQL(updateSql, parameters.ToArray());
 
             return result;
         }
 
-        public static DataTable GetEnergyDataManualInput(string organizationId)
+        //        public static DataTable GetEnergyDataManualInput(string organizationId)
+        //        {
+        //            DataTable result;
+        //            string queryString;
+        //            if (organizationId != "")
+        //            {
+        //                queryString = @"select A.DataItemId,A.OrganizationID,C.Name,A.VariableId,B.VariableName,A.DataValue,A.TimeStamp,A.UpdateCycle,A.Version,A.Remark
+        //                                from system_EnergyDataManualInput as A 
+        //                                left join system_EnergyDataManualInputContrast as B 
+        //                                on A.VariableId=B.VariableId
+        //                                left join system_Organization as C on A.OrganizationID=C.OrganizationID
+        //                                where A.OrganizationID=@organizationId";
+        //            }
+        //            else
+        //            {
+        //                queryString = @"select A.DataItemId,A.OrganizationID,C.Name,A.VariableId,B.VariableName,A.DataValue,A.TimeStamp,A.UpdateCycle,A.Version,A.Remark
+        //                                from system_EnergyDataManualInput as A 
+        //                                left join system_EnergyDataManualInputContrast as B 
+        //                                on A.VariableId=B.VariableId
+        //                                left join system_Organization as C on A.OrganizationID=C.OrganizationID";
+        //            }
+        //            SqlParameter[] parameters = { new SqlParameter("@organizationId", organizationId) };
+        //            result = _dataFactory.Query(queryString, parameters);
+
+        //            return result;
+        //        }
+        //input表查询
+        public static DataTable GetEnergyDataManualInput(string organizationId, string startTime, string endTime, string nodeID)
         {
             DataTable result;
             string queryString;
+            string mPageId = GetPageID(nodeID);
+
             if (organizationId != "")
             {
-                queryString = @"select A.DataItemId,A.OrganizationID,C.Name,A.VariableId,B.VariableName,A.DataValue,A.TimeStamp,A.UpdateCycle,A.Version,A.Remark
-                                from system_EnergyDataManualInput as A 
-                                left join system_EnergyDataManualInputContrast as B 
-                                on A.VariableId=B.VariableId
-                                left join system_Organization as C on A.OrganizationID=C.OrganizationID
-                                where A.OrganizationID=@organizationId";
+                //                queryString = @"select * from (select A.DataItemId,A.OrganizationID,C.Name,A.VariableId,B.VariableName,A.DataValue,A.TimeStamp,A.UpdateCycle,A.Version,A.Remark
+                //                                from system_EnergyDataManualInput as A 
+                //                                left join system_EnergyDataManualInputContrast as B 
+                //                                on A.VariableId=B.VariableId
+                //                                left join system_Organization as C on A.OrganizationID=C.OrganizationID
+                //                                where A.OrganizationID=@organizationId) as D where D.TimeStamp>@startTime and D.TimeStamp<@endTime order by D.TimeStamp desc,D.VariableName asc";
+
+                queryString = @"select A.DataItemId,C.Name,A.VariableId,B.VariableName,A.DataValue,A.TimeStamp,A.UpdateCycle,A.Version,A.Remark
+                             from system_EnergyDataManualInput as A,
+                                              (SELECT A.[VariableId],A.[VariableName] 
+                                              FROM system_EnergyDataManualInputContrast A,[IndustryEnergy_SH].[dbo].[content] B
+                                              WHERE A.[GroupId]=B.[PAGE_ID] AND B.[PAGE_ID]=@m_pageid
+                                              union SELECT [VariableId],[VariableName]
+                                              FROM system_EnergyDataManualInputContrast WHERE [GroupId] is NULL)  
+                              AS B,system_Organization as C where A.VariableId=B.VariableId and A.OrganizationID=C.OrganizationID and C.OrganizationID=@organizationId and A.TimeStamp>@startTime and A.TimeStamp<@endTime order by A.TimeStamp desc,B.VariableName asc";
             }
             else
             {
-                queryString = @"select A.DataItemId,A.OrganizationID,C.Name,A.VariableId,B.VariableName,A.DataValue,A.TimeStamp,A.UpdateCycle,A.Version,A.Remark
-                                from system_EnergyDataManualInput as A 
-                                left join system_EnergyDataManualInputContrast as B 
-                                on A.VariableId=B.VariableId
-                                left join system_Organization as C on A.OrganizationID=C.OrganizationID";
+                //                queryString = @"select *from (select A.DataItemId,A.OrganizationID,C.Name,A.VariableId,B.VariableName,A.DataValue,A.TimeStamp,A.UpdateCycle,A.Version,A.Remark
+                //                               from system_EnergyDataManualInput as A 
+                //                                left join system_EnergyDataManualInputContrast as B 
+                //                               on A.VariableId=B.VariableId
+                //                               left join system_Organization as C on A.OrganizationID=C.OrganizationID) AS D where D.TimeStamp>@startTime and D.TimeStamp<@endTime order by D.TimeStamp desc,D.VariableName asc";
+                queryString = @"select A.DataItemId,C.Name,A.VariableId,B.VariableName,A.DataValue,A.TimeStamp,A.UpdateCycle,A.Version,A.Remark
+                             from system_EnergyDataManualInput as A,
+                                              (SELECT A.[VariableId],A.[VariableName] 
+                                              FROM system_EnergyDataManualInputContrast A,[IndustryEnergy_SH].[dbo].[content] B
+                                              WHERE A.[GroupId]=B.[PAGE_ID] AND B.[PAGE_ID]=@m_pageid
+                                              union SELECT [VariableId],[VariableName]
+                                              FROM system_EnergyDataManualInputContrast WHERE [GroupId] is NULL)  
+                              AS B,system_Organization as C where A.VariableId=B.VariableId and A.OrganizationID=C.OrganizationID and A.TimeStamp>@startTime and A.TimeStamp<@endTime order by A.TimeStamp desc,B.VariableName asc";
             }
-            SqlParameter[] parameters = { new SqlParameter("@organizationId", organizationId) };
+            SqlParameter[] parameters = { new SqlParameter("@organizationId", organizationId), new SqlParameter("@startTime", startTime), new SqlParameter("@endTime", endTime), new SqlParameter("@m_pageid", mPageId) };
             result = _dataFactory.Query(queryString, parameters);
-
             return result;
         }
 
@@ -127,6 +226,7 @@ namespace BasicData.Service.EnergyDataManualInput
             DataTable result;
 
             string queryString = @"select VariableId,VariableName from system_EnergyDataManualInputContrast";
+
             result = _dataFactory.Query(queryString);
 
             return result;
@@ -136,29 +236,29 @@ namespace BasicData.Service.EnergyDataManualInput
         {
             int result = 0;
 
-//            string testSql = @"select * 
-//                                from system_EnergyDataManualInput A,system_Organization B,
-//                                (select LevelCode from system_Organization where OrganizationID=@organizationId) C
-//                                where A.OrganizationID=B.OrganizationID
-//                                and B.LevelCode like C.LevelCode+'%'
-//                                and A.TimeStamp = @datetime
-//                                and A.VariableId=@variableId
-//                                and A.UpdateCycle=@updateCycle";
-//            string updateCycle = addData.JsonPick("updateCycle");
-//            string organizationId = addData.JsonPick("organizationId");
-//            string variableId = addData.JsonPick("variableId");
-//            string timeStamp = addData.JsonPick("timeStamp");
-//            if (updateCycle != "day")
-//            {
-//                string[] datetimearry=timeStamp.Split('-');
-//                timeStamp = datetimearry[0] + "-" + datetimearry[1];
-//            }
-//           // string[] datetimearry = addData.JsonPick("timeStamp").Split('-');
-//            SqlParameter[] testparameters = { new SqlParameter("datetime",timeStamp),
-//                                            new SqlParameter("updateCycle",updateCycle),
-//                                            new SqlParameter("organizationId",organizationId),
-//                                            new SqlParameter("variableId",variableId)};
-//            DataTable testTable = _dataFactory.Query(testSql, testparameters);
+            //            string testSql = @"select * 
+            //                                from system_EnergyDataManualInput A,system_Organization B,
+            //                                (select LevelCode from system_Organization where OrganizationID=@organizationId) C
+            //                                where A.OrganizationID=B.OrganizationID
+            //                                and B.LevelCode like C.LevelCode+'%'
+            //                                and A.TimeStamp = @datetime
+            //                                and A.VariableId=@variableId
+            //                                and A.UpdateCycle=@updateCycle";
+            //            string updateCycle = addData.JsonPick("updateCycle");
+            //            string organizationId = addData.JsonPick("organizationId");
+            //            string variableId = addData.JsonPick("variableId");
+            //            string timeStamp = addData.JsonPick("timeStamp");
+            //            if (updateCycle != "day")
+            //            {
+            //                string[] datetimearry=timeStamp.Split('-');
+            //                timeStamp = datetimearry[0] + "-" + datetimearry[1];
+            //            }
+            //           // string[] datetimearry = addData.JsonPick("timeStamp").Split('-');
+            //            SqlParameter[] testparameters = { new SqlParameter("datetime",timeStamp),
+            //                                            new SqlParameter("updateCycle",updateCycle),
+            //                                            new SqlParameter("organizationId",organizationId),
+            //                                            new SqlParameter("variableId",variableId)};
+            //            DataTable testTable = _dataFactory.Query(testSql, testparameters);
 
             string updateCycle = addData.JsonPick("updateCycle");
             string organizationId = addData.JsonPick("organizationId");
@@ -169,7 +269,7 @@ namespace BasicData.Service.EnergyDataManualInput
                 string[] datetimearry = timeStamp.Split('-');
                 timeStamp = datetimearry[0] + "-" + datetimearry[1];
             }
-            if (CheckData(addData)> 0)
+            if (CheckData(addData) > 0)
             {
                 return -2;
             }
@@ -260,5 +360,8 @@ namespace BasicData.Service.EnergyDataManualInput
             DataTable testTable = _dataFactory.Query(testSql, testparameters);
             return testTable.Rows.Count;
         }
+
+
     }
+
 }
