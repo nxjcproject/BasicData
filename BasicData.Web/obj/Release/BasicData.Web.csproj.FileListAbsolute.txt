@@ -282,3 +282,21 @@ C:\Users\Administrator\Desktop\BasicData-master\BasicData.Web\obj\Release\BasicD
 C:\Users\Administrator\Desktop\BasicData-master\BasicData.Web\obj\Release\BasicData.Web.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\BasicData-master\BasicData.Web\obj\Release\BasicData.Web.dll
 C:\Users\Administrator\Desktop\BasicData-master\BasicData.Web\obj\Release\BasicData.Web.pdb
+D:\nxjc AllProject\BasicData\BasicData.Web\bin\BasicData.Web.dll
+D:\nxjc AllProject\BasicData\BasicData.Web\bin\BasicData.Web.pdb
+D:\nxjc AllProject\BasicData\BasicData.Web\bin\BasicData.Infrastructure.dll
+D:\nxjc AllProject\BasicData\BasicData.Web\bin\BasicData.Service.dll
+D:\nxjc AllProject\BasicData\BasicData.Web\bin\Microsoft.QualityTools.Testing.Fakes.dll
+D:\nxjc AllProject\BasicData\BasicData.Web\bin\SqlServerDataAdapter.dll
+D:\nxjc AllProject\BasicData\BasicData.Web\bin\StatisticalReport.Infrastructure.dll
+D:\nxjc AllProject\BasicData\BasicData.Web\bin\AutoSetParameters.dll
+D:\nxjc AllProject\BasicData\BasicData.Web\bin\Standard_GB16780-2012.dll
+D:\nxjc AllProject\BasicData\BasicData.Web\bin\AutoMapper.dll
+D:\nxjc AllProject\BasicData\BasicData.Web\bin\BasicData.Infrastructure.pdb
+D:\nxjc AllProject\BasicData\BasicData.Web\bin\BasicData.Service.pdb
+D:\nxjc AllProject\BasicData\BasicData.Web\bin\AutoSetParameters.pdb
+D:\nxjc AllProject\BasicData\BasicData.Web\bin\Standard_GB16780-2012.pdb
+D:\nxjc AllProject\BasicData\BasicData.Web\obj\Release\BasicData.Web.csprojFakesResolveAssemblyReference.cache
+D:\nxjc AllProject\BasicData\BasicData.Web\obj\Release\BasicData.Web.csprojResolveAssemblyReference.cache
+D:\nxjc AllProject\BasicData\BasicData.Web\obj\Release\BasicData.Web.dll
+D:\nxjc AllProject\BasicData\BasicData.Web\obj\Release\BasicData.Web.pdb

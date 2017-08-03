@@ -56,7 +56,7 @@
                 </tr>
             </table>
         </div>
-        <div data-options="region:'west',split:true,border:false,collapsible:false" style="width: 700px;padding-right:3px;">
+        <div data-options="region:'west',split:true,border:true,collapsible:false" style="width: 700px;">
             <table id="grid_MasterMachineInfo" data-options="fit:true,border:false"></table>
         </div>
         <div id="toolbar_SlaveMachineInfo" style="display: none;">
@@ -92,7 +92,7 @@
                 </tr>
             </table>
         </div>
-        <div data-options="region:'center',split:true,border:false,collapsible:false" style="padding-left: 3px;">
+        <div data-options="region:'center',split:true,border:true,collapsible:false">
             <table id="grid_SlaveMachineInfo" data-options="fit:true,border:false"></table>
         </div>
     </div>

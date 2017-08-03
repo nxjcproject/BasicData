@@ -213,3 +213,18 @@ C:\Users\Administrator\Desktop\BasicData-master\BasicData.Service\obj\Release\Ba
 C:\Users\Administrator\Desktop\BasicData-master\BasicData.Service\obj\Release\BasicData.Service.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\BasicData-master\BasicData.Service\obj\Release\BasicData.Service.dll
 C:\Users\Administrator\Desktop\BasicData-master\BasicData.Service\obj\Release\BasicData.Service.pdb
+D:\nxjc AllProject\BasicData\BasicData.Service\bin\Release\BasicData.Service.dll
+D:\nxjc AllProject\BasicData\BasicData.Service\bin\Release\BasicData.Service.pdb
+D:\nxjc AllProject\BasicData\BasicData.Service\bin\Release\BasicData.Infrastructure.dll
+D:\nxjc AllProject\BasicData\BasicData.Service\bin\Release\Microsoft.QualityTools.Testing.Fakes.dll
+D:\nxjc AllProject\BasicData\BasicData.Service\bin\Release\mDbDataAdaper.dll
+D:\nxjc AllProject\BasicData\BasicData.Service\bin\Release\AutoMapper.dll
+D:\nxjc AllProject\BasicData\BasicData.Service\bin\Release\BasicData.Infrastructure.pdb
+D:\nxjc AllProject\BasicData\BasicData.Service\bin\Release\AutoSetParameters.pdb
+D:\nxjc AllProject\BasicData\BasicData.Service\bin\Release\RunIndicators.pdb
+D:\nxjc AllProject\BasicData\BasicData.Service\bin\Release\Standard_GB16780-2012.pdb
+D:\nxjc AllProject\BasicData\BasicData.Service\bin\Release\mDbDataAdaper.pdb
+D:\nxjc AllProject\BasicData\BasicData.Service\obj\Release\BasicData.Service.csprojFakesResolveAssemblyReference.cache
+D:\nxjc AllProject\BasicData\BasicData.Service\obj\Release\BasicData.Service.csprojResolveAssemblyReference.cache
+D:\nxjc AllProject\BasicData\BasicData.Service\obj\Release\BasicData.Service.dll
+D:\nxjc AllProject\BasicData\BasicData.Service\obj\Release\BasicData.Service.pdb

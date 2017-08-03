@@ -4679,7 +4679,7 @@
       <publishTime>07/24/2017 20:24:28</publishTime>
     </File>
     <File Include="UI_BasicData/MasterSlaveMachine/MasterSlaveMachinedescription.aspx">
-      <publishTime>07/29/2017 13:42:48</publishTime>
+      <publishTime>08/03/2017 16:30:35</publishTime>
     </File>
     <File Include="UI_BasicData/Material/CoefficientUpdater.aspx">
       <publishTime>07/24/2017 20:24:28</publishTime>
@@ -4706,7 +4706,7 @@
       <publishTime>07/24/2017 20:24:28</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/29/2017 13:45:23</publishTime>
+      <publishTime>08/03/2017 16:34:11</publishTime>
     </File>
   </ItemGroup>
 </Project>
