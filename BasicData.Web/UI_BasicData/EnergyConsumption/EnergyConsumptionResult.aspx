@@ -32,15 +32,15 @@
                         <table>
                             <tr>
                                 <td>选择年份</td>
-                                <td style="width: 150px;">
-                                    <input id="numberspinner_PlanYear" class="easyui-numberspinner" data-options="min:1900,max:2999" style="width: 140px;" />
+                                <td style="width: 90px;">
+                                    <input id="numberspinner_PlanYear" class="easyui-numberspinner" data-options="min:1900,max:2999" style="width: 80px;" />
                                 </td>
-                                <td>当前产线</td>
-                                <td style="width: 200px;">
-                                    <input id="TextBox_OrganizationText" class="easyui-textbox" data-options="editable:false, readonly:true" style="width: 180px;" />
+                                <td>组织机构</td>
+                                <td style="width: 100px;">
+                                    <input id="TextBox_OrganizationText" class="easyui-textbox" data-options="editable:false, readonly:true" style="width: 90px;" />
                                 </td>
                                 <td>
-                                    <a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true"
+                                    <a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search'"
                                         onclick="QueryEnergyConsumptionResultInfoFun();">查询</a>
                                 </td>
                                 <td>
@@ -52,7 +52,7 @@
                 </tr>
             </table>
         </div>
-        <div data-options="region:'center',border:false,collapsible:false" style="padding-left: 10px;">
+        <div data-options="region:'center',border:false,collapsible:false">
             <table id="grid_EnergyConsumptionResultInfo" data-options="fit:true,border:true"></table>
         </div>
     </div>

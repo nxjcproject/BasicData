@@ -31,7 +31,7 @@
         <div data-options="region:'center'">
             <div id="tb" style="padding:5px;">
                 <div >
-                    <label>当前产线名称：</label>
+                    <label style="padding-left: 10px; text-align: right;">组织机构</label>
                     <input id="organizationName" class="easyui-textbox" style="width: 100px;" readonly="true" />
                     <input id="organizationId" readonly="true" style="display: none;" />
                     <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-undo',plain:true" onclick="reject()">撤销</a>

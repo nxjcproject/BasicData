@@ -300,3 +300,21 @@ D:\nxjc AllProject\BasicData\BasicData.Web\obj\Release\BasicData.Web.csprojFakes
 D:\nxjc AllProject\BasicData\BasicData.Web\obj\Release\BasicData.Web.csprojResolveAssemblyReference.cache
 D:\nxjc AllProject\BasicData\BasicData.Web\obj\Release\BasicData.Web.dll
 D:\nxjc AllProject\BasicData\BasicData.Web\obj\Release\BasicData.Web.pdb
+C:\Users\Administrator\Desktop\NXJC统一调整列宽\BasicData-master\BasicData.Web\bin\BasicData.Web.dll
+C:\Users\Administrator\Desktop\NXJC统一调整列宽\BasicData-master\BasicData.Web\bin\BasicData.Web.pdb
+C:\Users\Administrator\Desktop\NXJC统一调整列宽\BasicData-master\BasicData.Web\bin\BasicData.Infrastructure.dll
+C:\Users\Administrator\Desktop\NXJC统一调整列宽\BasicData-master\BasicData.Web\bin\BasicData.Service.dll
+C:\Users\Administrator\Desktop\NXJC统一调整列宽\BasicData-master\BasicData.Web\bin\Microsoft.QualityTools.Testing.Fakes.dll
+C:\Users\Administrator\Desktop\NXJC统一调整列宽\BasicData-master\BasicData.Web\bin\SqlServerDataAdapter.dll
+C:\Users\Administrator\Desktop\NXJC统一调整列宽\BasicData-master\BasicData.Web\bin\StatisticalReport.Infrastructure.dll
+C:\Users\Administrator\Desktop\NXJC统一调整列宽\BasicData-master\BasicData.Web\bin\AutoSetParameters.dll
+C:\Users\Administrator\Desktop\NXJC统一调整列宽\BasicData-master\BasicData.Web\bin\Standard_GB16780-2012.dll
+C:\Users\Administrator\Desktop\NXJC统一调整列宽\BasicData-master\BasicData.Web\bin\AutoMapper.dll
+C:\Users\Administrator\Desktop\NXJC统一调整列宽\BasicData-master\BasicData.Web\bin\BasicData.Infrastructure.pdb
+C:\Users\Administrator\Desktop\NXJC统一调整列宽\BasicData-master\BasicData.Web\bin\BasicData.Service.pdb
+C:\Users\Administrator\Desktop\NXJC统一调整列宽\BasicData-master\BasicData.Web\bin\AutoSetParameters.pdb
+C:\Users\Administrator\Desktop\NXJC统一调整列宽\BasicData-master\BasicData.Web\bin\Standard_GB16780-2012.pdb
+C:\Users\Administrator\Desktop\NXJC统一调整列宽\BasicData-master\BasicData.Web\obj\Release\BasicData.Web.csprojFakesResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\NXJC统一调整列宽\BasicData-master\BasicData.Web\obj\Release\BasicData.Web.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\NXJC统一调整列宽\BasicData-master\BasicData.Web\obj\Release\BasicData.Web.dll
+C:\Users\Administrator\Desktop\NXJC统一调整列宽\BasicData-master\BasicData.Web\obj\Release\BasicData.Web.pdb

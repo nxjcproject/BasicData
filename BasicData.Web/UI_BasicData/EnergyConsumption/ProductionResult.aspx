@@ -32,29 +32,29 @@
                         <table>
                             <tr>
                                 <td>选择年份</td>
-                                <td style="width: 70px;">
+                                <td>
                                     <input id="numberspinner_PlanYear" class="easyui-numberspinner" data-options="min:1900,max:2999" style="width: 70px;" />
                                 </td>
                                 <td>生产区域</td>
-                                <td style="width: 80px;">
+                                <td>
                                     <input id="TextBox_OrganizationText" class="easyui-textbox" data-options="editable:false, readonly:true" style="width: 80px;" />
                                 </td>
                                 <td>主要设备</td>
-                                <td style="width: 80px;">
+                                <td>
                                     <select id="Combobox_Equipment" class="easyui-combobox" data-options="editable:false,panelHeight:'auto'" style="width: 80px;">
                                     </select>
                                 </td>
                                 <td>主要指标</td>
-                                <td style="width: 150px;">
-                                    <select id="Combobox_Quotas" class="easyui-combobox" data-options="editable:false,panelHeight:'auto'" style="width: 150px;">
+                                <td>
+                                    <select id="Combobox_Quotas" class="easyui-combobox" data-options="editable:false,panelHeight:'auto'" style="width: 130px;">
                                     </select>
                                 </td>
                                 <td>
-                                    <a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true"
+                                    <a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search'"
                                         onclick="QueryProductionResultInfoFun();">查询</a>
                                 </td>
                                 <td>
-                                    <input id="TextBox_OrganizationId" style="width: 10px; visibility: hidden;" />
+                                    <input id="TextBox_OrganizationId" style="width: 1px; visibility: hidden;" />
                                 </td>
                             </tr>
                         </table>
@@ -62,7 +62,7 @@
                 </tr>
             </table>
         </div>
-        <div data-options="region:'center',border:false,collapsible:false" style="padding-left: 10px;">
+        <div data-options="region:'center',border:false,collapsible:false">
             <table id="grid_ProductionResultInfo" data-options="fit:true,border:true"></table>
         </div>
     </div>

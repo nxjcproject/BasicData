@@ -29,14 +29,14 @@
         <div data-options="region:'center',border:false,collapsible:false">
             <div id="toolBar">
                 <div  style="height: 25px; padding-top: 10px;padding-left:10px">
-                    <span>组织机构名称:</span>
+                    <span>组织机构</span>
                     <span>
                         <input id="organizationName" class="easyui-textbox" style="width: 100px"/></span>
                           <span>开始时间</span>
-                    <span id="db_startTime" class="easyui-datetimebox" data-option="required:true"></span>
+                    <span id="db_startTime" class="easyui-datetimebox" style="width:150px;" data-option="required:true"></span>
                     <span>结束时间</span>
-                    <span id="db_endTime" class="easyui-datetimebox"  data-option="required:true"></span>
-                    <span><a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-ok',plain:true" onclick="query()">查询</a></span>
+                    <span id="db_endTime" class="easyui-datetimebox" style="width:150px;" data-option="required:true"></span>
+                    <span><a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-search'" onclick="query()">查询</a></span>
                 </div>
                 <div id="tb" style="padding: 5px; height: auto">
                     <a href="javascript:void(0)" id="add" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" onclick="addItem()">添加</a>

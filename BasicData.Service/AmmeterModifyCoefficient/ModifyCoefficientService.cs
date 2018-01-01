@@ -48,11 +48,11 @@ namespace BasicData.Service.AmmeterModifyCoefficient
             {
                 meterDatabase = t_table.Rows[0]["MeterDatabase"].ToString().Trim();
             }
-            string myFieldSql = @"select A.LevelCode,A.OrganizationID, A.AmmeterNumber,A.Remarks,B.AmmeterName, B.ElectricRoom, B.CommunicationProtocol, B.AmmeterAddress, 
-                                    B.CommPort, B.CT,B.PT, B.PowerFieldNameSave, B.Status
-                                    from {0}.dbo.AmmeterModifyCoefficientReference A left join {0}.dbo.AmmeterContrast B
-                                    on ( A.OrganizationID=B.OrganizationID
-                                    and A.AmmeterNumber=B.AmmeterNumber)
+            string myFieldSql = @"select A.LevelCode,A.OrganizationID, A.AmmeterNumber,A.Remarks,B.AmmeterName, B.ElectricRoom, B.CommunicationProtocol, B.AmmeterAddress,
+                                    B.CommPort, B.CT,B.PT, B.PowerFieldNameSave, B.Status, C.ElectricRoomName
+                                    from {0}.dbo.AmmeterModifyCoefficientReference A 
+                                    left join {0}.dbo.AmmeterContrast B on (A.OrganizationID=B.OrganizationID and A.AmmeterNumber=B.AmmeterNumber)
+                                    left join [{0}].[dbo].[ElectricRoomContrast] C on B.ElectricRoom=C.ElectricRoom
                                     where B.[EnabledFlag]=1 or B.[EnabledFlag] is null";
             DataTable fieldTable = dataFactory.Query(string.Format(myFieldSql, meterDatabase));
             DataColumn column = new DataColumn("Value", typeof(decimal));
@@ -82,7 +82,6 @@ namespace BasicData.Service.AmmeterModifyCoefficient
                 foreach (string item in variableList)
                 {
                     resultFormula = resultFormula.Replace(item, item.Trim() + "Energy");
-
                 }
                 fieldBuilder.Append("SUM(");
                 fieldBuilder.Append(resultFormula);

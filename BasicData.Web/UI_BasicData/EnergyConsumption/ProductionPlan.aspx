@@ -31,15 +31,15 @@
                     <td>
                         <table>
                             <tr>
-                                <td>选择年份</td>
+                                <td style="width: 50px; text-align: right;">选择年份</td>
                                 <td style="width: 80px;">
                                     <input id="numberspinner_PlanYear" class="easyui-numberspinner" data-options="min:1900,max:2999" style="width: 80px;" />
                                 </td>
-                                <td>生产区域</td>
+                                <td style="width: 60px; text-align: right;">生产区域</td>
                                 <td style="width: 80px;">
                                     <input id="TextBox_OrganizationText" class="easyui-textbox" data-options="editable:false, readonly:true" style="width: 80px;" />
                                 </td>
-                                <td>类型</td>
+                                <td style="width: 30px; text-align: right;">类型</td>
                                 <td>
                                     <select id="drpDisplayType" class="easyui-combobox" data-options="editable:false,panelHeight:'auto'" style="width: 100px;">
                                         <option value="MaterialWeight">产量计划</option>
@@ -48,7 +48,7 @@
                                     </select>
                                 </td>
                                 <td>
-                                    <a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true"
+                                    <a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search'"
                                         onclick="QueryProductionPlanInfoFun();">查询</a>
                                 </td>
                                 <td>
@@ -76,7 +76,7 @@
                 </tr>
             </table>
         </div>
-        <div data-options="region:'center',border:false,collapsible:false" style="padding-left: 10px;">
+        <div data-options="region:'center',border:false,collapsible:false">
             <table id="grid_ProductionPlanInfo" data-options="fit:true,border:true"></table>
         </div>
     </div>

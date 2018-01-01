@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>电表参考修正系数</title>
+    <title>用电系数调整</title>
     <link rel="stylesheet" type="text/css" href="/lib/ealib/themes/gray/easyui.css" />
     <link rel="stylesheet" type="text/css" href="/lib/ealib/themes/icon.css" />
     <link rel="stylesheet" type="text/css" href="/lib/extlib/themes/syExtIcon.css" />
@@ -52,12 +52,12 @@
         </div>
         <div data-options="region:'center',border:false">
             <div id="ToolBar" style="padding-top:18px;padding-left:10px;height:30px">
-                <label>组织机构:</label>
+                <label>组织机构</label>
                 <input id="txtOrganization" class="easyui-textbox" data-options="editable:false" style="width: 100px;" />
                 <input id="organizationId" readonly="true" style="display: none;" />
-                <label>开始时间:</label>
+                <label>&nbsp 开始时间</label>
                 <input id="StartTime" class="easyui-datebox" data-options="validType:'md[\'2012-10-10\']', required:true" style="width: 100px;" />
-                <label>结束时间:</label>
+                <label>&nbsp 结束时间</label>
                 <input id="EndTime" class="easyui-datebox" data-options="validType:'md[\'2012-10-10\']', required:true" style="width: 100px;" />
                 <a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'ext-icon-chart_curve'" onclick="query();">分析</a>         
             </div>

@@ -29,23 +29,23 @@
                     <td>
                         <table>
                             <tr>
-                                <td>选择年份</td>
-                                <td style="width: 150px;">
-                                    <input id="numberspinner_PlanYear" class="easyui-numberspinner" data-options="min:1900,max:2999" style="width: 140px;" />
-                                </td>
-                                <td>生产区域</td>
-                                <td style="width: 200px;">
-                                    <input id="TextBox_OrganizationText" class="easyui-textbox" data-options="editable:false, readonly:true" style="width: 180px;" />
-                                </td>
-                                <td>类型</td>
+                                <td style="width: 50px; text-align: right;">选择年份</td>
                                 <td>
-                                    <select id="drpDisplayType" class="easyui-combobox" data-options="editable:false,panelHeight:'auto'">
+                                    <input id="numberspinner_PlanYear" class="easyui-numberspinner" data-options="min:1900,max:2999" style="width: 70px;" />
+                                </td>
+                                <td style="width: 60px; text-align: right;">生产区域</td>
+                                <td>
+                                    <input id="TextBox_OrganizationText" class="easyui-textbox" data-options="editable:false, readonly:true" style="width: 100px;" />
+                                </td>
+                                <td style="width: 30px; text-align: right;">类型</td>
+                                <td>
+                                    <select id="drpDisplayType" class="easyui-combobox" data-options="editable:false,panelHeight:'auto'" style="width:100px;">
                                         <option value="Sales">销售计划</option>
                                         <%--<option value="Purchase">采购计划</option>--%>
                                     </select>
                                 </td>
                                 <td>
-                                    <a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true"
+                                    <a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search'"
                                         onclick="QueryPurchaseSalesPlanInfoFun();">查询</a>
                                 </td>
                                 <td>
@@ -73,7 +73,7 @@
                 </tr>
             </table>
         </div>
-        <div data-options="region:'center',border:false,collapsible:false" style="padding-left: 10px;">
+        <div data-options="region:'center',border:false,collapsible:false">
             <table id="grid_PurchaseSalesPlanInfo" data-options="fit:true,border:true"></table>
         </div>
     </div>

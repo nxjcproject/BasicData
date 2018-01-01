@@ -52,3 +52,8 @@ C:\Users\Administrator\Desktop\BasicData-master\BasicData.Infrastructure\bin\Rel
 C:\Users\Administrator\Desktop\BasicData-master\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\BasicData-master\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.dll
 C:\Users\Administrator\Desktop\BasicData-master\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.pdb
+C:\Users\Administrator\Desktop\NXJC统一调整列宽\BasicData-master\BasicData.Infrastructure\bin\Release\BasicData.Infrastructure.dll
+C:\Users\Administrator\Desktop\NXJC统一调整列宽\BasicData-master\BasicData.Infrastructure\bin\Release\BasicData.Infrastructure.pdb
+C:\Users\Administrator\Desktop\NXJC统一调整列宽\BasicData-master\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\NXJC统一调整列宽\BasicData-master\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.dll
+C:\Users\Administrator\Desktop\NXJC统一调整列宽\BasicData-master\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.pdb

@@ -36,11 +36,11 @@
 	                <td>
 		                <table>
 			                <tr>
-				                <td>生产线：</td>
+				                <td>组织机构</td>
 		                        <td><input id="productLineName" class="easyui-textbox" style="width:120px;" readonly="true" /><input id="organizationId" readonly="true" style="display:none;"/></td>
 				                <%--<td>时间：</td>--%>
 				                <%--<td><input id="datetime" class="easyui-datetimespinner" value="6/24/2014" data-options="formatter:formatter2,parser:parser2,selections:[[0,4],[5,7]]" style="width:180px;" /></td>--%>
-				                <td><a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true" 
+				                <td><a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search'" 
                                         onclick="QueryReportFun();">查询</a>
                                 </td>
 			                </tr>

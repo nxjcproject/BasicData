@@ -57,7 +57,7 @@ function InitializeGrid(myData) {
         //idField: "field",//指示哪个字段是标识字段。
         //frozenColumns: [[m_IdAndNameColumn[1]]],
         columns: [[
-            	{ field: 'IndicatorName', title: '指标项目名称', width: 140 },
+            	{ field: 'IndicatorName', title: '指标项目名称', width: 165 },
                 { field: 'January', title: '一月', width: 60 },
                 { field: 'February', title: '二月', width: 60 },
                 { field: 'March', title: '三月', width: 60 },

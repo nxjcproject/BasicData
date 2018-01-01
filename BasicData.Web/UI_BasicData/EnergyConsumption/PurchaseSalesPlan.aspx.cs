@@ -43,7 +43,7 @@ namespace BasicData.Web.UI_BasicData.EnergyConsumption
         public static string GetPurchaseSalesPlanInfo(string myPurchaseSalesPlanType, string myOrganizationId, string myPlanYear, string myPlanType)
         {
             string[] m_ColumnText = new string[] { "指标项ID", "主要设备ID", "指标项目名称", "一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月", "年度合计", "备注" };
-            int[] m_ColumnWidth = new int[] { 180, 180, 180, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 100, 180 };
+            int[] m_ColumnWidth = new int[] { 180, 180, 100, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 100, 180 };
             string[] m_FormatString = new string[] { "", "", "", "\"type\":\"numberbox\", \"options\":{\"precision\":\"2\"}", 
                 "\"type\":\"numberbox\", \"options\":{\"precision\":\"2\"}", 
                 "\"type\":\"numberbox\", \"options\":{\"precision\":\"2\"}", 

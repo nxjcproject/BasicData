@@ -31,7 +31,7 @@
                     <table>
                         <tr><td style="height:5px;"></td></tr>
                         <tr>
-                            <td>组织机构：</td>
+                            <td style="width: 50px; text-align: right;">组织机构</td>
                             <td>
                                 <input id="txtOrganization" class="easyui-textbox" data-options="editable:false" style="width: 130px;" /><input id="organizationId" readonly="true" style="display: none;" /></td>
                             <td><div class="datagrid-btn-separator"></div></td>
@@ -56,7 +56,7 @@
 			                <tr>
                                 <th data-options="field:'MaterialId',hidden:true">MaterialId</th>
 				                <th data-options="field:'Name',width:100">名称</th>
-                                <th data-options="field:'VariableId',width:200">变量ID</th>
+                                <th data-options="field:'VariableId',width:240">变量ID</th>
                                 <th data-options="field:'Unit',width:40">单位</th>
                                 <th data-options="field:'Coefficient',width:80,editor:{type:'numberbox',options:{min:0,max:99,precision:4}}">系数</th>
 			                </tr>

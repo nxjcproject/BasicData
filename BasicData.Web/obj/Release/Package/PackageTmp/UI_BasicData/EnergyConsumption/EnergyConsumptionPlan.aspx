@@ -32,21 +32,19 @@
                         <table>
                             <tr>
                                 <td>选择年份</td>
-                                <td style="width: 80px;">
+                                <td style="width: 90px;">
                                     <input id="numberspinner_PlanYear" class="easyui-numberspinner" data-options="min:1900,max:2999" style="width: 80px;" />
                                 </td>
-                                <td>当前产线</td>
-                                <td style="width: 80px;">
-
+                                <td>组织机构</td>
+                                <td style="width: 90px;">
                                     <input id="TextBox_OrganizationText" class="easyui-textbox" data-options="editable:false, readonly:true" style="width: 80px;" />
-
                                 </td>
                                 <td>产线类型</td>
-                                <td style="width: 80px;">
+                                <td style="width: 90px;">
                                     <input id="TextBox_OrganizationType" class="easyui-textbox" data-options="editable:false, readonly:true" style="width: 80px;" />
                                 </td>
                                 <td>
-                                    <a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true"
+                                    <a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search'"
                                         onclick="QueryEnergyConsumptionPlanInfoFun();">查询</a>
                                 </td>
                                 <td>
