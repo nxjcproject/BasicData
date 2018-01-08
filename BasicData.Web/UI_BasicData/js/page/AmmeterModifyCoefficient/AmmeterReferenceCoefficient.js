@@ -17,7 +17,7 @@ function loadDataGrid(data, type) {
     if (type == 'first') {
         $('#CoefficientContainer').treegrid({
             singleSelect: true,
-            rownumbers: true,
+            rownumbers: true,           
             columns: [[
                 { field: 'AmmeterNumber', title: '电表编号', width: 130 },
                 //{ field: 'ElectricRoom', title: '电气室', width: 120 },
@@ -46,6 +46,10 @@ function query() {
     var endDate = $('#EndTime').datebox('getValue');
     var organizationId = $('#organizationId').val();
     var sendData = "{organizationId:'" + organizationId + "',startTime:'" + startDate + "',endTime:'" + endDate + "'}";
+    var win=$.messager.progress({
+        title:'请稍候',
+        msg:'数据加载中...'
+    });
     $.ajax({
         type: "POST",
         url: "AmmeterReferenceCoefficient.aspx/GetData",
@@ -53,12 +57,19 @@ function query() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (msg) {
+            $.messager.progress('close');
             var myData = JSON.parse(msg.d);
             loadDataGrid(myData,'last');
+        },
+        beforeSend:function(XMLHttpRequest){
+            win;
+        },
+        error: function () {
+            $.messager.progress('close');
+            handleError
         }
     })
 }
-
 
 // 获取双击组织机构时的组织机构信息
 function onOrganisationTreeClick(node) {
