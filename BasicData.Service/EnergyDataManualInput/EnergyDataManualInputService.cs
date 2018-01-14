@@ -49,20 +49,19 @@ namespace BasicData.Service.EnergyDataManualInput
             ISqlServerDataFactory dataFactory = new SqlServerDataFactory(connectionString);
             string mPageId = GetPageID(nodeID);//获取page_ID
             DataTable resultTable = new DataTable();
-            //if (mPageId == "")
-            //{
-            //    string mSql = @"SELECT [VariableId],[VariableName] FROM [NXJC].[dbo].[system_EnergyDataManualInputContrast]";
-            //    resultTable = dataFactory.Query(mSql);
-
-            //}
-            //else
-            //{
             string mSql = @"(SELECT A.[VariableId],A.[VariableName] 
-                               FROM system_EnergyDataManualInputContrast A,[IndustryEnergy_SH].[dbo].[content] B
-                               WHERE A.[GroupId]=B.[PAGE_ID] AND B.[PAGE_ID]=@m_pageid)
-                               union (SELECT [VariableId],[VariableName]
+                               FROM system_EnergyDataManualInputContrast A,
+                                    [IndustryEnergy_SH].[dbo].[content] B
+                               WHERE 
+                                    A.[GroupId]=B.[PAGE_ID] 
+                                    AND B.[PAGE_ID]=@m_pageid 
+                                    AND A.[Enabled]=1)
+                               union 
+                                  (SELECT [VariableId],[VariableName]
                                    FROM system_EnergyDataManualInputContrast
-                                   WHERE [GroupId] is NULL)";
+                                   WHERE 
+                                        [GroupId] is NULL 
+                                    AND [Enabled]=1)";
             SqlParameter para = new SqlParameter("m_pageid", mPageId);
             resultTable = dataFactory.Query(mSql, para);
             //}

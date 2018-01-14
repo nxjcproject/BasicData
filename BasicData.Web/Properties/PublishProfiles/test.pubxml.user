@@ -17,22 +17,22 @@
       <publishTime>08/03/2017 01:39:12</publishTime>
     </File>
     <File Include="bin/BasicData.Infrastructure.dll">
-      <publishTime>12/24/2017 18:07:16</publishTime>
+      <publishTime>01/13/2018 20:16:05</publishTime>
     </File>
     <File Include="bin/BasicData.Service.dll">
-      <publishTime>12/30/2017 21:25:19</publishTime>
+      <publishTime>01/13/2018 21:15:53</publishTime>
     </File>
     <File Include="bin/BasicData.Web.dll">
-      <publishTime>12/30/2017 21:25:20</publishTime>
+      <publishTime>01/13/2018 21:15:55</publishTime>
     </File>
     <File Include="bin/EasyUIJsonParser.dll">
-      <publishTime>08/03/2017 01:39:12</publishTime>
+      <publishTime>09/12/2015 14:36:52</publishTime>
     </File>
     <File Include="bin/InternalMemeryRestore.dll">
-      <publishTime>08/03/2017 01:39:12</publishTime>
+      <publishTime>01/18/2016 14:08:50</publishTime>
     </File>
     <File Include="bin/mDbDataAdaper.dll">
-      <publishTime>08/03/2017 01:39:12</publishTime>
+      <publishTime>04/04/2016 12:02:42</publishTime>
     </File>
     <File Include="bin/Microsoft.QualityTools.Testing.Fakes.dll">
       <publishTime>07/26/2012 19:41:24</publishTime>
@@ -50,16 +50,16 @@
       <publishTime>08/03/2017 01:39:12</publishTime>
     </File>
     <File Include="bin/WebStyleBaseForEnergy.dll">
-      <publishTime>08/03/2017 01:39:12</publishTime>
+      <publishTime>07/06/2017 16:05:42</publishTime>
     </File>
     <File Include="bin/WebUserContorls.Web.dll">
-      <publishTime>08/03/2017 01:39:12</publishTime>
+      <publishTime>10/11/2015 21:53:58</publishTime>
     </File>
     <File Include="bin/WebUserControls.Infrastructure.dll">
-      <publishTime>08/03/2017 01:39:12</publishTime>
+      <publishTime>10/11/2015 21:53:56</publishTime>
     </File>
     <File Include="bin/WebUserControls.Service.dll">
-      <publishTime>08/03/2017 01:39:12</publishTime>
+      <publishTime>10/11/2015 21:53:56</publishTime>
     </File>
     <File Include="js/common/jquery.utility.js">
       <publishTime>08/03/2017 01:39:12</publishTime>
@@ -4580,7 +4580,7 @@
       <publishTime>12/27/2017 13:56:00</publishTime>
     </File>
     <File Include="UI_BasicData/EnergyDataManualInput/EnergyDataManualInput.aspx">
-      <publishTime>12/26/2017 15:50:03</publishTime>
+      <publishTime>01/13/2018 21:12:37</publishTime>
     </File>
     <File Include="UI_BasicData/EnergyDataManualInput/EnergyDataManualInputContrast.aspx">
       <publishTime>08/03/2017 01:39:12</publishTime>
@@ -4592,7 +4592,7 @@
       <publishTime>08/03/2017 01:39:12</publishTime>
     </File>
     <File Include="UI_BasicData/js/page/AmmeterModifyCoefficient/AmmeterReferenceCoefficient.js">
-      <publishTime>12/30/2017 20:37:04</publishTime>
+      <publishTime>01/08/2018 19:44:26</publishTime>
     </File>
     <File Include="UI_BasicData/js/page/EnergyConsumption/EnergyConsumptionPlan.js">
       <publishTime>08/03/2017 01:39:12</publishTime>
@@ -4616,7 +4616,7 @@
       <publishTime>12/24/2017 15:49:56</publishTime>
     </File>
     <File Include="UI_BasicData/js/page/EnergyDataManualInput/EnergyDataManualInput.js">
-      <publishTime>08/03/2017 01:39:12</publishTime>
+      <publishTime>01/13/2018 21:15:18</publishTime>
     </File>
     <File Include="UI_BasicData/js/page/EnergyDataManualInput/EnergyDataManualInputContrast.js">
       <publishTime>08/03/2017 01:39:12</publishTime>
@@ -4634,13 +4634,13 @@
       <publishTime>08/03/2017 01:39:12</publishTime>
     </File>
     <File Include="UI_BasicData/js/page/LowLoadOperation/LowLoadOperation.js">
-      <publishTime>08/03/2017 01:39:12</publishTime>
+      <publishTime>01/13/2018 19:46:20</publishTime>
     </File>
     <File Include="UI_BasicData/js/page/MachineHaltReasons/Edit.js">
       <publishTime>08/03/2017 01:39:12</publishTime>
     </File>
     <File Include="UI_BasicData/js/page/MasterSlaveMachine/MasterSlaveMachinedescription.js">
-      <publishTime>08/03/2017 01:39:12</publishTime>
+      <publishTime>01/13/2018 17:59:27</publishTime>
     </File>
     <File Include="UI_BasicData/js/page/Material/CoefficientUpdater.js">
       <publishTime>08/03/2017 01:39:12</publishTime>
@@ -4673,7 +4673,7 @@
       <publishTime>08/03/2017 01:39:12</publishTime>
     </File>
     <File Include="UI_BasicData/LowLoadOperation/LowLoadOperation.aspx">
-      <publishTime>08/03/2017 01:39:12</publishTime>
+      <publishTime>01/13/2018 20:13:58</publishTime>
     </File>
     <File Include="UI_BasicData/MachineHaltReasons/Edit.aspx">
       <publishTime>08/03/2017 01:39:12</publishTime>
@@ -4706,7 +4706,7 @@
       <publishTime>08/03/2017 01:39:12</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/30/2017 21:25:23</publishTime>
+      <publishTime>01/13/2018 21:16:00</publishTime>
     </File>
   </ItemGroup>
 </Project>

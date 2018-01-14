@@ -18,7 +18,7 @@
 
     <script src="../js/page/EnergyDataManualInput/EnergyDataManualInput.js"></script>
 
-    <title></title>
+    <title>手动数据补录</title>
 </head>
 <body>
     <%-- 手动数据补录--%>

@@ -292,7 +292,7 @@ function editFun(IsEdit, editContrastId) {
         $('#Checkbox_MasterRecord').attr('checked', true);
         $('#variableDecs').textbox('clear');
         $('#Text1').textbox('clear');
-        $('#Text2').combobox('clear');
+        $('#Text2').combobox('setValue', 'current');
         $('#Text5').textbox('clear');
         $('#s_TextBox_MasterVariableName').textbox('clear');
         $('#TextBox_MasterVariableName').textbox('clear');
@@ -314,7 +314,7 @@ function save() {
     var m_DelayTime = $('#Text1').numberbox('getText');
     var m_LoadTag = $('#Text5').textbox('getText');
     var m_DCSLoadTag = $('#s_TextBox_MasterVariableName').textbox('getText');
-    var m_LoadTagType = $('#Text2').combobox('getValue');
+    var m_LoadTagType = $('#Text2').combobox('getValue', 'current');
     var m_LLoadLimit = $('#Text7').numberbox('getText');
     var m_Remark = $('#TextBox_MasterRemark').val();
     if (m_LoadTag == '' && m_DCSLoadTag=='') {

@@ -366,6 +366,7 @@ function AddMasterMachineFun() {
     $('#Radio_MasterValidValueOff').attr('checked', 'checked');
     MasterOrganizationId = "";
     MasterDataBaseName = "";
+    MasterTableName = "";
     MasterMachineOpType = 0;
 
     LoadSlaveMachineData('last', "");                       //刷新从机列表
@@ -394,6 +395,7 @@ function EditMasterMachineFun(myId) {
                 $('#TextBox_MasterRemark').attr('value', data[0].Remarks);
                 MasterOrganizationId = data[0].OrganizationId;
                 MasterDataBaseName = data[0].DataBaseName;
+                MasterTableName = data[0].TableName;
                 if (data[0].Record.toLocaleLowerCase() == 'true') {
                     $('#Checkbox_MasterRecord').attr('checked', true);
                 }
@@ -409,14 +411,13 @@ function EditMasterMachineFun(myId) {
                 $('#Commbox_EquipmentId').combotree('setValue', data[0].EquipmentId);
                 LoadSlaveMachineData('last', data[0].KeyId);                     //刷新从机列表
                 $('#Text_SelectMasterMachine').attr('value', data[0].VariableDescription);
+
+                MasterMachineOpType = 1;
+                $('#Commbox_EquipmentId').combotree('disable');
+                $('#dlg_AddMasterMachine').dialog('open');
             }
         }
     });
-
-    MasterMachineOpType = 1;
-    $('#Commbox_EquipmentId').combotree('disable');
-    $('#dlg_AddMasterMachine').dialog('open');
-
 }
 
 function SaveMasterMachine() {
@@ -628,6 +629,7 @@ function AddSlaveMachineFun(myKeyId, myVariableDescription) {
     $('#Radio_SlaveValidValueOff').attr('checked', 'checked');
     SlaveOrganizationId = "";
     SlaveDataBaseName = "";
+    SlaveTableName = "";
     SlaveMachineOpType = 0;
     LoadSlaveMachineData('last', myKeyId);                     //刷新从机列表
     $('#Text_SelectMasterMachine').attr('value', myVariableDescription);
@@ -661,13 +663,13 @@ function EditSlaveMachineFun(myId) {
                 }
                 SlaveOrganizationId = data[0].OrganizationId;
                 SlaveDataBaseName = data[0].DataBaseName;
+                SlaveTableName = data[0].TableName;
+
+                SlaveMachineOpType = 1;
+                $('#dlg_AddSlaveMachine').dialog('open');
             }
         }
     });
-
-    SlaveMachineOpType = 1;
-    $('#dlg_AddSlaveMachine').dialog('open');
-
 }
 
 function SaveSlaveMachine() {

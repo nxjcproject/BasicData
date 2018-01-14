@@ -60,7 +60,7 @@
              <table id="grid_Main"class="easyui-datagrid"></table>
          </div>
         <!-------------------------------添加主机设备弹出对话框---------------------------------->
-        <div id="AddandEditor" class="easyui-window" title="低负荷设备配置" data-options="modal:true,closed:true,iconCls:'icon-edit',minimizable:false,maximizable:false,collapsible:false,resizable:false" style="width:800px;height:450px;padding:10px 60px 20px 60px">
+        <div id="AddandEditor" class="easyui-window" title="低负荷设备配置" data-options="modal:true,closed:true,iconCls:'icon-edit',minimizable:false,maximizable:false,collapsible:false,resizable:false" style="width:750px;height:390px;padding:10px 20px 10px 20px">
             <table class="table" style="width: 100%;">
                 <tr>
                     <th style="width: 80px; height: 30px;">名称</th>
@@ -74,7 +74,7 @@
                         <input id="Text3" class="easyui-numberbox" data-options="required:true,missingMessage:'不能为空', editable:true" style="width: 180px;" /></td>--%>
                 </tr>
                 <tr>
-                    <th style="width: 80px; height: 30px;">运行标签</th>
+                    <th style="width: 80px; height: 30px;">运行信号</th>
                     <td style="width: 150px;">
                         <input id="TextBox_MasterVariableName" class="easyui-textbox" data-options="required:true,missingMessage:'不能为空', editable:false" style="width: 180px;" /></td>
                     <th style="width: 80px;">变量描述</th>
@@ -82,7 +82,7 @@
                         <input id="TextBox_MasterVariableDescription" data-options="buttonText:'标签',buttonIcon:'icon-search',prompt:'查找运行标签……',editable:false,onClickButton:function(){GetDcsTagsFun(1);}" class="easyui-textbox" style="width: 240px;" /></td>
                 </tr>
                 <tr>
-                    <th style="width: 80px; height: 30px;">DCS负载标签</th>
+                    <th style="width: 80px; height: 30px;">DCS负载信号</th>
                     <td style="width: 150px;">
                         <input id="s_TextBox_MasterVariableName" class="easyui-textbox" data-options="required:false, editable:false" style="width: 180px;" /></td>
                     <th style="width: 80px;">变量描述</th>
@@ -93,22 +93,23 @@
                     <th style="width: 80px; height: 30px;">延时时间(秒)</th>
                     <td style="width: 150px;">
                         <input id="Text1" class="easyui-numberbox" data-options="required:true,missingMessage:'不能为空', editable:true" style="width: 180px;" /></td>
-                    <th style="width: 80px;">负载类型</th>
-                    <td colspan="3">
-                        <select class="easyui-combobox" id="Text2" name="type" data-options="panelHeight:'auto',required:true,missingMessage:'不能为空'" style="width:160px">
-                        <option value="current">电流</option>
-                        <option value="power">功率</option>
-	    			</select>
-                        <%--<input id="Text2" class="easyui-combobox" data-options="required:true,missingMessage:'不能为空', editable:true" style="width: 180px;" /> --%>  
-                        </td>               
-                </tr>
-                <tr>
-                    <th style="width: 80px; height: 30px;">负载标签</th>
-                    <td style="width: 150px;">
-                        <input id="Text5" class="easyui-textbox" data-options="required:false, editable:true" style="width: 180px;" /></td>                  
                     <th style="width: 80px; height: 30px;">负载下限</th>
                     <td style="width: 150px;">
-                        <input id="Text7" class="easyui-numberbox" data-options="required:true,missingMessage:'不能为空', editable:true" style="width: 180px;" /></td>
+                        <input id="Text7" class="easyui-numberbox" data-options="required:true,missingMessage:'不能为空', editable:true" style="width: 180px;" />
+                    </td>
+                    <th style="width: 80px; display:none;">负载类型</th>
+                    <td colspan="3" style="display:none;">
+                        <select class="easyui-combobox" id="Text2" name="type" data-options="panelHeight:'auto',required:true,missingMessage:'不能为空'" style="width:160px">
+                            <option value="current">电流</option>
+                            <option value="power">功率</option>
+	    			    </select>
+                    </td>         
+                </tr>
+                <tr>
+                    <th style="width: 80px; height: 30px; display:none;">负载标签</th>
+                    <td style="width: 150px; display:none;">
+                        <input id="Text5" class="easyui-textbox" data-options="required:false, editable:true" style="width: 180px;" />
+                    </td>                             
                 </tr>
                 <tr>
                     <%--<th style="height: 30px;">设备名称</th>

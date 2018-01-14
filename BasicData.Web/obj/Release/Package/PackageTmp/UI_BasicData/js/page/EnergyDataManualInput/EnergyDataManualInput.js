@@ -135,7 +135,15 @@ function loadDataGrid(type, myData) {
                     field: 'DataValue', title: '录入值', width: '16%', align: 'center'
                 },
                 {
-                    field: 'UpdateCycle', title: '更新周期', width: '16%', align: 'center'
+                    field: 'UpdateCycle', title: '更新周期', width: '16%', align: 'center',
+                    formatter: function (value, row, index) {
+                        if (value = 'day') {
+                            return '天';
+                        }
+                        if (value = 'month') {
+                            return '月';
+                        }
+                    }
                 },
                 {
                     field: 'Version', title: '版本', width: '8%', align: 'center'
