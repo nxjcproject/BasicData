@@ -59,7 +59,7 @@ namespace BasicData.Service.EquipmentAccount
         /// <param name="Remarks"></param>
         /// <returns></returns>
         public static string SaveEquipment(string VariableId, string OrganizationID, string EquipmentName, int MonitorType,string PowerSupply, string VoltageGrade, 
-            string RatedCT, string AmmeterCode, string ActualCT, int Power, string Unit,string Current,string PowerSupplyPosition, string Remarks)
+            string RatedCT, string AmmeterCode, string ActualCT, string Power, string Unit,string Current,string PowerSupplyPosition, string Remarks)
         {
             string connectionString = ConnectionStringFactory.NXJCConnectionString;
             ISqlServerDataFactory dataFactory = new SqlServerDataFactory(connectionString);
@@ -133,7 +133,7 @@ namespace BasicData.Service.EquipmentAccount
         /// <param name="organizationId"></param>
         /// <returns></returns>
         public static string UpdateEquipment(string variableId_old, string organizationId_old, string VariableId, string OrganizationID, string EquipmentName, int MonitorType, string PowerSupply, string VoltageGrade,
-            string RatedCT, string AmmeterCode, string ActualCT, int Power, string Unit,string Current, string PowerSupplyPosition, string Remarks)
+            string RatedCT, string AmmeterCode, string ActualCT, string Power, string Unit,string Current, string PowerSupplyPosition, string Remarks)
         {
             string connectionString = ConnectionStringFactory.NXJCConnectionString;
             ISqlServerDataFactory dataFactory = new SqlServerDataFactory(connectionString);

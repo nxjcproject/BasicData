@@ -390,3 +390,5 @@ C:\Users\Administrator\Desktop\BasicData\BasicData.Web\obj\Debug\BasicData.Web.c
 C:\Users\Administrator\Desktop\BasicData\BasicData.Web\obj\Debug\BasicData.Web.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\BasicData\BasicData.Web\obj\Debug\BasicData.Web.dll
 C:\Users\Administrator\Desktop\BasicData\BasicData.Web\obj\Debug\BasicData.Web.pdb
+D:\nxjc AllProject\BasicData\BasicData.Web\bin\AutoSetParameters.pdb
+D:\nxjc AllProject\BasicData\BasicData.Web\bin\Standard_GB16780-2012.pdb

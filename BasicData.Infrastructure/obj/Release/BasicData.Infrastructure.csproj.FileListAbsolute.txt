@@ -62,3 +62,8 @@ C:\Users\Administrator\Desktop\BasicData\BasicData.Infrastructure\bin\Release\Ba
 C:\Users\Administrator\Desktop\BasicData\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\BasicData\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.dll
 C:\Users\Administrator\Desktop\BasicData\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.pdb
+D:\nxjc AllProject\BasicData\BasicData.Infrastructure\bin\Release\BasicData.Infrastructure.dll
+D:\nxjc AllProject\BasicData\BasicData.Infrastructure\bin\Release\BasicData.Infrastructure.pdb
+D:\nxjc AllProject\BasicData\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.csprojResolveAssemblyReference.cache
+D:\nxjc AllProject\BasicData\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.dll
+D:\nxjc AllProject\BasicData\BasicData.Infrastructure\obj\Release\BasicData.Infrastructure.pdb

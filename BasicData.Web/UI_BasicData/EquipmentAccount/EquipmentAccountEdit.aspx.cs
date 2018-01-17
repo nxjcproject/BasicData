@@ -20,7 +20,7 @@ namespace BasicData.Web.UI_BasicData.EquipmentAccount
             {
                 ////////////////////调试用,自定义的数据授权
 #if DEBUG
-                List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_byc_byf" };
+                List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_qtx_tys" };
                 AddDataValidIdGroup("ProductionOrganization", m_DataValidIdItems);
                 mPageOpPermission = "1111";
 #elif RELEASE
@@ -76,7 +76,7 @@ namespace BasicData.Web.UI_BasicData.EquipmentAccount
         /// <returns></returns>
         [WebMethod]
         public static string SaveEquipmentInfo(string VariableId, string OrganizationID, string EquipmentName, int MonitorType,string PowerSupply, string VoltageGrade, 
-            string RatedCT, string AmmeterCode, string ActualCT, int Power, string Unit,string Current,string PowerSupplyPosition, string Remarks)
+            string RatedCT, string AmmeterCode, string ActualCT, string Power, string Unit,string Current,string PowerSupplyPosition, string Remarks)
         {
             if (mPageOpPermission.ToArray()[1] == '1')
             {
@@ -115,7 +115,7 @@ namespace BasicData.Web.UI_BasicData.EquipmentAccount
         /// <returns></returns>
         [WebMethod]
         public static string EditEquipmentInfo(string variableId_old, string organizationId_old, string VariableId, string OrganizationID, string EquipmentName, int MonitorType, string PowerSupply, string VoltageGrade,
-            string RatedCT, string AmmeterCode, string ActualCT, int Power, string Unit, string Current,string PowerSupplyPosition, string Remarks)
+            string RatedCT, string AmmeterCode, string ActualCT, string Power, string Unit, string Current,string PowerSupplyPosition, string Remarks)
         {
             if (mPageOpPermission.ToArray()[2] == '1')
             {

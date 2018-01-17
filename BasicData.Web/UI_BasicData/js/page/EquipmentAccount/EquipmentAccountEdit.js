@@ -218,7 +218,9 @@ function SaveEquipment() {
             loadGridData("last");
             $('#AddDialog').dialog('close');
         },
-        error: function () { $.messager.alert('警告', '保存数据失败！') }
+        error: function () {
+            $.messager.alert('警告', '保存数据失败！')
+        }
     });
 }
 
@@ -355,7 +357,9 @@ function SaveEditEquipment() {
             loadGridData("last");
             $('#EditDialog').dialog('close');
         },
-        error: function () { $.messager.alert('警告', '保存数据失败！') }
+        error: function () {           
+            $.messager.alert('警告', '保存数据失败！');
+        }
     });
 }
 

@@ -247,3 +247,9 @@ C:\Users\Administrator\Desktop\BasicData\BasicData.Service\obj\Debug\BasicData.S
 C:\Users\Administrator\Desktop\BasicData\BasicData.Service\obj\Debug\BasicData.Service.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\BasicData\BasicData.Service\obj\Debug\BasicData.Service.dll
 C:\Users\Administrator\Desktop\BasicData\BasicData.Service\obj\Debug\BasicData.Service.pdb
+D:\nxjc AllProject\BasicData\BasicData.Service\bin\Debug\mDbDataAdaper.dll
+D:\nxjc AllProject\BasicData\BasicData.Service\bin\Debug\AutoMapper.dll
+D:\nxjc AllProject\BasicData\BasicData.Service\bin\Debug\AutoSetParameters.pdb
+D:\nxjc AllProject\BasicData\BasicData.Service\bin\Debug\RunIndicators.pdb
+D:\nxjc AllProject\BasicData\BasicData.Service\bin\Debug\Standard_GB16780-2012.pdb
+D:\nxjc AllProject\BasicData\BasicData.Service\bin\Debug\mDbDataAdaper.pdb
