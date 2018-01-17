@@ -89,7 +89,7 @@ namespace BasicData.Service.EquipmentAccount
                                           new SqlParameter("@ActualCT", ActualCT),
                                           new SqlParameter("@Power", Power),
                                           new SqlParameter("@Unit", Unit),
-                                          new SqlParameter("@Current", Unit),
+                                          new SqlParameter("@Current", Current),
                                           new SqlParameter("@PowerSupplyPosition", PowerSupplyPosition),
                                           new SqlParameter("@Remarks", Remarks)};
             int num=dataFactory.ExecuteSQL(mySql, m_Parameters);

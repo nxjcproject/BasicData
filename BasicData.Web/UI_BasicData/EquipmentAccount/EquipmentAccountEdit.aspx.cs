@@ -22,7 +22,7 @@ namespace BasicData.Web.UI_BasicData.EquipmentAccount
 #if DEBUG
                 List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_byc_byf" };
                 AddDataValidIdGroup("ProductionOrganization", m_DataValidIdItems);
-                mPageOpPermission = "0000";
+                mPageOpPermission = "1111";
 #elif RELEASE
 #endif
                 this.OrganisationTree_ProductionLine.Organizations = GetDataValidIdGroup("ProductionOrganization");                 //向web用户控件传递数据授权参数
