@@ -1,7 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Edit.aspx.cs" Inherits="BasicData.Web.UI_BasicData.WorkingTeamAndShift.Edit" %>
-
 <%@ Register Src="~/UI_WebUserControls/OrganizationSelector/OrganisationTree.ascx" TagPrefix="uc1" TagName="OrganisationTree" %>
-
 
 <!DOCTYPE html>
 
@@ -19,7 +17,7 @@
 
     <script type="text/javascript" src="../js/page/WorkingTeamAndShift/Edit.js" charset="utf-8"></script>
 
-    <title>班次班组定义</title>
+    <title>班组定义</title>
 </head>
 <body>
     <div class="easyui-layout" data-options="fit:true,border:false" style="padding: 5px;">
@@ -29,10 +27,8 @@
         <div data-options="region:'center',border:false,collapsible:false" style="padding-left: 10px;">
             <table>
                 <tr>
-                    <td>当前产线名称:</td>
-                    <td>
-                        <input id="organizationName" class="easyui-textbox" style="width: 100px" /></td>
-                    <%--<td><a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-ok',plain:true" onclick="loadGridData('first')">查询</a></td>--%>
+                    <td style="text-align:left; width:50px;">组织机构</td>
+                    <td><input id="organizationName" class="easyui-textbox" style="width: 100px" /></td>
                 </tr>
             </table>
             <div style="height: 5px"></div>

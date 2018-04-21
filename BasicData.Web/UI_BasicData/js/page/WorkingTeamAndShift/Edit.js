@@ -385,28 +385,33 @@ function workingteamSave() {
         if (rows[i]["Flag"] != "True")
             rows.pop();
     }
-    var myjson = {
-        rows: rows
-    };
-    $.ajax({
-        type: "POST",
-        url: "Edit.aspx/SaveWorkingTeams",
-        data: "{organizationId:'" + publicData.organizationId +"',workingTeams:'" + JSON.stringify(myjson) + "'}",
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: function (msg) {
-            if (msg.d == "1") {
-                $('#save').dialog('close');
-                alert("更新成功!");
+    if (rows.length == 0) {
+        $.messager.alert("提示", "请选择一个班组！")
+    }
+    else {
+        var myjson = {
+            rows: rows
+        };
+        $.ajax({
+            type: "POST",
+            url: "Edit.aspx/SaveWorkingTeams",
+            data: "{organizationId:'" + publicData.organizationId + "',workingTeams:'" + JSON.stringify(myjson) + "'}",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (msg) {
+                if (msg.d == "1") {
+                    $('#save').dialog('close');
+                    alert("更新成功!");
+                }
+                else if (msg.d == "noright") {
+                    $('#save').dialog('close');
+                    alert("用户没有修改权限!");
+                }
+                else {
+                    $('#save').dialog('close');
+                    alert("更新失败!");
+                }
             }
-            else if (msg.d == "noright") {
-                $('#save').dialog('close');
-                alert("用户没有修改权限!");
-            }
-            else {
-                $('#save').dialog('close');
-                alert("更新失败!");
-            }
-        }
-    });
+        });
+    }   
 }

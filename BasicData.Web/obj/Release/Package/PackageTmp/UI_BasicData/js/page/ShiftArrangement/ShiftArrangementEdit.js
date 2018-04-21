@@ -1,6 +1,4 @@
-﻿
-//var editIndex = undefined;
-$(function () {
+﻿$(function () {
     initDatagrid();
     initPageAuthority();
 });
