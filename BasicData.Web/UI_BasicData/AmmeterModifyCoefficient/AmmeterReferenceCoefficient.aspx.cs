@@ -19,7 +19,7 @@ namespace BasicData.Web.UI_BasicData.AmmeterModifyCoefficient
             {
                 ////////////////////调试用,自定义的数据授权
 #if DEBUG
-                List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_byc_byf" };
+                List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_ychc_yfcf" };
                 AddDataValidIdGroup("ProductionOrganization", m_DataValidIdItems);
 #elif RELEASE
 #endif
