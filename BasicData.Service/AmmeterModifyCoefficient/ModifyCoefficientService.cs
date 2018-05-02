@@ -109,7 +109,7 @@ namespace BasicData.Service.AmmeterModifyCoefficient
         {
             string levelCode = currentRow["LevelCode"].ToString().Trim();
             int parentlength = levelCode.Length;
-            DataRow[] rows = source.Select("LevelCode like '"+levelCode+"%' and "+ "len(LevelCode)="+(parentlength+2));
+            DataRow[] rows = source.Select("LevelCode like '" + levelCode + "%' and " + "len(LevelCode)=" + (parentlength + 2));
             if (rows.Count() == 0)
             {
                 currentRow["ChildrenValue"] = currentRow["Value"];
@@ -117,31 +117,15 @@ namespace BasicData.Service.AmmeterModifyCoefficient
                 return;
             }
             else
-            {
-                if (currentRow["Value"] is DBNull)
-                {
-                    currentRow["Value"] = Convert.ToDecimal(currentRow["Value"]);
-                }
-                else 
-                {
-                    currentRow["Value"] = Convert.ToDecimal(currentRow["Value"]);
-                }
-                decimal parentValue = Convert.ToDecimal(currentRow["Value"]);
+            {             
+                decimal parentValue = currentRow["Value"] is DBNull ? 0 : Convert.ToDecimal(currentRow["Value"]);
                 
                 decimal childValue = 0;
                 //计算子节点电量和
                 foreach (DataRow dr in rows)
                 {
                     SetChild(dr, source);//递归
-                    if (currentRow["Value"] is DBNull)
-                    {
-                        currentRow["Value"] = Convert.ToDecimal(currentRow["Value"]);
-                    }
-                    else
-                    {
-                        currentRow["Value"] = Convert.ToDecimal(currentRow["Value"]);
-                    }
-                    childValue = Convert.ToDecimal(currentRow["Value"]);
+                    childValue = childValue + (dr["Value"] is DBNull ? 0 : Convert.ToDecimal(dr["Value"]));
                 }
                 //设置子节点比例系数
                 foreach (DataRow dr in rows)
