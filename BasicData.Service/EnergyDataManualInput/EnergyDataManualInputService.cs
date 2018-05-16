@@ -43,26 +43,45 @@ namespace BasicData.Service.EnergyDataManualInput
         }
         //根据对照表角色分组显示变量
 
-        public static DataTable GetSystemVariableTypeList(string nodeID)
+        public static DataTable GetSystemVariableTypeList(string nodeID, string organizationId)
         {
             string connectionString = ConnectionStringFactory.NXJCConnectionString;
             ISqlServerDataFactory dataFactory = new SqlServerDataFactory(connectionString);
             string mPageId = GetPageID(nodeID);//获取page_ID
             DataTable resultTable = new DataTable();
-            string mSql = @"(SELECT A.[VariableId],A.[VariableName] 
+//            string mSql = @"(SELECT A.[VariableId],A.[VariableName] 
+//                               FROM system_EnergyDataManualInputContrast A,
+//                                    [IndustryEnergy_SH].[dbo].[content] B
+//                               WHERE 
+//                                    A.[GroupId]=B.[PAGE_ID] 
+//                                    AND B.[PAGE_ID]=@m_pageid 
+//                                    AND A.[Enabled]=1)
+//                               union 
+//                                  (SELECT [VariableId],[VariableName]
+//                                   FROM system_EnergyDataManualInputContrast
+//                                   WHERE 
+//                                        [GroupId] is NULL 
+//                                    AND [Enabled]=1)";
+            string mSql = @"SELECT D.OrganizationID + A.[VariableId] as ItemId, A.[VariableId],D.Name + '_' +  A.[VariableName] as [VariableName],A.[TYPE], D.LevelCode, D.OrganizationID
                                FROM system_EnergyDataManualInputContrast A,
-                                    [IndustryEnergy_SH].[dbo].[content] B
-                               WHERE 
-                                    A.[GroupId]=B.[PAGE_ID] 
-                                    AND B.[PAGE_ID]=@m_pageid 
-                                    AND A.[Enabled]=1)
+                                    [IndustryEnergy_SH].[dbo].[content] B, system_Organization C, system_Organization D
+                               WHERE C.OrganizationID = @m_organizationId
+								    AND D.LevelCode like C.LevelCode + '%'
+									AND A.[Type] = D.[Type]
+                                    AND A.[GroupId]=B.[PAGE_ID] 
+                                    AND B.[PAGE_ID]=@m_pageid
+                                    AND A.[Enabled]=1
                                union 
-                                  (SELECT [VariableId],[VariableName]
-                                   FROM system_EnergyDataManualInputContrast
-                                   WHERE 
-                                        [GroupId] is NULL 
-                                    AND [Enabled]=1)";
-            SqlParameter para = new SqlParameter("m_pageid", mPageId);
+                                  SELECT C.OrganizationID + A.[VariableId] as ItemId, A.[VariableId], C.Name + '_' +  A.[VariableName] as [VariableName],A.[TYPE], C.LevelCode, C.OrganizationID
+                                   FROM system_EnergyDataManualInputContrast A, system_Organization B, system_Organization C
+                                   WHERE B.OrganizationID = @m_organizationId
+								    AND C.LevelCode like B.LevelCode + '%'
+									AND A.[Type] = C.[Type]
+                                    AND A.[GroupId] is NULL 
+                                    AND A.[Enabled]=1
+                            order by [LevelCode], [Type], [VariableId]";
+            SqlParameter[] para = new SqlParameter[]{new SqlParameter("m_pageid", mPageId)
+                                                     ,new SqlParameter("m_organizationId", organizationId)};
             resultTable = dataFactory.Query(mSql, para);
             //}
             return resultTable;
@@ -190,14 +209,16 @@ namespace BasicData.Service.EnergyDataManualInput
                 //                                left join system_Organization as C on A.OrganizationID=C.OrganizationID
                 //                                where A.OrganizationID=@organizationId) as D where D.TimeStamp>@startTime and D.TimeStamp<@endTime order by D.TimeStamp desc,D.VariableName asc";
 
-                queryString = @"select A.DataItemId,C.Name,A.VariableId,B.VariableName,A.DataValue,A.TimeStamp,A.UpdateCycle,A.Version,A.Remark
+                queryString = @"select A.DataItemId,D.Name,A.VariableId,B.VariableName,A.DataValue,A.TimeStamp,A.UpdateCycle,A.Version,A.Remark
                              from system_EnergyDataManualInput as A,
                                               (SELECT A.[VariableId],A.[VariableName] 
                                               FROM system_EnergyDataManualInputContrast A,[IndustryEnergy_SH].[dbo].[content] B
                                               WHERE A.[GroupId]=B.[PAGE_ID] AND B.[PAGE_ID]=@m_pageid
                                               union SELECT [VariableId],[VariableName]
                                               FROM system_EnergyDataManualInputContrast WHERE [GroupId] is NULL)  
-                              AS B,system_Organization as C where A.VariableId=B.VariableId and A.OrganizationID=C.OrganizationID and C.OrganizationID=@organizationId and A.TimeStamp>@startTime and A.TimeStamp<@endTime order by A.TimeStamp desc,B.VariableName asc";
+                              AS B,system_Organization as C, system_Organization as D where A.VariableId=B.VariableId 
+                                           and A.OrganizationID=D.OrganizationID and C.OrganizationID=@organizationId and D.LevelCode like C.LevelCode + '%'
+                                           and A.TimeStamp>@startTime and A.TimeStamp<@endTime order by A.TimeStamp desc,D.LevelCode,B.VariableName asc";
             }
             else
             {
@@ -206,14 +227,15 @@ namespace BasicData.Service.EnergyDataManualInput
                 //                                left join system_EnergyDataManualInputContrast as B 
                 //                               on A.VariableId=B.VariableId
                 //                               left join system_Organization as C on A.OrganizationID=C.OrganizationID) AS D where D.TimeStamp>@startTime and D.TimeStamp<@endTime order by D.TimeStamp desc,D.VariableName asc";
-                queryString = @"select A.DataItemId,C.Name,A.VariableId,B.VariableName,A.DataValue,A.TimeStamp,A.UpdateCycle,A.Version,A.Remark
+                queryString = @"select A.DataItemId,D.Name,A.VariableId,B.VariableName,A.DataValue,A.TimeStamp,A.UpdateCycle,A.Version,A.Remark
                              from system_EnergyDataManualInput as A,
                                               (SELECT A.[VariableId],A.[VariableName] 
                                               FROM system_EnergyDataManualInputContrast A,[IndustryEnergy_SH].[dbo].[content] B
                                               WHERE A.[GroupId]=B.[PAGE_ID] AND B.[PAGE_ID]=@m_pageid
                                               union SELECT [VariableId],[VariableName]
                                               FROM system_EnergyDataManualInputContrast WHERE [GroupId] is NULL)  
-                              AS B,system_Organization as C where A.VariableId=B.VariableId and A.OrganizationID=C.OrganizationID and A.TimeStamp>@startTime and A.TimeStamp<@endTime order by A.TimeStamp desc,B.VariableName asc";
+                              AS B,system_Organization as C where A.VariableId=B.VariableId and A.OrganizationID=C.OrganizationID 
+                                              and A.TimeStamp>@startTime and A.TimeStamp<@endTime order by A.TimeStamp desc,D.LevelCode,B.VariableName asc";
             }
             SqlParameter[] parameters = { new SqlParameter("@organizationId", organizationId), new SqlParameter("@startTime", startTime), new SqlParameter("@endTime", endTime), new SqlParameter("@m_pageid", mPageId) };
             result = _dataFactory.Query(queryString, parameters);

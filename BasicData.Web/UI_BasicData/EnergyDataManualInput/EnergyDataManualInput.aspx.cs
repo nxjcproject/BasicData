@@ -18,7 +18,7 @@ namespace BasicData.Web.UI_BasicData.EnergyDataManualInput
 
 #if DEBUG
             ////////////////////调试用,自定义的数据授权
-            List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_byc" };
+            List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_znc" };
             AddDataValidIdGroup("ProductionOrganization", m_DataValidIdItems);
             mPageOpPermission = "1111";
 #elif RELEASE
@@ -44,9 +44,9 @@ namespace BasicData.Web.UI_BasicData.EnergyDataManualInput
 
         }
         [WebMethod]
-        public static string SystemVariableTypeList(string nodeID)
+        public static string SystemVariableTypeList(string nodeID, string organizationId)
         {
-            DataTable table = BasicData.Service.EnergyDataManualInput.EnergyDataManualInputService.GetSystemVariableTypeList(nodeID);
+            DataTable table = BasicData.Service.EnergyDataManualInput.EnergyDataManualInputService.GetSystemVariableTypeList(nodeID, organizationId);
             string result = EasyUIJsonParser.DataGridJsonParser.DataTableToJson(table);
             return result;
         }

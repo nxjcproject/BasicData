@@ -53,7 +53,8 @@ function onOrganisationTreeClick(node) {
 }
 function loadVaribleNameData() {
     var dataToServer = {
-        nodeID: nodeID
+        nodeID: nodeID,
+        organizationId: publicData.organizationId
     };
     $.ajax({
         type: "POST",
@@ -70,7 +71,7 @@ function loadVaribleNameData() {
             // var comboboxValue = jQuery.parseJSON(msg.d);
             $('#addVariableName').combobox({
                 data: m_MsgData.rows,
-                valueField: 'VariableId',
+                valueField: 'ItemId',
                 textField: 'VariableName'
             });
         },
@@ -171,9 +172,20 @@ function addItem() {
 }
 //添加对话框保存按钮
 function saveAddDialog() {
+    var m_VariableItem = $('#addVariableName').combobox('getValue');
+    var m_VariableItems = $('#addVariableName').combobox('getData');
+    var m_VariableId = "";
+    var m_OrganizationId = "";
+    for (var i = 0; i < m_VariableItems.length; i++) {
+        if (m_VariableItems[i]["ItemId"] == m_VariableItem) {
+            m_VariableId = m_VariableItems[i]["VariableId"];
+            m_OrganizationId = m_VariableItems[i]["OrganizationID"];
+            break;
+        }
+    }
     var addData = {};
-    addData.organizationId = publicData.organizationId;
-    addData.variableId = $('#addVariableName').combobox('getValue');
+    addData.organizationId = m_OrganizationId;
+    addData.variableId = m_VariableId;
     addData.updateCycle = $('#addUpdateCycle').combobox('getValue');
     addData.dataValue = $('#addDataValue').numberbox('getValue');
     addData.timeStamp = $('#addTimeStamp').datebox('getValue');
@@ -276,6 +288,7 @@ function saveEditDialog() {
     editData.dataValue = $('#editDataValue').numberbox('getValue');
     editData.timeStamp = $('#editTimeStamp').datebox('getValue');
     editData.remark = $('#editRemark').textbox('getText');
+    editData.updateCycle = $('#editUpdateCycle').textbox('getText');
 
     if (editData.dataValue != '' && editData.timeStamp != '') {
         $.ajax({
