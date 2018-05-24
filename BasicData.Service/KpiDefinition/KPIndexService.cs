@@ -58,7 +58,7 @@ namespace BasicData.Service.KpiDefinition
             string mySql = "";
             if (myInOutSide == "Inside")
             {
-                mySql = @"select t3.Name as OrganizationName,t2.Name as VariableName,t1.*from [NXJC].[dbo].[analyse_KPI_Standard_Detail] t1,	
+                mySql = @"select t3.Name as OrganizationName,t2.Name as VariableName,t1.*from [analyse_KPI_Standard_Detail] t1,	
                         (select distinct (case when B.LevelType = 'ProductionLine' then C.Type + B.Name else B.Name end) as Name, B.VariableId from tz_Formula A, formula_FormulaDetail B, system_Organization C
 	                        where A.ENABLE  = 1
 	                        and A.State = 0
@@ -78,7 +78,7 @@ namespace BasicData.Service.KpiDefinition
             }
             else if (myInOutSide == "Outside")
             {
-                mySql = @"select t2.Name as VariableName,t1.*from [NXJC].[dbo].[analyse_KPI_Standard_Detail] t1,	
+                mySql = @"select t2.Name as VariableName,t1.*from [analyse_KPI_Standard_Detail] t1,	
                         (select distinct (case when B.LevelType = 'ProductionLine' then C.Type + B.Name else B.Name end) as Name, B.VariableId from tz_Formula A, formula_FormulaDetail B, system_Organization C
 	                        where A.ENABLE  = 1
 	                        and A.State = 0

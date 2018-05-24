@@ -37,7 +37,7 @@ namespace BasicData.Service.LowLoadOperation
                               ,B.[USER_NAME]
                               ,A.[EditTime]
                               ,A.[Remark]
-                          FROM [NXJC].[dbo].[equipment_LowLoadOperationConfig] A,[IndustryEnergy_SH].[dbo].[users] B
+                          FROM [equipment_LowLoadOperationConfig] A,[IndustryEnergy_SH].[dbo].[users] B
                           where A.[OrganizationID]=@mOrganizationId
                                 and A.[Editor]=B.[USER_ID]
                                 and A.[VariableDescription] like '%' + @variableDesc + '%'
@@ -65,7 +65,7 @@ namespace BasicData.Service.LowLoadOperation
                               ,B.[USER_NAME]
                               ,A.[EditTime]
                               ,A.[Remark]
-                          FROM [NXJC].[dbo].[equipment_LowLoadOperationConfig] A,[IndustryEnergy_SH].[dbo].[users] B
+                          FROM [equipment_LowLoadOperationConfig] A,[IndustryEnergy_SH].[dbo].[users] B
                           where A.[OrganizationID]=@mOrganizationId
                                 and A.[Editor]=B.[USER_ID]";
             }

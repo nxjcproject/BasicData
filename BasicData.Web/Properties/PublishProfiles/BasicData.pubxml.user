@@ -18,13 +18,13 @@
       <publishTime>05/10/2018 17:34:15</publishTime>
     </File>
     <File Include="bin/BasicData.Infrastructure.dll">
-      <publishTime>05/02/2018 15:21:36</publishTime>
+      <publishTime>05/24/2018 14:24:12</publishTime>
     </File>
     <File Include="bin/BasicData.Service.dll">
-      <publishTime>05/16/2018 15:58:12</publishTime>
+      <publishTime>05/24/2018 14:24:13</publishTime>
     </File>
     <File Include="bin/BasicData.Web.dll">
-      <publishTime>05/16/2018 15:58:14</publishTime>
+      <publishTime>05/24/2018 14:24:15</publishTime>
     </File>
     <File Include="bin/EasyUIJsonParser.dll">
       <publishTime>09/12/2015 14:36:52</publishTime>
@@ -4713,7 +4713,7 @@
       <publishTime>04/16/2018 14:28:11</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/16/2018 15:58:21</publishTime>
+      <publishTime>05/24/2018 14:24:17</publishTime>
     </File>
   </ItemGroup>
 </Project>
