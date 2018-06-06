@@ -145,7 +145,7 @@ function InitializeGrid(myData) {
                 field: 'VariableName', title: '变量名称', width: '20%', align: 'center'
             },
             {
-                field: 'Type', title: '变量类别', width: '12%', align: 'center', hidden: true
+                field: 'Type', title: '变量类别', width: '12%', align: 'center'
             },
             {
                 field: 'Enabled', title: '启用标志', width: '10%', align: 'center',
@@ -184,6 +184,7 @@ function saveAddDialog() {
     addData.variableId = $('#addVariableId').textbox('getText');
     addData.variableName = $('#addVariableName').textbox('getText');
     addData.enabled = $("input[name='radiobutton']:checked").val();
+    addData.type = $('#cbo_AddType').combobox('getValue');
     //   addData.creator = $('#addCreator').textbox('getText');
     // addData.createTime = $('#addCreateTime').datetimebox('getValue');
     addData.remark = $('#addRemark').textbox('getText');
@@ -282,6 +283,7 @@ function editItem() {
         //  $("#editCreateTime").datetimebox('setValue', row['CreateTime']);
         $("#editRemark").textbox("setText", row['Remark']);
         $("#editVariableId").textbox("setText", row['VariableId'])
+
         if (row['Enabled'] == 'True') {
             $("#editradioTrue").attr("checked", "checked");
         }
@@ -335,10 +337,13 @@ function saveEditDialog() {
     editData.variableId = publicData.variableId;
     editData.variableName = $("#editVariableName").textbox('getText');
     editData.enabled = $("input[name='editradiobutton']:checked").val();
+    editData.type = $("#cbo_editType").combobox('getValue');
+
     //   editData.creator = $("#editCreator").textbox('getText');
     //  editData.createTime = $("#editCreateTime").datetimebox('getValue');
     editData.remark = $("#editRemark").textbox('getText');
     editData.role = $("#cbo_editRole").combobox('getValue');
+    editData.role = $("#cbo_editType").combobox('getValue');
     if (editData.variableName != '' && editData.creator != '' && editData.createTime != '') {
         $.ajax({
             type: "POST",

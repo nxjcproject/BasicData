@@ -49,19 +49,19 @@ namespace BasicData.Service.EnergyDataManualInput
             ISqlServerDataFactory dataFactory = new SqlServerDataFactory(connectionString);
             string mPageId = GetPageID(nodeID);//获取page_ID
             DataTable resultTable = new DataTable();
-//            string mSql = @"(SELECT A.[VariableId],A.[VariableName] 
-//                               FROM system_EnergyDataManualInputContrast A,
-//                                    [IndustryEnergy_SH].[dbo].[content] B
-//                               WHERE 
-//                                    A.[GroupId]=B.[PAGE_ID] 
-//                                    AND B.[PAGE_ID]=@m_pageid 
-//                                    AND A.[Enabled]=1)
-//                               union 
-//                                  (SELECT [VariableId],[VariableName]
-//                                   FROM system_EnergyDataManualInputContrast
-//                                   WHERE 
-//                                        [GroupId] is NULL 
-//                                    AND [Enabled]=1)";
+            //            string mSql = @"(SELECT A.[VariableId],A.[VariableName] 
+            //                               FROM system_EnergyDataManualInputContrast A,
+            //                                    [IndustryEnergy_SH].[dbo].[content] B
+            //                               WHERE 
+            //                                    A.[GroupId]=B.[PAGE_ID] 
+            //                                    AND B.[PAGE_ID]=@m_pageid 
+            //                                    AND A.[Enabled]=1)
+            //                               union 
+            //                                  (SELECT [VariableId],[VariableName]
+            //                                   FROM system_EnergyDataManualInputContrast
+            //                                   WHERE 
+            //                                        [GroupId] is NULL 
+            //                                    AND [Enabled]=1)";
             string mSql = @"SELECT D.OrganizationID + A.[VariableId] as ItemId, A.[VariableId],D.Name + '_' +  A.[VariableName] as [VariableName],A.[TYPE], D.LevelCode, D.OrganizationID
                                FROM system_EnergyDataManualInputContrast A,
                                     [IndustryEnergy_SH].[dbo].[content] B, system_Organization C, system_Organization D
@@ -152,7 +152,7 @@ namespace BasicData.Service.EnergyDataManualInput
         {
             int result = 0;
             string updateSql = @"update system_EnergyDataManualInputContrast set VariableName=@variableName,Enabled=@enabled,
-                                Creator=@creator,CreateTime=@createTime,Remark=@remark,GroupId=@role where VariableId=@variableId";
+                                Creator=@creator,CreateTime=@createTime,Remark=@remark,GroupId=@role,Type=@type where VariableId=@variableId";
             IList<SqlParameter> parameters = new List<SqlParameter>();
             parameters.Add(new SqlParameter("@variableId", editData.JsonPick("variableId")));
             parameters.Add(new SqlParameter("@variableName", editData.JsonPick("variableName")));
@@ -161,6 +161,7 @@ namespace BasicData.Service.EnergyDataManualInput
             parameters.Add(new SqlParameter("@createTime", editData.JsonPick("createTime")));
             parameters.Add(new SqlParameter("@remark", editData.JsonPick("remark")));
             parameters.Add(new SqlParameter("@role", editData.JsonPick("role")));
+            parameters.Add(new SqlParameter("@type", editData.JsonPick("type")));
 
             result = _dataFactory.ExecuteSQL(updateSql, parameters.ToArray());
 
