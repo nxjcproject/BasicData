@@ -280,6 +280,7 @@ function saveMachineHaltReasons() {
         }
     });
 }
+
 function InitializeTreeGrid(myReasonStatisticsTypeData) {
     var m_Data = { "rows": [], "total": 0 };
     grid = $('#tgMachineHaltReasonsEditor').treegrid({
@@ -295,10 +296,6 @@ function InitializeTreeGrid(myReasonStatisticsTypeData) {
         onClickRow: clickRow,
         onDblClickRow: dblClickRow,
         columns: [[{
-            width: 100,
-            title: '错误标识',
-            field: 'ReasonItemID'
-        }, {
             width: 50,
             title: '错误码',
             field: 'MachineHaltReasonID'
@@ -336,9 +333,30 @@ function InitializeTreeGrid(myReasonStatisticsTypeData) {
             editor: 'text'
         }, {
             width: 100,
-            title: '是否可用',
-            field: 'Enabled',
+            title: '级别码',
+            field: 'id',
             editor: 'text'
+        }, {
+            width: 100,
+            title: '是否可用',
+            field: 'Enabled',           
+            editor: {
+                type: 'combobox',
+                options: {
+                    valueField: 'Id',
+                    textField: 'Name',
+                    data: [{ "Id": "True", "Name": "是" }, { "Id": "False", "Name": "否" }],
+                    panelHeight: 'auto'
+                }
+            },
+            formatter: function (value, row) {
+                if (value == "True") {
+                    return "是";
+                }
+                else {
+                    return "否";
+                }
+            },
         }]]
     });
 }
@@ -363,6 +381,7 @@ function LoadReasonStatisticsTypeData() {
         }
     });
 }
+
 $(document).ready(function () {
     LoadReasonStatisticsTypeData();
     ////InitializeTreeGrid(m_MsgData.rows);

@@ -18,12 +18,11 @@ namespace BasicData.Service.MachineHaltReasons
         public static DataTable GetMachineHaltReasons()
         {
             string connectionString = ConnectionStringFactory.NXJCConnectionString;
-
             ISqlServerDataFactory factory = new SqlServerDataFactory(connectionString);
-            Query query = new Query("system_MachineHaltReason");
-            query.AddOrderByClause(new SqlServerDataAdapter.Infrastruction.OrderByClause("MachineHaltReasonID", false));
-
-            return factory.Query(query);
+            string mySql = @"SELECT  RTRIM(LTRIM(MachineHaltReasonID)) AS MachineHaltReasonID,ReasonText,RTRIM(LTRIM(LevelCode)) AS LevelCode,Remarks,ReasonStatisticsTypeId,Enabled
+                                FROM system_MachineHaltReason                                
+                                order by LevelCode";
+            return factory.Query(mySql);
         }
 
         /// <summary>

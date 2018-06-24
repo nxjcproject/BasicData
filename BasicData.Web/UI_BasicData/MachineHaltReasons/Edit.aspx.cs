@@ -35,16 +35,8 @@ namespace BasicData.Web.UI_BasicData.MachineHaltReasons
         public static string GetMachineHaltReasonsWithTreeGridFormat()
         {
             DataTable dt = MachineHaltReasonsService.GetMachineHaltReasons();
-            DataColumn parentIdColumn = new DataColumn("ParentID");
-            dt.Columns.Add(parentIdColumn);
-
-            foreach (DataRow row in dt.Rows)
-            {
-                string levelcode = row["MachineHaltReasonID"].ToString().Trim();
-                if (levelcode.Length > 3)
-                    row["ParentID"] = levelcode.Substring(0, levelcode.Length - 2);
-            }
-            return TreeGridJsonParser.DataTableToJson(dt, "MachineHaltReasonID", "ParentID", "ReasonItemID", "ReasonText", "ReasonStatisticsTypeId","Remarks", "Enabled");
+            string json = TreeGridJsonParser.DataTableToJsonByLevelCode(dt, "LevelCode", "MachineHaltReasonID", "ReasonText", "ReasonStatisticsTypeId", "Remarks", "Enabled");
+            return json;
         }
 
         [WebMethod]
